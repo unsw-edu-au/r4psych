@@ -6,6 +6,22 @@ The book is written in mind for someone working in Psychology and is venturing i
 
 ### How to contribute 
 
+This book is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:
+ 
+- Fixing grammar and typos
+- Clarification or expanding on existing content
+- Contribute real-world data in worked examples
+- Authoring an entire chapter
 
+Take a look at our [Contributing Guidelines]() to see how you can submit your feedback
 
 ### Acknowledgements
+
+This book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.  
+
+The first version of this book was funded by the [UNSW Research Infrastructure Scheme](https://research.unsw.edu.au/research-infrastructure). 
+
+We would like to thank the following people who have contributed to the book:
+
+
+[\@daxkellie](https://github.com/daxkellie)
