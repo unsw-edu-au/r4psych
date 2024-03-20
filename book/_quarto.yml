@@ -1,0 +1,22 @@
+project:
+  type: book
+
+book:
+  title: "R for Psychology"
+  date: "3/14/2024"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

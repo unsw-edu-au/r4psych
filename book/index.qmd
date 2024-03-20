@@ -1,0 +1,11 @@
+![](images/cover.png){width="267"}
+
+# Welcome  {.unnumbered}
+
+The book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by which data is collected. In "R for Psychology", we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations
+
+### How to contribute 
+
+
+
+### Acknowledgements
