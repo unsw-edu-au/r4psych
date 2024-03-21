@@ -1,41 +1,21 @@
-# R for Psychology Research 
+# R for Psychology
 
-### Example book
-https://r4ds.had.co.nz/
+<!-- badges: start -->
 
-### Example layouts
+<!-- badges: end -->
 
-#### Quarto Website
+This book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by which data is collected. In "R for Psychology", we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations
 
-- https://sta210-s22.github.io/website/ 
+### Render the book locally
 
-#### Quarto Book
+1. Install Quarto using [these instructions](https://quarto.org/docs/get-started/)
+2. Clone this repository to your local computer
+3. Navigate to  book/ and open the book.Rproj file using RStudio
+4. Click on any `.qmd` files and click on `Render`. 
 
-- https://davidfoxcroft.github.io/lsj-book/ (Coauthored by Dani!!!)
-- https://jjallaire.github.io/hopr/
+Alternatively,
+4. Click on there 'Terminal' pane and type `quarto render` and hit enter
+5. Once the book has been rendered and the terminal is free, type `quarto preview` and hit enter
 
-### Chapter Outline for Book
+This should open the book in your View Pane or default browser
 
-Welcome
-- Summary of book
-- Acknowledgements
-- How to contribute
-- How to provide feedback/comments
-
-Introduction/Preamble
-- What you will learn
-- How book is organised (data type? Survey?)
-- Prequisites
-	- R 
-		- Download
-		- Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)
-	- RStudio 
-		- Download
-		- Point to intro to RStudio
-	- R projects
-		- Point to resource about Rproj (SWC)
-- Running R code
-https://r4ds.hadley.nz/intro#running-r-code
-
-Survery Data
-- Introduction 
