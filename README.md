@@ -14,6 +14,7 @@ This book is written in mind for someone working in Psychology and is venturing 
 4. Click on any `.qmd` files and click on `Render`. 
 
 Alternatively,
+
 4. Click on there 'Terminal' pane and type `quarto render` and hit enter
 5. Once the book has been rendered and the terminal is free, type `quarto preview` and hit enter
 
