@@ -1,13 +1,35 @@
+---
+execute:
+  eval: false
+---  
+
 # Introduction
 
 ## What you will learn
 
+How to: 
+
+- **Read** your hard-earned data into R 
+- **Wrangle and clean** the data in a R-friendly format
+- **Produce** summary statistics
+- **Analyse** your data
+- **Visualise** your findings
+
+<!-- Some simply, yet profound conceptual diagram that shows the reader all these processes -->
+
 ## How book is organised 
 
-By data
-Code interwoven
+This book is organised by data type (e.g. [Survey data](survery.qmd), Questionnaire data). 
 
-## Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)  
+Each chapter will walk through the process will work with real-world Psychology data and will walk you through  reading in data, to cleaning and eventually analysis and visualising the results. 
+
+### Conventions
+
+We will refer to packages as `{dplyr}` and functions as `mean()` and variables and objects (such as file names or data objects) as `age` and `mtcars`. Where it would aid understanding, we will sometimes refer to functions within a particular packages as `dplyr::mutuate()`
+
+## Prerequisites 
+
+Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites
 
 ### R 
 Download 
@@ -35,31 +57,37 @@ Here are few packages we consider essential to working with Psychology data.
 
 At the end of each chapter, we will also include our call to `sessionInfo()` so you can see what version of which packages we are using. 
 
-### Virtual environments
+## Virtual environments
 
 Speaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we've enlisted [`renv`](https://rstudio.github.io/renv/articles/renv.html#getting-started) to create a reproducible environment for building this book. 
 
-#### Download our virtual environment
+### Download our virtual environment
 
 The virtual environment used to build this book is stored in a `lockfile`. You can find this file in the [GitHub repository](https://github.com/unsw-edu-au/r4psych) where the source code of this book lives. 
 
-The lockfile is named `renv.lock`. You can download this file directly but clicking on the file name and clicking on the "Download raw file" button
+The lockfile is named `renv.lock`. You can download this file directly but clicking on the file name and clicking on the "Download raw file" button.
 
 ![](images/renv.png)
 
 Alternatively, you can [clone](https://happygitwithr.com/clone.html?q=clone#clone) our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in [Happy Git](https://happygitwithr.com/) by Jenny Bryan. 
 
-#### Install
+Once you have this file downloaded, move it in a relevant [project directory]() and then we can let `{renv}` work its magic. 
 
-```{r}
+### Install
+
+First things first, lets install `renv` if we don't have it already. 
+
+```{r, eval}
 install.packages("renv")
 
 library(renv)
 ```
-#### Restore
+### Recreate virtual enviroment
+
+Now let's tell `renv` where our downloaded `renv.lock` file is. Specific the path to the file in the function `restore()` and you are good to go!
 
 ```{r, eval=FALSE}
-restore()
+restore(lockfile = "path_to_renv.lock")
 ```
 
 

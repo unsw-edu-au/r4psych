@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Psychology",
     "section": "",
-    "text": "Welcome\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by which data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\n\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
+    "text": "Welcome\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by which data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
   },
   {
     "objectID": "intro.html",
@@ -18,7 +18,7 @@
     "href": "survey.html",
     "title": "2  Survery data",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+    "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "references.html",
@@ -32,7 +32,7 @@
     "href": "contributing.html#quickstart-reference",
     "title": "3  Contributing",
     "section": "3.1 Quickstart reference",
-    "text": "3.1 Quickstart reference\n\n3.1.1 Install Quarto\n\n\n3.1.2 Quarto Workflow\n\n\n3.1.3 GitHub Workflow"
+    "text": "3.1 Quickstart reference\n\n3.1.1 Install Quarto\nThis book\n\n\n3.1.2 Quarto Workflow\n\n\n3.1.3 GitHub Workflow"
   },
   {
     "objectID": "contributing.html#book-structure",
@@ -67,20 +67,34 @@
     "href": "intro.html#what-you-will-learn",
     "title": "1  Introduction",
     "section": "1.1 What you will learn",
-    "text": "1.1 What you will learn"
+    "text": "1.1 What you will learn\nHow to:\n\nRead your hard-earned data into R\nWrangle and clean the data in a R-friendly format\nProduce summary statistics\nAnalyse your data\nVisualise your findings"
   },
   {
     "objectID": "intro.html#how-book-is-organised",
     "href": "intro.html#how-book-is-organised",
     "title": "1  Introduction",
     "section": "1.2 How book is organised",
-    "text": "1.2 How book is organised\nBy data Code interwoven"
+    "text": "1.2 How book is organised\nThis book is organised by data type (e.g. Survey data, Questionnaire data).\nEach chapter will walk through the process will work with real-world Psychology data and will walk you through reading in data, to cleaning and eventually analysis and visualising the results.\n\n1.2.1 Conventions\nWe will refer to packages as {dplyr} and functions as mean() and variables and objects (such as file names or data objects) as age and mtcars. Where it would aid understanding, we will sometimes refer to functions within a particular packages as dplyr::mutuate()"
   },
   {
     "objectID": "intro.html#prerequisites-content-drawn-from-existing-resources-such-as-httpsr4ds.hadley.nzintroprerequisites",
     "href": "intro.html#prerequisites-content-drawn-from-existing-resources-such-as-httpsr4ds.hadley.nzintroprerequisites",
     "title": "1  Introduction",
     "section": "1.3 Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)",
-    "text": "1.3 Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)\n\n1.3.1 R\nDownload Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)\n\n\n1.3.2 RStudio\nRStudio projects Point to resource about Rproj (SWC)\nRunning R code https://r4ds.hadley.nz/intro#running-r-code\n\n\n1.3.3 Version control with git\n\n\n1.3.4 R packages\nEvery code section will always begin with calls to R packages. There will be commented out code for you to install these.\nHere are few packages we consider essential to working with Psychology data.\n\ntidyverse\nggplot2\nhere\njanitor\n\nAt the end of each chapter, we will also include our call to sessionInfo() so you can see what version of which packages we are using.\n\n\n1.3.5 Virtual environments\nSpeaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! We enlisted renv an R package to create a reproducible environment for building this book.\n\n1.3.5.1 Install\n\n\n1.3.5.2 Restore"
+    "text": "1.3 Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)\n\n1.3.1 R\nDownload Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)\n\n\n1.3.2 RStudio\nRStudio projects Point to resource about Rproj (SWC)\nRunning R code https://r4ds.hadley.nz/intro#running-r-code\n\n\n1.3.3 Version control with git\n\n\n1.3.4 R packages\nEvery code section will always begin with calls to R packages. There will be commented out code for you to install these.\nHere are few packages we consider essential to working with Psychology data.\n\ntidyverse\nggplot2\nhere\njanitor\n\nAt the end of each chapter, we will also include our call to sessionInfo() so you can see what version of which packages we are using.\n\n\n1.3.5 Virtual environments\nSpeaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted renv to create a reproducible environment for building this book.\n\n1.3.5.1 Download our virtual environment\nThe virtual environment used to build this book is stored in a lockfile. You can find this file in the GitHub repository where the source code of this book lives.\nThe lockfile is named renv.lock. You can download this file directly but clicking on the file name and clicking on the “Download raw file” button.\n\nAlternatively, you can clone our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in Happy Git by Jenny Bryan.\nOnce you have this file downloaded, move it in a relevant project directory and then we can let {renv} work its magic.\n\n\n1.3.5.2 Install\nFirst things first, lets install renv if we don’t have it already.\n\ninstall.packages(\"renv\")\n\nlibrary(renv)\n\n\n\n1.3.5.3 Recreate virtual enviroment\nNow let’s tell renv where our downloaded renv.lock file is. Specific the path to the file in the function restore() and you are good to go!\n\nrestore(lockfile = \"path_to_renv.lock\")"
+  },
+  {
+    "objectID": "intro.html#prerequisites",
+    "href": "intro.html#prerequisites",
+    "title": "1  Introduction",
+    "section": "1.3 Prerequisites",
+    "text": "1.3 Prerequisites\nContent drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites\n\n1.3.1 R\nDownload Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)\n\n\n1.3.2 RStudio\nRStudio projects Point to resource about Rproj (SWC)\nRunning R code https://r4ds.hadley.nz/intro#running-r-code\n\n\n1.3.3 Version control with git\n\n\n1.3.4 R packages\nEvery code section will always begin with calls to R packages. There will be commented out code for you to install these.\nHere are few packages we consider essential to working with Psychology data.\n\ntidyverse\nggplot2\nhere\njanitor\n\nAt the end of each chapter, we will also include our call to sessionInfo() so you can see what version of which packages we are using."
+  },
+  {
+    "objectID": "intro.html#virtual-environments",
+    "href": "intro.html#virtual-environments",
+    "title": "1  Introduction",
+    "section": "1.4 Virtual environments",
+    "text": "1.4 Virtual environments\nSpeaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted renv to create a reproducible environment for building this book.\n\n1.4.1 Download our virtual environment\nThe virtual environment used to build this book is stored in a lockfile. You can find this file in the GitHub repository where the source code of this book lives.\nThe lockfile is named renv.lock. You can download this file directly but clicking on the file name and clicking on the “Download raw file” button.\n\nAlternatively, you can clone our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in Happy Git by Jenny Bryan.\nOnce you have this file downloaded, move it in a relevant project directory and then we can let {renv} work its magic.\n\n\n1.4.2 Install\nFirst things first, lets install renv if we don’t have it already.\n\ninstall.packages(\"renv\")\n\nlibrary(renv)\n\n\n\n1.4.3 Recreate virtual enviroment\nNow let’s tell renv where our downloaded renv.lock file is. Specific the path to the file in the function restore() and you are good to go!\n\nrestore(lockfile = \"path_to_renv.lock\")"
   }
 ]
