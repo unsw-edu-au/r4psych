@@ -41,7 +41,13 @@ Speaking on what package versions we are using as we write this book, we underst
 
 #### Download our virtual environment
 
-The virtual environment used to build this book is stored in a `lockfile`
+The virtual environment used to build this book is stored in a `lockfile`. You can find this file in the [GitHub repository](https://github.com/unsw-edu-au/r4psych) where the source code of this book lives. 
+
+The lockfile is named `renv.lock`. You can download this file directly but clicking on the file name and clicking on the "Download raw file" button
+
+![](images/renv.png)
+
+Alternatively, you can [clone](https://happygitwithr.com/clone.html?q=clone#clone) our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in [Happy Git](https://happygitwithr.com/) by Jenny Bryan. 
 
 #### Install
 
