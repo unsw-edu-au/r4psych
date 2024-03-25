@@ -1,0 +1,35 @@
+# Contributing 
+
+This resource is created in mind so that the community that uses it, can also contribute to it. We hope this mindset will encourage the resource to grow and stay up-to-date for R learners. 
+
+Importantly, **all skill levels** are welcome to contribute, even if you think your skills are not up to scratch - this is what this guide is for! 
+
+## Quickstart reference
+
+### Install Quarto
+
+This book
+
+
+
+
+### Quarto Workflow
+
+### GitHub Workflow
+
+## Book Structure
+
+## Book Practices and Conventions
+
+## Book Edits
+
+### Edits
+
+### Additions
+
+## Contribution Review
+
+
+
+
+

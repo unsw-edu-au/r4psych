@@ -8,6 +8,7 @@ book:
     - index.qmd
     - intro.qmd
     - survey.qmd
+    - contributing.qmd
     - references.qmd
 
 bibliography: references.bib

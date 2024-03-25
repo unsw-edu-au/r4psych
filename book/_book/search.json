@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Psychology",
     "section": "",
-    "text": "Welcome\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by which data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\n\nHow to contribute\nThis book is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guidelines to see how you can submit your feedback\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
+    "text": "Welcome\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by which data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\n\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
   },
   {
     "objectID": "intro.html",
@@ -14,9 +14,9 @@
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "survey.html",
+    "href": "survey.html",
+    "title": "2  Survery data",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
   },
@@ -28,10 +28,59 @@
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
-    "objectID": "survey.html",
-    "href": "survey.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+    "objectID": "contributing.html#quickstart-reference",
+    "href": "contributing.html#quickstart-reference",
+    "title": "3  Contributing",
+    "section": "3.1 Quickstart reference",
+    "text": "3.1 Quickstart reference\n\n3.1.1 Install Quarto\n\n\n3.1.2 Quarto Workflow\n\n\n3.1.3 GitHub Workflow"
+  },
+  {
+    "objectID": "contributing.html#book-structure",
+    "href": "contributing.html#book-structure",
+    "title": "3  Contributing",
+    "section": "3.2 Book Structure",
+    "text": "3.2 Book Structure"
+  },
+  {
+    "objectID": "contributing.html#book-practices-and-conventions",
+    "href": "contributing.html#book-practices-and-conventions",
+    "title": "3  Contributing",
+    "section": "3.3 Book Practices and Conventions",
+    "text": "3.3 Book Practices and Conventions"
+  },
+  {
+    "objectID": "contributing.html#book-edits",
+    "href": "contributing.html#book-edits",
+    "title": "3  Contributing",
+    "section": "3.4 Book Edits",
+    "text": "3.4 Book Edits\n\n3.4.1 Edits\n\n\n3.4.2 Additions"
+  },
+  {
+    "objectID": "contributing.html#contribution-review",
+    "href": "contributing.html#contribution-review",
+    "title": "3  Contributing",
+    "section": "3.5 Contribution Review",
+    "text": "3.5 Contribution Review"
+  },
+  {
+    "objectID": "intro.html#what-you-will-learn",
+    "href": "intro.html#what-you-will-learn",
+    "title": "1  Introduction",
+    "section": "1.1 What you will learn",
+    "text": "1.1 What you will learn"
+  },
+  {
+    "objectID": "intro.html#how-book-is-organised",
+    "href": "intro.html#how-book-is-organised",
+    "title": "1  Introduction",
+    "section": "1.2 How book is organised",
+    "text": "1.2 How book is organised\nBy data Code interwoven"
+  },
+  {
+    "objectID": "intro.html#prerequisites-content-drawn-from-existing-resources-such-as-httpsr4ds.hadley.nzintroprerequisites",
+    "href": "intro.html#prerequisites-content-drawn-from-existing-resources-such-as-httpsr4ds.hadley.nzintroprerequisites",
+    "title": "1  Introduction",
+    "section": "1.3 Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)",
+    "text": "1.3 Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)\n\n1.3.1 R\nDownload Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)\n\n\n1.3.2 RStudio\nRStudio projects Point to resource about Rproj (SWC)\nRunning R code https://r4ds.hadley.nz/intro#running-r-code\n\n\n1.3.3 Version control with git\n\n\n1.3.4 R packages\nEvery code section will always begin with calls to R packages. There will be commented out code for you to install these.\nHere are few packages we consider essential to working with Psychology data.\n\ntidyverse\nggplot2\nhere\njanitor\n\nAt the end of each chapter, we will also include our call to sessionInfo() so you can see what version of which packages we are using.\n\n\n1.3.5 Virtual environments\nSpeaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! We enlisted renv an R package to create a reproducible environment for building this book.\n\n1.3.5.1 Install\n\n\n1.3.5.2 Restore"
   }
 ]

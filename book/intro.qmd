@@ -1,9 +1,62 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+## What you will learn
 
-See @knuth84 for additional discussion of literate programming.
+## How book is organised 
+
+By data
+Code interwoven
+
+## Prerequisites (Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites)  
+
+### R 
+Download 
+Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)
+	
+### RStudio 
+RStudio projects
+Point to resource about Rproj (SWC)
+
+Running R code
+https://r4ds.hadley.nz/intro#running-r-code
+
+### Version control with git
+
+### R packages
+
+Every code section will always begin with calls to R packages. There will be commented out code for you to install these. 
+
+Here are few packages we consider essential to working with Psychology data. 
+
+- tidyverse 
+- ggplot2
+- here
+- janitor
+
+At the end of each chapter, we will also include our call to `sessionInfo()` so you can see what version of which packages we are using. 
+
+### Virtual environments
+
+Speaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we've enlisted [`renv`](https://rstudio.github.io/renv/articles/renv.html#getting-started) to create a reproducible environment for building this book. 
+
+#### Download our virtual environment
+
+The virtual environment used to build this book is stored in a `lockfile`
+
+#### Install
 
 ```{r}
-1 + 1
+install.packages("renv")
+
+library(renv)
 ```
+#### Restore
+
+```{r, eval=FALSE}
+restore()
+```
+
+
+
+
+
