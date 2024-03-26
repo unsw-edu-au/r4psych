@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./survey.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Survery data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Survey data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,11 +227,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="how-book-is-organised" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="how-book-is-organised"><span class="header-section-number">1.2</span> How book is organised</h2>
-<p>This book is organised by data type (e.g.&nbsp;<a href="survery.qmd">Survey data</a>, Questionnaire data).</p>
+<p>This book is organised by data type (e.g.&nbsp;<a href="./survey.html">Survey data</a>, Questionnaire data).</p>
 <p>Each chapter will walk through the process will work with real-world Psychology data and will walk you through reading in data, to cleaning and eventually analysis and visualising the results.</p>
 <section id="conventions" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="conventions"><span class="header-section-number">1.2.1</span> Conventions</h3>
-<p>We will refer to packages as <code>{dplyr}</code> and functions as <code>mean()</code> and variables and objects (such as file names or data objects) as <code>age</code> and <code>mtcars</code>. Where it would aid understanding, we will sometimes refer to functions within a particular packages as <code>dplyr::mutuate()</code></p>
+<p>We will refer to packages as <code>{dplyr}</code> and functions as <code>mean()</code>. Variables and objects (such as file names or data objects) as <code>age</code> and <code>mtcars</code>. Where it would aid understanding, we will sometimes refer to functions within a particular packages as <code>dplyr::mutute()</code></p>
 </section>
 </section>
 <section id="prerequisites" class="level2" data-number="1.3">
@@ -248,23 +248,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="version-control-with-git" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="version-control-with-git"><span class="header-section-number">1.3.3</span> Version control with git</h3>
+<section id="what-is-git" class="level4" data-number="1.3.3.1">
+<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="what-is-git"><span class="header-section-number">1.3.3.1</span> What is git?</h4>
+</section>
+<section id="why-do-i-need-git" class="level4" data-number="1.3.3.2">
+<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="why-do-i-need-git"><span class="header-section-number">1.3.3.2</span> Why do I need git?</h4>
+<!-- Point to Happy with git R -->
+</section>
 </section>
 <section id="r-packages" class="level3" data-number="1.3.4">
 <h3 data-number="1.3.4" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1.3.4</span> R packages</h3>
-<p>Every code section will always begin with calls to R packages. There will be commented out code for you to install these.</p>
-<p>Here are few packages we consider essential to working with Psychology data.</p>
+<p>Every code section will always begin with calls to R packages. There will be code that is commented out (have <code>#</code> preceding the code) for you to install these if you don’t have them on your computer</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(dplyr)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There are few R packages that will be on heavy rotation when it comes to working with Psychology data. #### {tidyverse}</p>
+<p><a href="https://www.tidyverse.org/">{tidyverse}</a> is a collection of R packages that is essential to a data scientist’s toolkit. By installing <code>{tidyverse}</code> you are actually installing 8 other packages. The ones we will most often use include:</p>
 <ul>
-<li>tidyverse</li>
-<li>ggplot2</li>
-<li>here</li>
-<li>janitor</li>
+<li><a href="https://dplyr.tidyverse.org/">{dplyr}</a></li>
+<li><a href="https://ggplot2.tidyverse.org/">{ggplot2}</a></li>
+<li><a href="https://tidyr.tidyverse.org/">{tidyr}</a></li>
 </ul>
-<p>At the end of each chapter, we will also include our call to <code>sessionInfo()</code> so you can see what version of which packages we are using.</p>
+<p>The handy thing is, when you load the <code>{tidyverse}</code> library into R, it will load the core suite of packages for you instead of you loading each of them independently! Efficiency!! <span class="emoji" data-emoji="rocket">🚀</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Other packages that will be helpful for your R workflows include:</p>
+<ul>
+<li><a href="https://here.r-lib.org/">{here}</a><br>
+</li>
+<li><a href="http://sfirke.github.io/janitor/">{janitor}</a></li>
+</ul>
+<p>At the end of each chapter, we will also include our call to <code>sessionInfo()</code> so you can see what version of packages we are using.</p>
 </section>
 </section>
 <section id="virtual-environments" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="virtual-environments"><span class="header-section-number">1.4</span> Virtual environments</h2>
-<p>Speaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started"><code>renv</code></a> to create a reproducible environment for building this book.</p>
+<p>Speaking on what package versions as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started"><code>renv</code></a> to create a reproducible environment for building this book.</p>
 <section id="download-our-virtual-environment" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="download-our-virtual-environment"><span class="header-section-number">1.4.1</span> Download our virtual environment</h3>
 <p>The virtual environment used to build this book is stored in a <code>lockfile</code>. You can find this file in the <a href="https://github.com/unsw-edu-au/r4psych">GitHub repository</a> where the source code of this book lives.</p>
@@ -277,16 +299,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="1.4.2" class="anchored" data-anchor-id="install"><span class="header-section-number">1.4.2</span> Install</h3>
 <p>First things first, lets install <code>renv</code> if we don’t have it already.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(renv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(renv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="recreate-virtual-enviroment" class="level3" data-number="1.4.3">
 <h3 data-number="1.4.3" class="anchored" data-anchor-id="recreate-virtual-enviroment"><span class="header-section-number">1.4.3</span> Recreate virtual enviroment</h3>
 <p>Now let’s tell <code>renv</code> where our downloaded <code>renv.lock</code> file is. Specific the path to the file in the function <code>restore()</code> and you are good to go!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">restore</span>(<span class="at">lockfile =</span> <span class="st">"path_to_renv.lock"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">restore</span>(<span class="at">lockfile =</span> <span class="st">"path_to_renv.lock"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -535,7 +557,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./survey.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Survery data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Survey data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

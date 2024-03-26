@@ -1,6 +1,7 @@
 ---
 execute:
   eval: false
+from: markdown+emoji
 ---  
 
 # Introduction
@@ -19,13 +20,13 @@ How to:
 
 ## How book is organised 
 
-This book is organised by data type (e.g. [Survey data](survery.qmd), Questionnaire data). 
+This book is organised by data type (e.g. [Survey data](survey.qmd), Questionnaire data). 
 
 Each chapter will walk through the process will work with real-world Psychology data and will walk you through  reading in data, to cleaning and eventually analysis and visualising the results. 
 
 ### Conventions
 
-We will refer to packages as `{dplyr}` and functions as `mean()` and variables and objects (such as file names or data objects) as `age` and `mtcars`. Where it would aid understanding, we will sometimes refer to functions within a particular packages as `dplyr::mutuate()`
+We will refer to packages as `{dplyr}` and functions as `mean()`. Variables and objects (such as file names or data objects) as `age` and `mtcars`. Where it would aid understanding, we will sometimes refer to functions within a particular packages as `dplyr::mutute()`
 
 ## Prerequisites 
 
@@ -44,22 +45,47 @@ https://r4ds.hadley.nz/intro#running-r-code
 
 ### Version control with git
 
+#### What is git?
+
+#### Why do I need git?
+
+<!-- Point to Happy with git R -->
+
 ### R packages
 
-Every code section will always begin with calls to R packages. There will be commented out code for you to install these. 
+Every code section will always begin with calls to R packages. There will be code that is commented out (have `#` preceding the code) for you to install these if you don't have them on your computer
 
-Here are few packages we consider essential to working with Psychology data. 
+```{r}
+# install.packages(dplyr)
 
-- tidyverse 
-- ggplot2
-- here
-- janitor
+library(dplyr)
+```
 
-At the end of each chapter, we will also include our call to `sessionInfo()` so you can see what version of which packages we are using. 
+There are few R packages that will be on heavy rotation when it comes to working with Psychology data. 
+#### {tidyverse}
+
+[{tidyverse}](https://www.tidyverse.org/) is a collection of R packages that is essential to a data scientist's toolkit. By installing `{tidyverse}` you are actually installing 8 other packages. The ones we will most often use include: 
+
+- [{dplyr}](https://dplyr.tidyverse.org/)
+- [{ggplot2}](https://ggplot2.tidyverse.org/)
+- [{tidyr}](https://tidyr.tidyverse.org/)
+
+The handy thing is, when you load the `{tidyverse}` library into R, it will load the core suite of packages for you instead of you loading each of them independently! Efficiency!! :rocket:
+
+```{r}
+library(tidyverse)
+```
+
+Other packages that will be helpful for your R workflows include: 
+
+- [{here}](https://here.r-lib.org/)  
+- [{janitor}](http://sfirke.github.io/janitor/)
+
+At the end of each chapter, we will also include our call to `sessionInfo()` so you can see what version of packages we are using. 
 
 ## Virtual environments
 
-Speaking on what package versions we are using as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we've enlisted [`renv`](https://rstudio.github.io/renv/articles/renv.html#getting-started) to create a reproducible environment for building this book. 
+Speaking on what package versions as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we've enlisted [`renv`](https://rstudio.github.io/renv/articles/renv.html#getting-started) to create a reproducible environment for building this book. 
 
 ### Download our virtual environment
 
@@ -82,6 +108,7 @@ install.packages("renv")
 
 library(renv)
 ```
+
 ### Recreate virtual enviroment
 
 Now let's tell `renv` where our downloaded `renv.lock` file is. Specific the path to the file in the function `restore()` and you are good to go!
