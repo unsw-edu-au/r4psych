@@ -1,0 +1,23 @@
+# Wrangle
+
+## Clean names
+
+## Dealing with labels
+
+## Exclusions
+
+`mutate` `case_when`
+
+`filter`
+
+```{r}
+
+```
+
+## Creating scales and indexes
+
+`group_by` `summarise`
+
+`row_wise` `mutate`
+
+### Checking reliabilty 

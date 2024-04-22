@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "R for Psychology",
     "section": "",
-    "text": "Welcome\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by what type data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
+    "text": "Welcome!\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by what type data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
   },
   {
     "objectID": "intro.html",
@@ -16,7 +16,7 @@
   {
     "objectID": "survey.html",
     "href": "survey.html",
-    "title": "2  Survey data",
+    "title": "2  Making Inferences",
     "section": "",
     "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2"
   },
@@ -67,7 +67,7 @@
     "href": "intro.html#what-you-will-learn",
     "title": "1  Introduction",
     "section": "1.1 What you will learn",
-    "text": "1.1 What you will learn\nHow to:\n\nRead your hard-earned data into R\nWrangle and clean the data in a R-friendly format\nProduce summary statistics\nAnalyse your data\nVisualise your findings"
+    "text": "1.1 What you will learn\nHow to:\n\nRead your hard-earned data into R\nWrangle and clean the data in a R-friendly format\nProduce summary statistics\nAnalyse your data\nVisualise your findings\n\nPre-analysis stages:\n\n\n\nAnalysis stages:"
   },
   {
     "objectID": "intro.html#how-book-is-organised",
@@ -103,5 +103,131 @@
     "title": "3  Contributing",
     "section": "3.3 Book Contributions",
     "text": "3.3 Book Contributions\n\n3.3.1 Edits\n\n\n3.3.2 Additions"
+  },
+  {
+    "objectID": "inferences.html",
+    "href": "inferences.html",
+    "title": "6  Making Inferences",
+    "section": "",
+    "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "import.html#reading-in-excel",
+    "href": "import.html#reading-in-excel",
+    "title": "2  Import",
+    "section": "2.1 Reading in Excel",
+    "text": "2.1 Reading in Excel"
+  },
+  {
+    "objectID": "import.html#reading-in-.csv",
+    "href": "import.html#reading-in-.csv",
+    "title": "2  Import",
+    "section": "2.2 Reading in .csv",
+    "text": "2.2 Reading in .csv"
+  },
+  {
+    "objectID": "import.html#reading-in-spss",
+    "href": "import.html#reading-in-spss",
+    "title": "2  Import",
+    "section": "2.2 Reading in SPSS",
+    "text": "2.2 Reading in SPSS"
+  },
+  {
+    "objectID": "import.html#reading-in-qualtrics",
+    "href": "import.html#reading-in-qualtrics",
+    "title": "2  Import",
+    "section": "2.4 Reading in Qualtrics",
+    "text": "2.4 Reading in Qualtrics\n\n2.4.1 Reading in .sav"
+  },
+  {
+    "objectID": "import.html#reading-in-.sav",
+    "href": "import.html#reading-in-.sav",
+    "title": "2  Import",
+    "section": "2.5 Reading in .sav",
+    "text": "2.5 Reading in .sav"
+  },
+  {
+    "objectID": "import.html#reading-in-qualtrics-data",
+    "href": "import.html#reading-in-qualtrics-data",
+    "title": "2  Import",
+    "section": "2.3 Reading in Qualtrics data",
+    "text": "2.3 Reading in Qualtrics data\n\n2.3.1 Reading in .sav"
+  },
+  {
+    "objectID": "import.html#reading-in-excel-spreadsheets",
+    "href": "import.html#reading-in-excel-spreadsheets",
+    "title": "2  Import",
+    "section": "2.1 Reading in Excel spreadsheets",
+    "text": "2.1 Reading in Excel spreadsheets\nThis is\n\n2.1.1 Reading in .csv"
+  },
+  {
+    "objectID": "organise.html#r-projects",
+    "href": "organise.html#r-projects",
+    "title": "2  Organise",
+    "section": "2.1 R projects",
+    "text": "2.1 R projects"
+  },
+  {
+    "objectID": "organise.html#consistency-folder-structure",
+    "href": "organise.html#consistency-folder-structure",
+    "title": "2  Organise",
+    "section": "2.2 Consistency folder structure",
+    "text": "2.2 Consistency folder structure\nMaking directories"
+  },
+  {
+    "objectID": "organise.html#naming-things",
+    "href": "organise.html#naming-things",
+    "title": "2  Organise",
+    "section": "2.3 Naming things",
+    "text": "2.3 Naming things\nFiles, folders"
+  },
+  {
+    "objectID": "organise.html#documenting-things",
+    "href": "organise.html#documenting-things",
+    "title": "2  Organise",
+    "section": "2.4 Documenting things",
+    "text": "2.4 Documenting things\nRMD"
+  },
+  {
+    "objectID": "organise.html#section",
+    "href": "organise.html#section",
+    "title": "2  Organise",
+    "section": "2.5 ",
+    "text": "2.5"
+  },
+  {
+    "objectID": "organise.html#sections-of-your-doc",
+    "href": "organise.html#sections-of-your-doc",
+    "title": "2  Organise",
+    "section": "2.5 Sections of your doc",
+    "text": "2.5 Sections of your doc"
+  },
+  {
+    "objectID": "wrangle.html#clean-names",
+    "href": "wrangle.html#clean-names",
+    "title": "4  Wrangle",
+    "section": "4.1 Clean names",
+    "text": "4.1 Clean names"
+  },
+  {
+    "objectID": "wrangle.html#dealing-with-labels",
+    "href": "wrangle.html#dealing-with-labels",
+    "title": "4  Wrangle",
+    "section": "4.2 Dealing with labels",
+    "text": "4.2 Dealing with labels"
+  },
+  {
+    "objectID": "wrangle.html#exclusions",
+    "href": "wrangle.html#exclusions",
+    "title": "4  Wrangle",
+    "section": "4.3 Exclusions",
+    "text": "4.3 Exclusions\nmutate case_when\nfilter"
+  },
+  {
+    "objectID": "wrangle.html#creating-scales-and-indexes",
+    "href": "wrangle.html#creating-scales-and-indexes",
+    "title": "4  Wrangle",
+    "section": "4.4 Creating scales and indexes",
+    "text": "4.4 Creating scales and indexes\ngroup_by summarise\nrow_wise mutate\n\n4.4.1 Checking reliabilty"
   }
 ]

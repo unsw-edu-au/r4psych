@@ -1,0 +1,17 @@
+# Organise
+
+## R projects
+
+## Consistency folder structure
+
+Making directories
+
+## Naming things
+
+Files, folders
+
+## Documenting things
+
+RMD
+
+## Sections of your doc

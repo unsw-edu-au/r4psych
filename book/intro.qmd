@@ -16,6 +16,14 @@ How to:
 - **Analyse** your data
 - **Visualise** your findings
 
+Pre-analysis stages: 
+
+- 
+
+Analysis stages: 
+
+
+
 <!-- Some simply, yet profound conceptual diagram that shows the reader all these processes -->
 
 ## How book is organised 

@@ -1,0 +1,14 @@
+# Import
+
+## Reading in Excel spreadsheets
+
+This is
+
+### Reading in .csv
+
+## Reading in SPSS 
+
+## Reading in Qualtrics data
+
+### Reading in .sav
+

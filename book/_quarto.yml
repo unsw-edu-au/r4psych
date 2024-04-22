@@ -7,8 +7,14 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
-    - survey.qmd
+    - organise.qmd
+    - import.qmd
+    - wrangle.qmd
+    - describe.qmd
+    - plot.qmd
+    - inferences.qmd
     - contributing.qmd
+    - datasets.qmd
     - references.qmd
 
 bibliography: references.bib
