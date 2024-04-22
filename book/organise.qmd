@@ -2,6 +2,10 @@
 
 ## R projects
 
+best practice `here` package 
+
+working directories blah blah 
+
 ## Consistency folder structure
 
 Making directories
