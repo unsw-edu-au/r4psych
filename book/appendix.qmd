@@ -1,0 +1,25 @@
+---
+title: "Appendix"
+format: html
+editor: visual
+---
+
+# how to install packages
+
+You only need to install a package once on your machine. Once the package is installed, you will need to use `library()` to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab.
+
+## option 1
+
+Install a package by typing the following command with the name of the package you would like to install in the console.
+
+```         
+install.packages("packagename")
+```
+
+## option 2
+
+Alternatively, search for the package you would like to install in the packages tab.
+
+![You can search for packages and install them from CRAN via the packages tab](images/install.png)
+
+> Remember once you have installed a package, you will need to use the `library()` function to load it before it will work.
