@@ -6,6 +6,20 @@ Importantly, **all skill levels** are welcome to contribute, even if you think y
 
 ### GitHub Workflow
 
+First let’s talk about the GitHub part of the workflow.
+
+The content of our book lives publicly in a repository within the UNSW GitHub Organisation. 
+
+
+
+We will work in branches so as to not overwrite each other’s work, and let GitHub do what it does best.
+
+The main branch will be the current approved version of the book. The main branch is what displays at https://nasa-openscapes.github.io/earthdata-cloud-cookbook.
+
+A nice clean workflow with branches is to consider them temporary. You pull the most recent from main, you create a branch locally, you make your edits, you commit regularly, you push regularly to github.com, and then you create a pull request for it to be merged into main, and when it’s approved the branch is deleted on github.com and you also delete it locally. That’s the workflow we’ll walk through here. A great resource on GitHub setup and collaboration is Happy Git with R, which includes fantastic background philosophy as well as bash commands for setup, workflows, and collaboration.
+
+The following assumes you’ve completed the initial setup from the previous chapter.
+
 
 
 ### Hello Quarto!
@@ -32,7 +46,8 @@ Let's first make sure we the latest version of [Quarto](https://quarto.org/docs/
 
 ### Additions
 
-## Contribution Review
+## Submit a pull request
+
 
 
 
