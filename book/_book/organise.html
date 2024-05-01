@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -161,6 +195,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -176,10 +216,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#r-projects" id="toc-r-projects" class="nav-link active" data-scroll-target="#r-projects"><span class="header-section-number">2.1</span> R projects</a></li>
-  <li><a href="#consistency-folder-structure" id="toc-consistency-folder-structure" class="nav-link" data-scroll-target="#consistency-folder-structure"><span class="header-section-number">2.2</span> Consistency folder structure</a></li>
-  <li><a href="#naming-things" id="toc-naming-things" class="nav-link" data-scroll-target="#naming-things"><span class="header-section-number">2.3</span> Naming things</a></li>
-  <li><a href="#documenting-things" id="toc-documenting-things" class="nav-link" data-scroll-target="#documenting-things"><span class="header-section-number">2.4</span> Documenting things</a></li>
-  <li><a href="#sections-of-your-doc" id="toc-sections-of-your-doc" class="nav-link" data-scroll-target="#sections-of-your-doc"><span class="header-section-number">2.5</span> Sections of your doc</a></li>
+  <li><a href="#where-is-here" id="toc-where-is-here" class="nav-link" data-scroll-target="#where-is-here"><span class="header-section-number">2.2</span> where is here?</a></li>
+  <li><a href="#folder-structure" id="toc-folder-structure" class="nav-link" data-scroll-target="#folder-structure"><span class="header-section-number">2.3</span> folder structure</a></li>
+  <li><a href="#naming-things" id="toc-naming-things" class="nav-link" data-scroll-target="#naming-things"><span class="header-section-number">2.4</span> naming things</a></li>
+  <li><a href="#documenting-things" id="toc-documenting-things" class="nav-link" data-scroll-target="#documenting-things"><span class="header-section-number">2.5</span> documenting things</a>
+  <ul class="collapse">
+  <li><a href="#readme" id="toc-readme" class="nav-link" data-scroll-target="#readme"><span class="header-section-number">2.5.1</span> README</a></li>
+  <li><a href="#r-markdown" id="toc-r-markdown" class="nav-link" data-scroll-target="#r-markdown"><span class="header-section-number">2.5.2</span> R Markdown</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -203,25 +247,102 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>There are lots of reasons to use R and R Studio for your data analysis, but reproducibility ranks high on the list. By writing code that reads, wrangles, cleans, visualises, and analyses your data, you are documenting the process that your data has been through from its raw state through to its analysed state. Reproducibility is all about someone else (or you in the future) being able to take your data and the code you have written and use it to produce exactly the same analysis values that you report in your paper or thesis.</p>
+<p>With this goal in mind, there are a few best practices we recommend, to ensure that your code is usable in the future, irrespective of what machine it is being run on and by whom.</p>
 <section id="r-projects" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="r-projects"><span class="header-section-number">2.1</span> R projects</h2>
+<p>R really cares about where things live on your computer, even if you don’t. Humans have gotten out of the habit of thinking very hard about where they put things on their machine - the search capabilities on the modern computer are quite good and you can generally find files quite easily by searching for them.</p>
+<p>When you are coding in R, however, you need to explicitly tell R where to find things. You can make this process much easier for yourself by always working within an RStudio Project.</p>
+<p>When you work within an RStudio project, you can reference everything in relation to the top level of that project folder. It doesn’t matter where that project folder lives on your machine (i.e.&nbsp;Desktop, Documents, OneDrive, Dropbox) the code you write is always relative to that folder. This means that you share that whole project folder with someone else (your collaborators or supervisor), and your code won’t break.</p>
+<blockquote class="blockquote">
+<p>When you start a new analysis project, create a New RStudio Project via the File tab.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Working in an RStudio Project</figcaption>
+</figure>
+</div>
+<p>Always open RStudio by double clicking on the .RProj file in the folder on your machine. There is an icon in the top right corner of RStudio IDE that shows you which project you are working in and makes it easy to switch between projects.</p>
 </section>
-<section id="consistency-folder-structure" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="consistency-folder-structure"><span class="header-section-number">2.2</span> Consistency folder structure</h2>
-<p>Making directories</p>
+<section id="where-is-here" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="where-is-here"><span class="header-section-number">2.2</span> where is here?</h2>
+<p>Once you have set up a project to contain your analysis, you can avoid further file path drama by using the <code>here()</code> package. This package makes it super easy to refer to file paths and ensures that your code will be reproducible by someone else.</p>
+<p>Once you have installed the <code>here()</code> package, use it to tell R where you find your data like this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"file.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>By referring to the location of your data using the <code>here()</code> package, here is no need worry about working directories, and you can be sure that your code will work on any machine.</p>
+<blockquote class="blockquote">
+<p>To read more about why projects and the <code>here()</code> package are useful, check out <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">this blog by Jenny Bryan</a></p>
+</blockquote>
 </section>
-<section id="naming-things" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="naming-things"><span class="header-section-number">2.3</span> Naming things</h2>
-<p>Files, folders</p>
+<section id="folder-structure" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="folder-structure"><span class="header-section-number">2.3</span> folder structure</h2>
+<p>Once you have your project set up, you might like to think about imposing some structure on it. It is mostly personal preference, but many analysis projects include the following folders.</p>
+<ul>
+<li>data
+<ul>
+<li>raw-data</li>
+<li>clean-data</li>
+</ul></li>
+<li>output
+<ul>
+<li>figures</li>
+<li>tables</li>
+</ul></li>
+<li>manuscript</li>
+</ul>
+<p>You always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process separate, so a raw-data subfolder can be useful.</p>
+<p>In addition, you might want to organise your figures and tables into an output folder and put any writing that you are doing in the manuscripts folder.</p>
+<p>Usually the scripts (or R Markdown) documents that you write your code in, live in the top level of your project file. In RStudio, your project structure might look something like this.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/structure.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">A project structure template</figcaption>
+</figure>
+</div>
 </section>
-<section id="documenting-things" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="documenting-things"><span class="header-section-number">2.4</span> Documenting things</h2>
-<p>RMD</p>
+<section id="naming-things" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="naming-things"><span class="header-section-number">2.4</span> naming things</h2>
+<p>When naming things in your analysis folder, it is a good idea to think about your future self. In all likelihood, when you come back to this analysis in a few months time, you will have no recollection how it actually worked, but you can leave yourself some breadcrumbs by being a bit intentional about naming things.</p>
+<p>Your file names should be meaningful and orderly. The name of the file should tell the new user (or future you) what is in the file and where it goes in the process.</p>
+<ul>
+<li>cleaning-functions.R</li>
+<li>1_wrangle.Rmd</li>
+<li>2_visualise.Rmd</li>
+<li>3_analyse.Rmd</li>
+</ul>
+<p>In this project, I can tell by glancing at the file names that I have a script (.R) that contains functions and three R Markdown files that contain each stage of the analysis.</p>
+<p>Sticking with lower case is a good idea; avoid special characters and use - or _ to fill any gaps.</p>
+<p>Find more useful naming tips in the <a href="https://style.tidyverse.org/files.html">Tidyverse Style guide</a>.</p>
 </section>
-<section id="sections-of-your-doc" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="sections-of-your-doc"><span class="header-section-number">2.5</span> Sections of your doc</h2>
+<section id="documenting-things" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="documenting-things"><span class="header-section-number">2.5</span> documenting things</h2>
+<section id="readme" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="readme"><span class="header-section-number">2.5.1</span> README</h3>
+<p>In addition to the breadcrumbs that our file names leave, it is also a good idea to leave explicit notes to your future self (or someone else) in a README.md file. This is a simple text file that contains instructions for how the user should engage with your project.</p>
+<p>Create a new Markdown file and save it as README.md</p>
+<p>Use it to leave yourself instructions that look a bit like this.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/readme.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">An example README file</figcaption>
+</figure>
+</div>
+</section>
+<section id="r-markdown" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="r-markdown"><span class="header-section-number">2.5.2</span> R Markdown</h3>
+<p>In addition to leaving your future self explicit notes about how to engage with the project generally in a README document, it is also best practice to document your code in a way that makes it really clear what the code is doing and why. For this reason, we recommend using R Markdown documents (rather than R scripts) for your analysis.</p>
+<p>R Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to writing explanations, interpretations, thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time.</p>
+<p>R Markdown documents can also be “knitted” into html, pdf, or word documents, allowing you to share your analysis (and associated thoughts) with collaborators, even if they don’t know R.</p>
+<p>For a quick get up to speed on R Markdown and how to use it, check out RLadiesSydney <a href="https://rladiessydney.org/courses/ryouwithme/04-markymark-1/">#RYouWithMe MarkyMark module</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
