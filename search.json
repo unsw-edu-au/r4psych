@@ -4,174 +4,289 @@
     "href": "index.html",
     "title": "R for Psychology",
     "section": "",
-    "text": "Welcome!\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by what type data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie"
+    "text": "Welcome!\nThis book is written in mind for someone working in Psychology and is venturing into R with little to no experience. Research data in Psychology is unique in that it is collected in formats that are human-readable but not exactly R-readable. Data wrangling conventions will often vary depending on research question and therefore by what type data is collected. In “R for Psychology”, we have compiled a series of real-world examples from different sub-disciplines and will walk through the process of wrangling, summary, analyses and visualisations\nThis book is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\n\nHow to contribute\nThis book is built using Quarto and hosted via GitHub Pages. It is a living resource, we welcome any contributions from the Psychology community that would improve the quality of this book. There are many ways to contribute:\n\nFixing grammar and typos\nClarification or expanding on existing content\nContribute real-world data in worked examples\nAuthoring an entire chapter\n\nTake a look at our Contributing Guide to see how you can help!\n\n\nAcknowledgements\nThis book was created on the unceded territory of the Bedegal people who are the Traditional custodians of the lands where the Kensington campus is located.\nThe first version of this book was funded by the UNSW Research Infrastructure Scheme.\nWe would like to thank the following people who have contributed to the book:\n@daxkellie",
+    "crumbs": [
+      "Welcome!"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "1.1 What you will learn\nHow to:\nPre-analysis stages:\nAnalysis stages:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
   },
   {
     "objectID": "intro.html#what-you-will-learn",
     "href": "intro.html#what-you-will-learn",
     "title": "1  Introduction",
-    "section": "1.1 What you will learn",
-    "text": "1.1 What you will learn\nHow to:\n\nRead your hard-earned data into R\nWrangle and clean the data in a R-friendly format\nProduce summary statistics\nAnalyse your data\nVisualise your findings\n\nPre-analysis stages:\n\n\n\nAnalysis stages:"
+    "section": "",
+    "text": "Read your hard-earned data into R\nWrangle and clean the data in a R-friendly format\nProduce summary statistics\nAnalyse your data\nVisualise your findings",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
   },
   {
     "objectID": "intro.html#how-book-is-organised",
     "href": "intro.html#how-book-is-organised",
     "title": "1  Introduction",
     "section": "1.2 How book is organised",
-    "text": "1.2 How book is organised\nThis book is organised by data type (e.g. Survey data, Questionnaire data).\nEach chapter will walk through the process will work with real-world Psychology data and will walk you through reading in data, to cleaning and eventually analysis and visualising the results.\n\n1.2.1 Conventions\nWe will refer to packages as {dplyr} and functions as mean(). Variables and objects (such as file names or data objects) as age and mtcars. Where it would aid understanding, we will sometimes refer to functions within a particular packages as dplyr::mutute()"
+    "text": "1.2 How book is organised\nThis book is organised by data type (e.g. Survey data, Questionnaire data).\nEach chapter will walk through the process will work with real-world Psychology data and will walk you through reading in data, to cleaning and eventually analysis and visualising the results.\n\n1.2.1 Conventions\nWe will refer to packages as {dplyr} and functions as mean(). Variables and objects (such as file names or data objects) as age and mtcars. Where it would aid understanding, we will sometimes refer to functions within a particular packages as dplyr::mutute()",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
   },
   {
     "objectID": "intro.html#prerequisites",
     "href": "intro.html#prerequisites",
     "title": "1  Introduction",
     "section": "1.3 Prerequisites",
-    "text": "1.3 Prerequisites\nContent drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites\n\n1.3.1 R\nDownload Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)\n\n\n1.3.2 RStudio\nRStudio projects Point to resource about Rproj (SWC)\nRunning R code https://r4ds.hadley.nz/intro#running-r-code\n\n\n1.3.3 Version control with git\n\n1.3.3.1 What is git?\n\n\n1.3.3.2 Why do I need git?\n\n\n\n\n1.3.4 R packages\nEvery code section will always begin with calls to R packages. There will be code that is commented out (have # preceding the code) for you to install these if you don’t have them on your computer\n\n# install.packages(dplyr)\n\nlibrary(dplyr)\n\nThere are few R packages that will be on heavy rotation when it comes to working with Psychology data. #### {tidyverse}\n{tidyverse} is a collection of R packages that is essential to a data scientist’s toolkit. By installing {tidyverse} you are actually installing 8 other packages. The ones we will most often use include:\n\n{dplyr}\n{ggplot2}\n{tidyr}\n\nThe handy thing is, when you load the {tidyverse} library into R, it will load the core suite of packages for you instead of you loading each of them independently! Efficiency!! 🚀\n\nlibrary(tidyverse)\n\nOther packages that will be helpful for your R workflows include:\n\n{here}\n\n{janitor}\n\nAt the end of each chapter, we will also include our call to sessionInfo() so you can see what version of packages we are using."
+    "text": "1.3 Prerequisites\nContent drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites\n\n1.3.1 R\nDownload Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)\n\n\n1.3.2 RStudio\nRStudio projects Point to resource about Rproj (SWC)\nRunning R code https://r4ds.hadley.nz/intro#running-r-code\n\n\n1.3.3 Version control with git\n\n1.3.3.1 What is git?\n\n\n1.3.3.2 Why do I need git?\n\n\n\n\n1.3.4 R packages\nEvery code section will always begin with calls to R packages. There will be code that is commented out (have # preceding the code) for you to install these if you don’t have them on your computer\n\n# install.packages(dplyr)\n\nlibrary(dplyr)\n\nThere are few R packages that will be on heavy rotation when it comes to working with Psychology data. #### {tidyverse}\n{tidyverse} is a collection of R packages that is essential to a data scientist’s toolkit. By installing {tidyverse} you are actually installing 8 other packages. The ones we will most often use include:\n\n{dplyr}\n{ggplot2}\n{tidyr}\n\nThe handy thing is, when you load the {tidyverse} library into R, it will load the core suite of packages for you instead of you loading each of them independently! Efficiency!! 🚀\n\nlibrary(tidyverse)\n\nOther packages that will be helpful for your R workflows include:\n\n{here}\n\n{janitor}\n\nAt the end of each chapter, we will also include our call to sessionInfo() so you can see what version of packages we are using.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
   },
   {
     "objectID": "intro.html#virtual-environments",
     "href": "intro.html#virtual-environments",
     "title": "1  Introduction",
     "section": "1.4 Virtual environments",
-    "text": "1.4 Virtual environments\nSpeaking on what package versions as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted renv to create a reproducible environment for building this book.\n\n1.4.1 Download our virtual environment\nThe virtual environment used to build this book is stored in a lockfile. You can find this file in the GitHub repository where the source code of this book lives.\nThe lockfile is named renv.lock. You can download this file directly but clicking on the file name and clicking on the “Download raw file” button.\n\nAlternatively, you can clone our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in Happy Git by Jenny Bryan.\nOnce you have this file downloaded, move it in a relevant project directory and then we can let {renv} work its magic.\n\n\n1.4.2 Install\nFirst things first, lets install renv if we don’t have it already.\n\ninstall.packages(\"renv\")\n\nlibrary(renv)\n\n\n\n1.4.3 Recreate virtual enviroment\nNow let’s tell renv where our downloaded renv.lock file is. Specific the path to the file in the function restore() and you are good to go!\n\nrestore(lockfile = \"path_to_renv.lock\")"
+    "text": "1.4 Virtual environments\nSpeaking on what package versions as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted renv to create a reproducible environment for building this book.\n\n1.4.1 Download our virtual environment\nThe virtual environment used to build this book is stored in a lockfile. You can find this file in the GitHub repository where the source code of this book lives.\nThe lockfile is named renv.lock. You can download this file directly but clicking on the file name and clicking on the “Download raw file” button.\n\nAlternatively, you can clone our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in Happy Git by Jenny Bryan.\nOnce you have this file downloaded, move it in a relevant project directory and then we can let {renv} work its magic.\n\n\n1.4.2 Install\nFirst things first, lets install renv if we don’t have it already.\n\ninstall.packages(\"renv\")\n\nlibrary(renv)\n\n\n\n1.4.3 Recreate virtual enviroment\nNow let’s tell renv where our downloaded renv.lock file is. Specific the path to the file in the function restore() and you are good to go!\n\nrestore(lockfile = \"path_to_renv.lock\")",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "organise.html",
+    "href": "organise.html",
+    "title": "2  Organise",
+    "section": "",
+    "text": "2.1 R projects\nR really cares about where things live on your computer, even if you don’t. Humans have gotten out of the habit of thinking very hard about where they put things on their machine - the search capabilities on the modern computer are quite good and you can generally find files quite easily by searching for them.\nWhen you are coding in R, however, you need to explicitly tell R where to find things. You can make this process much easier for yourself by always working within an RStudio Project.\nWhen you work within an RStudio project, you can reference everything in relation to the top level of that project folder. It doesn’t matter where that project folder lives on your machine (i.e. Desktop, Documents, OneDrive, Dropbox) the code you write is always relative to that folder. This means that you share that whole project folder with someone else (your collaborators or supervisor), and your code won’t break.\nAlways open RStudio by double clicking on the .RProj file in the folder on your machine. There is an icon in the top right corner of RStudio IDE that shows you which project you are working in and makes it easy to switch between projects.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
+    ]
   },
   {
     "objectID": "organise.html#r-projects",
     "href": "organise.html#r-projects",
     "title": "2  Organise",
-    "section": "2.1 R projects",
-    "text": "2.1 R projects\nR really cares about where things live on your computer, even if you don’t. Humans have gotten out of the habit of thinking very hard about where they put things on their machine - the search capabilities on the modern computer are quite good and you can generally find files quite easily by searching for them.\nWhen you are coding in R, however, you need to explicitly tell R where to find things. You can make this process much easier for yourself by always working within an RStudio Project.\nWhen you work within an RStudio project, you can reference everything in relation to the top level of that project folder. It doesn’t matter where that project folder lives on your machine (i.e. Desktop, Documents, OneDrive, Dropbox) the code you write is always relative to that folder. This means that you share that whole project folder with someone else (your collaborators or supervisor), and your code won’t break.\n\nWhen you start a new analysis project, create a New RStudio Project via the File tab.\n\n\n\n\nWorking in an RStudio Project\n\n\nAlways open RStudio by double clicking on the .RProj file in the folder on your machine. There is an icon in the top right corner of RStudio IDE that shows you which project you are working in and makes it easy to switch between projects."
+    "section": "",
+    "text": "When you start a new analysis project, create a New RStudio Project via the File tab.\n\n\n\n\nWorking in an RStudio Project",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
+    ]
   },
   {
     "objectID": "organise.html#where-is-here",
     "href": "organise.html#where-is-here",
     "title": "2  Organise",
     "section": "2.2 where is here?",
-    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will be reproducible by someone else.\nOnce you have installed the here() package, use it to tell R where you find your data like this.\n\nlibrary(here)\nlibrary(readr)\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan"
+    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will be reproducible by someone else.\nOnce you have installed the here() package, use it to tell R where you find your data like this.\n\nlibrary(here)\nlibrary(readr)\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
+    ]
   },
   {
     "objectID": "organise.html#folder-structure",
     "href": "organise.html#folder-structure",
     "title": "2  Organise",
     "section": "2.3 folder structure",
-    "text": "2.3 folder structure\nOnce you have your project set up, you might like to think about imposing some structure on it. It is mostly personal preference, but many analysis projects include the following folders.\n\ndata\n\nraw-data\nclean-data\n\noutput\n\nfigures\ntables\n\nmanuscript\n\nYou always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process separate, so a raw-data subfolder can be useful.\nIn addition, you might want to organise your figures and tables into an output folder and put any writing that you are doing in the manuscripts folder.\nUsually the scripts (or R Markdown) documents that you write your code in, live in the top level of your project file. In RStudio, your project structure might look something like this.\n\n\n\nA project structure template"
+    "text": "2.3 folder structure\nOnce you have your project set up, you might like to think about imposing some structure on it. It is mostly personal preference, but many analysis projects include the following folders.\n\ndata\n\nraw-data\nclean-data\n\noutput\n\nfigures\ntables\n\nmanuscript\n\nYou always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process separate, so a raw-data subfolder can be useful.\nIn addition, you might want to organise your figures and tables into an output folder and put any writing that you are doing in the manuscripts folder.\nUsually the scripts (or R Markdown) documents that you write your code in, live in the top level of your project file. In RStudio, your project structure might look something like this.\n\n\n\nA project structure template",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
+    ]
   },
   {
     "objectID": "organise.html#naming-things",
     "href": "organise.html#naming-things",
     "title": "2  Organise",
     "section": "2.4 naming things",
-    "text": "2.4 naming things\nWhen naming things in your analysis folder, it is a good idea to think about your future self. In all likelihood, when you come back to this analysis in a few months time, you will have no recollection how it actually worked, but you can leave yourself some breadcrumbs by being a bit intentional about naming things.\nYour file names should be meaningful and orderly. The name of the file should tell the new user (or future you) what is in the file and where it goes in the process.\n\ncleaning-functions.R\n1_wrangle.Rmd\n2_visualise.Rmd\n3_analyse.Rmd\n\nIn this project, I can tell by glancing at the file names that I have a script (.R) that contains functions and three R Markdown files that contain each stage of the analysis.\nSticking with lower case is a good idea; avoid special characters and use - or _ to fill any gaps.\nFind more useful naming tips in the Tidyverse Style guide."
+    "text": "2.4 naming things\nWhen naming things in your analysis folder, it is a good idea to think about your future self. In all likelihood, when you come back to this analysis in a few months time, you will have no recollection how it actually worked, but you can leave yourself some breadcrumbs by being a bit intentional about naming things.\nYour file names should be meaningful and orderly. The name of the file should tell the new user (or future you) what is in the file and where it goes in the process.\n\ncleaning-functions.R\n1_wrangle.Rmd\n2_visualise.Rmd\n3_analyse.Rmd\n\nIn this project, I can tell by glancing at the file names that I have a script (.R) that contains functions and three R Markdown files that contain each stage of the analysis.\nSticking with lower case is a good idea; avoid special characters and use - or _ to fill any gaps.\nFind more useful naming tips in the Tidyverse Style guide.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
+    ]
   },
   {
     "objectID": "organise.html#documenting-things",
     "href": "organise.html#documenting-things",
     "title": "2  Organise",
     "section": "2.5 documenting things",
-    "text": "2.5 documenting things\n\n2.5.1 README\nIn addition to the breadcrumbs that our file names leave, it is also a good idea to leave explicit notes to your future self (or someone else) in a README.md file. This is a simple text file that contains instructions for how the user should engage with your project.\nCreate a new Markdown file and save it as README.md\nUse it to leave yourself instructions that look a bit like this.\n\n\n\nAn example README file\n\n\n\n\n2.5.2 R Markdown\nIn addition to leaving your future self explicit notes about how to engage with the project generally in a README document, it is also best practice to document your code in a way that makes it really clear what the code is doing and why. For this reason, we recommend using R Markdown documents (rather than R scripts) for your analysis.\nR Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to writing explanations, interpretations, thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time.\nR Markdown documents can also be “knitted” into html, pdf, or word documents, allowing you to share your analysis (and associated thoughts) with collaborators, even if they don’t know R.\nFor a quick get up to speed on R Markdown and how to use it, check out RLadiesSydney #RYouWithMe MarkyMark module"
+    "text": "2.5 documenting things\n\n2.5.1 README\nIn addition to the breadcrumbs that our file names leave, it is also a good idea to leave explicit notes to your future self (or someone else) in a README.md file. This is a simple text file that contains instructions for how the user should engage with your project.\nCreate a new Markdown file and save it as README.md\nUse it to leave yourself instructions that look a bit like this.\n\n\n\nAn example README file\n\n\n\n\n2.5.2 R Markdown\nIn addition to leaving your future self explicit notes about how to engage with the project generally in a README document, it is also best practice to document your code in a way that makes it really clear what the code is doing and why. For this reason, we recommend using R Markdown documents (rather than R scripts) for your analysis.\nR Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to writing explanations, interpretations, thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time.\nR Markdown documents can also be “knitted” into html, pdf, or word documents, allowing you to share your analysis (and associated thoughts) with collaborators, even if they don’t know R.\nFor a quick get up to speed on R Markdown and how to use it, check out RLadiesSydney #RYouWithMe MarkyMark module",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
+    ]
+  },
+  {
+    "objectID": "import.html",
+    "href": "import.html",
+    "title": "3  Import",
+    "section": "",
+    "text": "3.1 Reading in Excel spreadsheets\nThis is gobbledygook.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
+    ]
   },
   {
     "objectID": "import.html#reading-in-excel-spreadsheets",
     "href": "import.html#reading-in-excel-spreadsheets",
     "title": "3  Import",
-    "section": "3.1 Reading in Excel spreadsheets",
-    "text": "3.1 Reading in Excel spreadsheets\nThis is\n\n3.1.1 Reading in .csv"
+    "section": "",
+    "text": "3.1.1 Reading in .csv",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
+    ]
   },
   {
     "objectID": "import.html#reading-in-spss",
     "href": "import.html#reading-in-spss",
     "title": "3  Import",
     "section": "3.2 Reading in SPSS",
-    "text": "3.2 Reading in SPSS"
+    "text": "3.2 Reading in SPSS",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
+    ]
   },
   {
     "objectID": "import.html#reading-in-qualtrics-data",
     "href": "import.html#reading-in-qualtrics-data",
     "title": "3  Import",
     "section": "3.3 Reading in Qualtrics data",
-    "text": "3.3 Reading in Qualtrics data\n\n3.3.1 Reading in .sav"
+    "text": "3.3 Reading in Qualtrics data\n\n3.3.1 Reading in .sav",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
+    ]
   },
   {
-    "objectID": "wrangle.html#clean-names",
-    "href": "wrangle.html#clean-names",
+    "objectID": "wrangle.html",
+    "href": "wrangle.html",
     "title": "4  Wrangle",
-    "section": "4.1 Clean names",
-    "text": "4.1 Clean names"
+    "section": "",
+    "text": "4.1 Clean names",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Wrangle</span>"
+    ]
   },
   {
     "objectID": "wrangle.html#dealing-with-labels",
     "href": "wrangle.html#dealing-with-labels",
     "title": "4  Wrangle",
     "section": "4.2 Dealing with labels",
-    "text": "4.2 Dealing with labels"
+    "text": "4.2 Dealing with labels",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Wrangle</span>"
+    ]
   },
   {
     "objectID": "wrangle.html#exclusions",
     "href": "wrangle.html#exclusions",
     "title": "4  Wrangle",
     "section": "4.3 Exclusions",
-    "text": "4.3 Exclusions\nmutate case_when\nfilter"
+    "text": "4.3 Exclusions\nmutate case_when\nfilter",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Wrangle</span>"
+    ]
   },
   {
     "objectID": "wrangle.html#creating-scales-and-indexes",
     "href": "wrangle.html#creating-scales-and-indexes",
     "title": "4  Wrangle",
     "section": "4.4 Creating scales and indexes",
-    "text": "4.4 Creating scales and indexes\ngroup_by summarise\nrow_wise mutate\n\n4.4.1 Checking reliabilty"
+    "text": "4.4 Creating scales and indexes\ngroup_by summarise\nrow_wise mutate\n\n4.4.1 Checking reliabilty",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Wrangle</span>"
+    ]
   },
   {
     "objectID": "inferences.html",
     "href": "inferences.html",
     "title": "7  Making Inferences",
     "section": "",
-    "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2"
+    "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Making Inferences</span>"
+    ]
+  },
+  {
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "8  Contributing",
+    "section": "",
+    "text": "8.0.1 GitHub Workflow",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
+    ]
   },
   {
     "objectID": "contributing.html#book-structure",
     "href": "contributing.html#book-structure",
     "title": "8  Contributing",
     "section": "8.1 Book Structure",
-    "text": "8.1 Book Structure"
+    "text": "8.1 Book Structure",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
+    ]
   },
   {
     "objectID": "contributing.html#book-practices-and-conventions",
     "href": "contributing.html#book-practices-and-conventions",
     "title": "8  Contributing",
     "section": "8.2 Book Practices and Conventions",
-    "text": "8.2 Book Practices and Conventions"
+    "text": "8.2 Book Practices and Conventions",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
+    ]
   },
   {
     "objectID": "contributing.html#book-contributions",
     "href": "contributing.html#book-contributions",
     "title": "8  Contributing",
     "section": "8.3 Book Contributions",
-    "text": "8.3 Book Contributions\n\n8.3.1 Edits\n\n\n8.3.2 Additions"
+    "text": "8.3 Book Contributions\n\n8.3.1 Edits\n\n\n8.3.2 Additions",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
+    ]
   },
   {
     "objectID": "contributing.html#contribution-review",
     "href": "contributing.html#contribution-review",
     "title": "8  Contributing",
     "section": "8.4 Contribution Review",
-    "text": "8.4 Contribution Review"
+    "text": "8.4 Contribution Review",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
+    ]
   },
   {
     "objectID": "appendix.html",
     "href": "appendix.html",
     "title": "10  Appendix",
     "section": "",
-    "text": "11 how to install packages\nYou only need to install a package once on your machine. Once the package is installed, you will need to use library() to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab."
+    "text": "11 how to install packages\nYou only need to install a package once on your machine. Once the package is installed, you will need to use library() to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+    ]
   },
   {
     "objectID": "appendix.html#option-1",
     "href": "appendix.html#option-1",
     "title": "10  Appendix",
     "section": "11.1 option 1",
-    "text": "11.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")"
+    "text": "11.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+    ]
   },
   {
     "objectID": "appendix.html#option-2",
     "href": "appendix.html#option-2",
     "title": "10  Appendix",
     "section": "11.2 option 2",
-    "text": "11.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work."
+    "text": "11.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+    ]
   }
 ]
