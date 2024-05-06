@@ -2,7 +2,7 @@
 
 ## Reading in Excel spreadsheets
 
-This is
+This is gobbledygook.
 
 ### Reading in .csv
 
