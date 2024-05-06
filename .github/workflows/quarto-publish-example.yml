@@ -29,7 +29,7 @@ jobs:
           # version: SPECIFIC-QUARTO-VERSION-HERE
       
       # add software dependencies here and any libraries
-      From https://github.com/r-lib/actions/tree/v2-branch/setup-r
+      #From https://github.com/r-lib/actions/tree/v2-branch/setup-r
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
         
