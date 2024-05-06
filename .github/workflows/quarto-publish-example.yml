@@ -41,6 +41,7 @@ jobs:
       # NOTE: If Publishing to GitHub Pages, set the permissions correctly (see top of this yaml)
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
+        path: "book/"
         with:
           target: gh-pages
         env:
