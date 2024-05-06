@@ -242,7 +242,7 @@
     "href": "organise.html#where-is-here",
     "title": "2  Organise",
     "section": "2.2 where is here?",
-    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will be reproducible by someone else.\nOnce you have installed the here() package, use it to tell R where you find your data like this.\n\nlibrary(here)\nlibrary(readr)\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan"
+    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will be reproducible by someone else.\nOnce you have installed the here() package, use it to tell R where you find your data like this.\n\nlibrary(here)\nlibrary(readr)\n\nmydata <- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan"
   },
   {
     "objectID": "appendix.html",
