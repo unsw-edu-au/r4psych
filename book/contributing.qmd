@@ -21,12 +21,26 @@ Start by getting yourself an account at GitHub [by signing up here](https://gith
 
 #### Install git
 
-Now, follow [these instructions](https://happygitwithr.com/install-git) from "Happy Git with R"  to install git to your computer. 
+Follow [these instructions](https://happygitwithr.com/install-git) from "Happy Git with R"  to install git to your computer. 
+
+#### Install a git client
+
+Traditionally, git has been used in the shell terminal. This means that you have to type out commands to tell git what to do. This method can become a little overwhelming when you are starting out because you have to learn all the different commands. 
+
+ If you are starting out with git and GitHub, I suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative. 
+
+There are many [git clients to choose from](https://git-scm.com/downloads/guis). Once you start to get the hang on things, all of these clients are much of the same and its a matter of personal preference.
+
+If you are an RStudio user, there is a [git tab that is built-in](https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html#configurerstudio) to the interface, its features it more simplified than the previously mentioned git clients but does the basic commands that we will talk about next. 
+
+#### Cloning: make a local copy
+
+Ok, now that we have all the installation out of the way, we can get started. 
 
 
-#### Make a local copy
+#### Stage and add: Track your files
 
-First let's get you started by getti
+
 
 
 
