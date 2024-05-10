@@ -218,12 +218,28 @@ ul.task-list li input[type="checkbox"] {
 <p>Importantly, <strong>all skill levels</strong> are welcome to contribute, even if you think your skills are not up to scratch - this is what this guide is for!</p>
 <section id="github-workflow" class="level3" data-number="8.0.1">
 <h3 data-number="8.0.1" class="anchored" data-anchor-id="github-workflow"><span class="header-section-number">8.0.1</span> GitHub Workflow</h3>
-<p>First let’s talk about the GitHub part of the workflow.</p>
-<p>The content of our book lives publicly in a repository within the UNSW GitHub Organisation.</p>
+<p>Let’s talk about the Git/GitHub part of the workflow. Git is a <strong>version control</strong> system. It that <strong>tracks changes in our code</strong> that generated this book and helps us <strong>coordinate our collaborative edits</strong>.</p>
+<p>Git monitors the changes in a project directory a.k.a <strong>repository</strong> or “repo”. There are two types of repositories:</p>
+<ul>
+<li><p><strong>Local</strong> repository: This is a project directory that exists <em>locally</em> in your computer than git is actively watching over.</p></li>
+<li><p><strong>Remote</strong> repository: This is a <strong>synced</strong> copy of your local repo. The <a href="https://github.com/unsw-edu-au/r4psych">remote repo</a> for this book lives on GitHub. GitHub <strong>centralises</strong> our collaborative efforts. It provides a platform for the community to make a local copy of the book, create changes and introduce them back to the remote repository. GitHub also acts as the hosting service for the book itself which is also a big bonus for us.</p></li>
+</ul>
+<section id="sign-up-to-github" class="level4" data-number="8.0.1.1">
+<h4 data-number="8.0.1.1" class="anchored" data-anchor-id="sign-up-to-github"><span class="header-section-number">8.0.1.1</span> Sign up to GitHub</h4>
+<p>Start by getting yourself an account at GitHub <a href="https://github.com/signup">by signing up here</a></p>
+</section>
+<section id="install-git" class="level4" data-number="8.0.1.2">
+<h4 data-number="8.0.1.2" class="anchored" data-anchor-id="install-git"><span class="header-section-number">8.0.1.2</span> Install git</h4>
+<p>Now, follow <a href="https://happygitwithr.com/install-git">these instructions</a> from “Happy Git with R” to install git to your computer.</p>
+</section>
+<section id="make-a-local-copy" class="level4" data-number="8.0.1.3">
+<h4 data-number="8.0.1.3" class="anchored" data-anchor-id="make-a-local-copy"><span class="header-section-number">8.0.1.3</span> Make a local copy</h4>
+<p>First let’s get you started by getti</p>
 <p>We will work in branches so as to not overwrite each other’s work, and let GitHub do what it does best.</p>
 <p>The main branch will be the current approved version of the book. The main branch is what displays at https://nasa-openscapes.github.io/earthdata-cloud-cookbook.</p>
 <p>A nice clean workflow with branches is to consider them temporary. You pull the most recent from main, you create a branch locally, you make your edits, you commit regularly, you push regularly to github.com, and then you create a pull request for it to be merged into main, and when it’s approved the branch is deleted on github.com and you also delete it locally. That’s the workflow we’ll walk through here. A great resource on GitHub setup and collaboration is Happy Git with R, which includes fantastic background philosophy as well as bash commands for setup, workflows, and collaboration.</p>
 <p>The following assumes you’ve completed the initial setup from the previous chapter.</p>
+</section>
 </section>
 <section id="hello-quarto" class="level3" data-number="8.0.2">
 <h3 data-number="8.0.2" class="anchored" data-anchor-id="hello-quarto"><span class="header-section-number">8.0.2</span> Hello Quarto!</h3>

@@ -6,9 +6,28 @@ Importantly, **all skill levels** are welcome to contribute, even if you think y
 
 ### GitHub Workflow
 
-First let’s talk about the GitHub part of the workflow.
+Let’s talk about the Git/GitHub part of the workflow. Git is a **version control** system. It that **tracks changes in our code** that generated this book and helps us **coordinate our collaborative edits**. 
 
-The content of our book lives publicly in a repository within the UNSW GitHub Organisation. 
+Git monitors the changes in a project directory a.k.a **repository** or "repo". There are two types of repositories: 
+
+- **Local** repository: This is a project directory that exists _locally_ in your computer than git is actively watching over. 
+
+- **Remote** repository: This is a **synced** copy of your local repo. The [remote repo](https://github.com/unsw-edu-au/r4psych) for this book lives on GitHub. GitHub **centralises** our collaborative efforts. It provides a platform for the community to make a local copy of the book, create changes and introduce them back to the remote repository. GitHub also acts as the hosting service for the book itself which is also a big bonus for us. 
+
+#### Sign up to GitHub
+
+Start by getting yourself an account at GitHub [by signing up here](https://github.com/signup)
+
+
+#### Install git
+
+Now, follow [these instructions](https://happygitwithr.com/install-git) from "Happy Git with R"  to install git to your computer. 
+
+
+#### Make a local copy
+
+First let's get you started by getti
+
 
 
 
