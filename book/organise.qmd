@@ -6,23 +6,23 @@ With this goal in mind, there are a few best practices we recommend, to ensure t
 
 ## R projects
 
-R really cares about where things live on your computer, even if you don't. Humans have gotten out of the habit of thinking very hard about where they put things on their machine - the search capabilities on the modern computer are quite good and you can generally find files quite easily by searching for them.
+R really cares about where things live on your computer, even if you don't. Humans have gotten out of the habit of thinking very hard about where they put things on their machine; the search capabilities on the modern computer are quite good and you can generally find files quite easily by searching for them.
 
 When you are coding in R, however, you need to explicitly tell R where to find things. You can make this process much easier for yourself by always working within an RStudio Project.
 
-When you work within an RStudio project, you can reference everything in relation to the top level of that project folder. It doesn't matter where that project folder lives on your machine (i.e. Desktop, Documents, OneDrive, Dropbox) the code you write is always relative to that folder. This means that you share that whole project folder with someone else (your collaborators or supervisor), and your code won't break.
+When you work within an RStudio project, you can reference everything in relation to the top level of that project folder. It doesn't matter where that project folder lives on your machine (i.e. Desktop, Documents, OneDrive, Dropbox) the code you write is always relative to your project folder. This means that you can share that whole project folder with someone else (your collaborators or supervisor), and your code won't break.
 
 > When you start a new analysis project, create a New RStudio Project via the File tab.
 
-![Working in an RStudio Project](images/project.png)
+![Working in an RStudio Project called my_new_analysis](images/project.png)
 
-Always open RStudio by double clicking on the .RProj file in the folder on your machine. There is an icon in the top right corner of RStudio IDE that shows you which project you are working in and makes it easy to switch between projects.
+Always open RStudio by double clicking on the .RProj file in the folder on your machine. There is an icon in the top right corner of RStudio that shows you which project you are working in and makes it easy to switch between projects.
 
 ## where is here?
 
-Once you have set up a project to contain your analysis, you can avoid further file path drama by using the `here()` package. This package makes it super easy to refer to file paths and ensures that your code will be reproducible by someone else.
+Once you have set up a project to contain your analysis, you can avoid further file path drama by using the `here()` package. This package makes it super easy to refer to file paths and ensures that your code will work, even if someone else is trying to run it on a different computer.
 
-Once you have installed the `here()` package, use it to tell R where you find your data like this.
+Once you have installed the `here()` package, use it to tell R where you find your data like this. This code chunk loads there `here()` and `readr()` packages and then tells R to read in a csv file, located in the "data" folder, and the file is called file.csv
 
 ```{r eval = FALSE}
 library(here)
@@ -47,9 +47,11 @@ Once you have your project set up, you might like to think about imposing some s
     -   tables
 -   manuscript
 
-You always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process separate, so a raw-data subfolder can be useful.
+You always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process, so a raw-data subfolder can be useful.
 
 In addition, you might want to organise your figures and tables into an output folder and put any writing that you are doing in the manuscripts folder.
+
+> If you want to write a manuscript (or maybe your whole thesis!) using RMarkdown, check out the `papaja` (Preparing APA Journal Articles) package  
 
 Usually the scripts (or R Markdown) documents that you write your code in, live in the top level of your project file. In RStudio, your project structure might look something like this.
 
@@ -59,7 +61,7 @@ Usually the scripts (or R Markdown) documents that you write your code in, live 
 
 When naming things in your analysis folder, it is a good idea to think about your future self. In all likelihood, when you come back to this analysis in a few months time, you will have no recollection how it actually worked, but you can leave yourself some breadcrumbs by being a bit intentional about naming things. 
 
-Your file names should be meaningful and orderly. The name of the file should tell the new user (or future you) what is in the file and where it goes in the process.
+Your file names should be meaningful and orderly. The name of each file should tell the new user (or future you) what is in the file and where it goes in the process.
 
 -   cleaning-functions.R
 -   1_wrangle.Rmd
@@ -88,10 +90,10 @@ Use it to leave yourself instructions that look a bit like this.
 
 In addition to leaving your future self explicit notes about how to engage with the project generally in a README document, it is also best practice to document your code in a way that makes it really clear what the code is doing and why. For this reason, we recommend using R Markdown documents (rather than R scripts) for your analysis. 
 
-R Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to writing explanations, interpretations, thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time. 
+R Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to write explanations, interpretations, and thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time. 
 
 R Markdown documents can also be "knitted" into html, pdf, or word documents, allowing you to share your analysis (and associated thoughts) with collaborators, even if they don't know R. 
 
-For a quick get up to speed on R Markdown and how to use it, check out RLadiesSydney [#RYouWithMe MarkyMark module](https://rladiessydney.org/courses/ryouwithme/04-markymark-1/)
+To get up to speed on R Markdown and how to use it, check out RLadiesSydney [#RYouWithMe MarkyMark module](https://rladiessydney.org/courses/ryouwithme/04-markymark-1/)
 
 
