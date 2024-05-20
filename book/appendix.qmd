@@ -4,6 +4,11 @@ format: html
 editor: visual
 ---
 
+# how to install R and RStudio on your machine 
+
+The marvellous Danielle Navarro has LOTS of useful R learning resources on her YouTube channel. [This playlist](https://www.youtube.com/playlist?list=PLRPB0ZzEYegOZivdelOuEn-R-XUN-DOjd) about how to install R and RStudio is particularly useful; no matter which operating system you are dealing with... Dani has you covered.  
+
+
 # how to install packages
 
 You only need to install a package once on your machine. Once the package is installed, you will need to use `library()` to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab.
@@ -14,6 +19,7 @@ Install a package by typing the following command with the name of the package y
 
 ```         
 install.packages("packagename")
+
 ```
 
 ## option 2
@@ -23,3 +29,71 @@ Alternatively, search for the package you would like to install in the packages 
 ![You can search for packages and install them from CRAN via the packages tab](images/install.png)
 
 > Remember once you have installed a package, you will need to use the `library()` function to load it before it will work.
+
+## useful packages for psychology
+
+
+- `tidyverse` this is a cluster of super helpful data wrangling and visualisation tools. 
+- `here` this package helps direct R to the correct place for files based on the current working directory.
+- `janitor` this package helps us clean up data - especially awkward variable names.
+- `qualtRics` this package is helpful in reading in data files from Qualtrics... except for .sav SPSS format files! (see next)
+- `haven` this package is a good one for reading in .sav SPSS format files
+- `sjplot` this package is helpful for making a 'codebook' of your variables and values from imported .sav files
+- `surveytoolbox` this package is helpful in drawing out the value labels of variables imported in .sav format
+-- note: because `surveytoolbox` is on github and not CRAN, you'll want to do the following two steps *in the console*. Note that we do this in the console since we only need to do it once! If the install asks you about updating packages, go ahead and do it!
+---(1) install the `devtools` package: install.packages("devtools") 
+---(2) install via github: devtools::install_github("martinctc/surveytoolbox") 
+- `ufs` this package (short for user friendly science) is a nice tool for computing the internal reliability of scales
+-- note: one of the commands we will use in `ufs` requires the `psych` package to be installed (but doesn't need to be loaded via `library()`). Ensure you install that first. Two steps:
+----(1) install the `remotes`` package: install.packages("remotes") 
+----(2) install via github_lab: remotes::install_gitlab('r-packages/ufs') 
+- `apa` nice for making statistical output into APA style
+- `gt` nice for making your tables look pretty
+- `apaTables` makes nice APA-styled tables of correlation, ANOVA, regression etc. output
+- `report` is a package to help with results reporting
+- `psych` is an umbrella package for lots of common psych tasks
+- `ez` is a great package for stats, including analysis of variance
+- `emmeans` is helpful for comparing specific means in a factorial design
+
+
+# using inline code
+
+> JR maybe this piece needs to go in a separate chapter about writing with RMarkdown, papaja etc
+
+
+```{r eval = FALSE}
+
+#pulls from the exclusions_summary tabyl created above
+
+comments_only_count <- exclusions_summary %>% filter(exclude_coded == "comments only") %>% pull(n)
+comments_only_count2 <- exclusions_summary$n[which(exclusions_summary$exclude_coded=="comments_only")]
+
+time_only_count <- exclusions_summary %>% filter(exclude_coded == "time only") %>% pull(n)
+variance_only_count <- exclusions_summary %>% filter(exclude_coded == "variance only") %>% pull(n)
+total <- exclusions_summary %>% filter(exclude_coded == "Total") %>% pull(n)
+kept <- exclusions_summary %>% filter(exclude_coded == "kept") %>% pull(n)
+
+```
+
+Use of inline code is really helpful in avoiding transcription errors and saving time when writing up! Here, we use code to pull in some descriptive statistics from the exclusion reason table we made above:
+
+> INSERT INLINE EXAMPLE HERE
+
+
+# helpful console commands
+
+- names(objectname) - returns a list of variable names for that dataframe, making it less likely you will type things incorrectly
+- getwd() - returns the path to the current working directory. Run this in the console.
+- rm(objectname) - removes the object from your global environment. Can be helpful in cleaning up any 'test' objects you make while troubleshooting code.
+- ?package - brings up the Help info for that package
+- ?function - brings up the Help info for that function
+
+# useful keyboard shortcuts
+
+Option-Command-I = inserts a new code chunk
+Command-Enter = runs the chunk of code that your cursor is in
+
+
+# commonly encountered errors
+
+

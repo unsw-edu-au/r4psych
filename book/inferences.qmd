@@ -1,7 +1,209 @@
-# Making Inferences
+# Infer
 
-Take it away Lisa! 
+# Moving into analyses
 
-```{r}
-1 + 1
+> thoughts from Jenny : I wonder whether it would be useful to structure this in terms of lets combine skills from previous chapters to..
+
+1.  ask a question,
+2.  get plots/descriptives
+3.  then answer it with inferentials?
+4.  And repeat that process for t-test, linear regression and anova?
+
+## Plots and descriptives
+
+Now, let's test whether this scale varies by condition (condition 1 vs. condition 2 in condition12).
+
+Before jumping into t-tests, let's first visualise the data (scale1_index) to get a sense of what it looks like.
+
+The first command here tells R to treat condition12 as a categorical variable that groups the data (technically, a factor). This is helpful for plotting. The code uses the `dataframe$variablename` structure to do a command on just one variable.
+
+The second command pipes the data into a command to create a boxplot (`geom_boxplot`) with the datapoints plotted as well (`geom_jitter`).The `width` command makes the plotting of the dots a bit narrower to help with interpretation.
+
+```{r eval = FALSE}
+
+data_scalescomputed$condition12 <- as.factor(data_scalescomputed$condition12)
+
+data_scalescomputed %>%
+  ggplot(aes(x = condition12, y = scale1_index, fill = condition12)) +
+  geom_boxplot(alpha = .5) +
+  geom_jitter(alpha = .5, width = 0.2)
+
+```
+
+Based on the boxplot, we'd expect a t-test to be nonsignificant - the wide boxes of the plots for each condition overlap, even though the mean of condition 2 is slightly higher than condition 1 (the horizontal line through the box).
+
+## t-test
+
+The first line of code uses the base R command to run a t-test. It tells R to do the test on the `data_scalescomputed` data frame, asking whether `scale1_index` varies by (\~) condition. `var.` sets the assumption of variance and `conf.level` sets the desired alpha of the test. That command is wrapped in the handy `t_apa` function, which makes the output much easier to read (and pull directly into a write-up!), and also allows us to get a confidence interval on the effect size (`es_ci`).
+
+For reporting, you'd probably also want to know the means and standard deviations by condition. The next bit of code asks R to do this, using the `summarise` function, separately for each condition. Reminder to use `na.rm` here to account for any missing values.
+
+The `gt()` command shows the requested dataframe in a nice formatting.
+
+```{r eval = FALSE}
+
+t_apa(t.test(data = data_scalescomputed, scale1_index ~ condition12, var. = TRUE, conf.level = .95), es_ci = TRUE)
+
+
+scale1_by_condition12 <- data_scalescomputed %>%
+  group_by(condition12) %>%
+  summarise(mean_scale1 = mean(scale1_index, na.rm = TRUE),
+            sd_scale1 = sd(scale1_index, na.rm = TRUE))
+
+
+gt(scale1_by_condition12)
+
+```
+
+# Linear regression
+
+*lw_addnarrativehere*
+
+-   outcome: variable_6
+-   step 1: demographics_categ
+-   step 2: variable_4
+-   step 3: scale1_index
+
+this asks the lm package to use predictor to predict outcome
+
+lm(outcome \~ predictor )
+
+```{r eval = FALSE}
+
+regression1 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4 + scale1_index)
+
+summary(regression1)
+
+```
+
+*lw_addnarrativehere* simulates hierarchical stepwise regression?
+
+```{r eval = FALSE}
+
+regressionlm1 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg)
+regressionlm2 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4)
+regressionlm3 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4 + scale1_index)
+
+summary(regressionlm1)
+summary(regressionlm2)
+summary(regressionlm3)
+
+
+apa.reg.table(regressionlm1, regressionlm2, regressionlm3, filename = here("output_files","RegressionTable3_APA.doc"), table.number = 3)
+
+report(regressionlm3)
+
+
+```
+
+# Analysis of Variance (ANOVA)
+
+*lw add narrative*
+
+4 (between participants - condition1234) x2 (between participants - individual difference categorical variable - demographicscateg) design
+
+outcome: scale1_index
+
+```{r eval = FALSE}
+
+## first tell R that condition and demographicscateg are categorical (factors)
+
+data_scalescomputed$condition1234 <- as.factor(data_scalescomputed$condition1234)
+data_scalescomputed$demographicscateg <- as.factor(data_scalescomputed$demographicscateg)
+
+## this creates a dataframe that contains the summary statistics (means, standard deviations, etc.)
+
+scale1_stats <- ezStats(data = data_scalescomputed, 
+                            dv = scale1_index,
+                            wid = participantid,
+                            between = c("condition1234","demographicscateg"))
+                            
+print(scale1_stats)
+
+## this carries out an anova with condition1234 and demographicscateg as between-participants factors
+## the output includes statistical tests of the main effect of condition1234, the main effect of demographicscateg, and the interaction between the two
+
+scale1_anova <- ezANOVA(data = data_scalescomputed, 
+                            dv = scale1_index,
+                            wid = participantid,
+                            between = c("condition1234","demographicscateg"),
+                            return_aov = TRUE)
+
+print(scale1_anova)
+
+## NOTE THAT THE FOLLOWING WOULD BE DONE TO FURTHER INVESTIGATE AN INTERACTION OR A DIFFERENCE IN A MULTI-CATEGORICAL VARIABLE. 
+## to build the contrasts we want to do (e.g., baseline vs. midpoint for PhD), we need to ask emmeans to create output to see what the rows represent.
+
+scale1_emm <- emmeans(scale1_anova$aov, ~ condition1234 * demographicscateg)
+
+scale1_emm
+
+## now we can create a set of named vectors that represent each of the 8 means, based on the position in the 8-item list from emmeans.
+
+cond1categ1 = c(1,0,0,0,0,0,0,0)
+cond2categ1 = c(0,1,0,0,0,0,0,0)
+cond3categ1 = c(0,0,1,0,0,0,0,0)
+cond4categ1 = c(0,0,0,1,0,0,0,0)
+cond1categ2 = c(0,0,0,0,1,0,0,0)
+cond2categ2 = c(0,0,0,0,0,1,0,0)
+cond3categ2 = c(0,0,0,0,0,0,1,0)
+cond4categ2 = c(0,0,0,0,0,0,0,1)
+
+cond1 = c(1,0,0,0,1,0,0,0)
+cond2 = c(0,1,0,0,0,1,0,0)
+cond3 = c(0,0,1,0,0,0,1,0)
+cond4 = c(0,0,0,1,0,0,0,1)
+
+
+## now we can ask for contrasts based on these vectors; we will explore the main effect of condition1234 by comparing each of the conditions to one another
+
+scale1_contrasts <- contrast(scale1_emm, method = list("cond1 - cond2" = cond1 - cond2,
+                                       "cond1 - cond3" = cond1 - cond3,
+                                       "cond1 - cond4" = cond1 - cond4,
+                                       "cond2 - cond3" = cond2 - cond3,
+                                       "cond2 - cond4" = cond2 - cond4,
+                                       "cond3 - cond4" = cond3 - cond4)) 
+  
+
+scale1_contrasts
+
+## here's a version with confidence intervals instead of t and p values
+
+scale1_contrastsCI <- scale1_contrasts %>%
+                          confint()
+
+scale1_contrastsCI
+
+#you may have a specific planned contrast to run. Here let's imagine you want to compare condition 2 to all of the other 3 conditions in one comparison.
+
+scale1_plannedcontraststats <- ezStats(data = data_scalescomputed, 
+                            dv = scale1_index,
+                            wid = participantid,
+                            between = c("condition1234"))
+
+scale1_plannedcontraststats
+
+cond2v134 = c(0,1,0,0,0,1,0,0)
+cond134v2 = c(1,0,1,1,1,0,1,1)
+
+scale1_plannedcontrasts <- contrast(scale1_emm, method = list("condition 1 vs all the rest" = cond2v134 - cond134v2))
+  
+scale1_plannedcontrasts
+```
+
+Let's make a figure!
+
+```{r eval = FALSE}
+
+data_scalescomputed %>%
+  ggplot(aes(x = condition1234, y = scale1_index, fill = demographicscateg)) +
+  geom_boxplot() +
+  theme_light()
+
+
+data_scalescomputed %>%
+  ggplot(aes(x = condition1234, y = scale1_index)) +
+  geom_boxplot() +
+  theme_light()
+
 ```
