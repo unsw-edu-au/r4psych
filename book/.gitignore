@@ -13,6 +13,8 @@ tmp
 *.html
 site_libs
 index.tex
-docs/ 
+docs/
 .quarto/
 .DS_Store
+
+/.quarto/
