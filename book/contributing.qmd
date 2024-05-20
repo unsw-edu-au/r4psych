@@ -21,21 +21,41 @@ Start by getting yourself an account at GitHub [by signing up here](https://gith
 
 #### Install git
 
-Follow [these instructions](https://happygitwithr.com/install-git) from "Happy Git with R"  to install git to your computer. 
+Follow [these instructions](https://happygitwithr.com/install-git) from "Happy Git with R"  to install git to your computer. There are specific instructions for different operating systems. 
 
 #### Install a git client
 
-Traditionally, git has been used in the shell terminal. This means that you have to type out commands to tell git what to do. This method can become a little overwhelming when you are starting out because you have to learn all the different commands. 
+Traditionally, git has been used in the shell terminal. This is the 'back-end' of the computer and you can interact with your computer using code. This means that you have to type out commands to tell git what to do. This method can become a little overwhelming when you are starting out because you have to learn all the different commands. 
 
- If you are starting out with git and GitHub, I suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative. 
+ If you are starting out with git and GitHub, we suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative. 
 
 There are many [git clients to choose from](https://git-scm.com/downloads/guis). Once you start to get the hang on things, all of these clients are much of the same and its a matter of personal preference.
 
-If you are an RStudio user, there is a [git tab that is built-in](https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html#configurerstudio) to the interface, its features it more simplified than the previously mentioned git clients but does the basic commands that we will talk about next. 
+If you are an RStudio user, there is a [git tab that is built-in](https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html#configurerstudio) to the interface, its features are more simplified than the previously mentioned  clients but does the basic commands that we will talk about next. 
+
+::: {.callout-note}
+For the rest of the chapter, we will focus on using Github Desktop, but the main git commands should translate to whichever client you are using. 
+:::
 
 #### Cloning: make a local copy
 
-Ok, now that we have all the installation out of the way, we can get started. 
+Now that we have all the installation out of the way, we can get started! 
+
+Lets first get you a local copy of the book onto your computer by "cloning" the repository
+
+Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych): 
+
+1. Click on the big green button that says **Code**
+
+![](images/remote_repo.png)
+
+Here you will find a dropdown menu on how to clone the code from the remote repo. 
+
+We will **stick with the default option of using HTTPS** a.k.a. cloning by using the URL of the remote repo. 
+
+3. Click on the copy URL button (The stacked squares icon)
+
+
 
 
 #### Stage and add: Track your files
