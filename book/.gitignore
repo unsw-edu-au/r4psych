@@ -1,5 +1,4 @@
-/.quarto/
-/_site/
+/.quart/_site/
 *.pdf
 .DS_Store
 .Rproj.user
@@ -14,3 +13,5 @@ tmp
 *.html
 site_libs
 index.tex
+docs/ 
+.quarto/
