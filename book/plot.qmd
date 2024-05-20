@@ -1,1 +1,17 @@
 # Plot
+
+## Plotting raw data
+
+`geom_point`
+
+`geom_histogram`
+
+`geom_boxplot`
+
+`geom_violin`
+
+
+## Plotting data summaries
+
+
+`geom_col`
