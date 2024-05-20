@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,8 +96,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -104,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./import.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./import.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Import</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -119,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R for Psychology</a> 
@@ -207,23 +215,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#reading-in-excel-spreadsheets" id="toc-reading-in-excel-spreadsheets" class="nav-link active" data-scroll-target="#reading-in-excel-spreadsheets"><span class="header-section-number">3.1</span> Reading in Excel spreadsheets</a>
+  <li><a href="#packages-for-this-chapter" id="toc-packages-for-this-chapter" class="nav-link active" data-scroll-target="#packages-for-this-chapter"><span class="header-section-number">4</span> Packages for this chapter</a>
   <ul class="collapse">
-  <li><a href="#reading-in-.csv" id="toc-reading-in-.csv" class="nav-link" data-scroll-target="#reading-in-.csv"><span class="header-section-number">3.1.1</span> Reading in .csv</a></li>
-  </ul></li>
-  <li><a href="#reading-in-spss" id="toc-reading-in-spss" class="nav-link" data-scroll-target="#reading-in-spss"><span class="header-section-number">3.2</span> Reading in SPSS</a></li>
-  <li><a href="#reading-in-qualtrics-data" id="toc-reading-in-qualtrics-data" class="nav-link" data-scroll-target="#reading-in-qualtrics-data"><span class="header-section-number">3.3</span> Reading in Qualtrics data</a>
+  <li><a href="#reading-in-excel-spreadsheets" id="toc-reading-in-excel-spreadsheets" class="nav-link" data-scroll-target="#reading-in-excel-spreadsheets"><span class="header-section-number">4.1</span> Reading in Excel spreadsheets</a>
   <ul class="collapse">
-  <li><a href="#reading-in-.sav" id="toc-reading-in-.sav" class="nav-link" data-scroll-target="#reading-in-.sav"><span class="header-section-number">3.3.1</span> Reading in .sav</a></li>
+  <li><a href="#reading-in-.csv" id="toc-reading-in-.csv" class="nav-link" data-scroll-target="#reading-in-.csv"><span class="header-section-number">4.1.1</span> Reading in .csv</a></li>
   </ul></li>
-  <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link" data-scroll-target="#read-in-the-data"><span class="header-section-number">4</span> Read in the data</a></li>
+  <li><a href="#reading-in-spss" id="toc-reading-in-spss" class="nav-link" data-scroll-target="#reading-in-spss"><span class="header-section-number">4.2</span> Reading in SPSS</a></li>
+  <li><a href="#reading-in-qualtrics-data" id="toc-reading-in-qualtrics-data" class="nav-link" data-scroll-target="#reading-in-qualtrics-data"><span class="header-section-number">4.3</span> Reading in Qualtrics data</a>
+  <ul class="collapse">
+  <li><a href="#reading-in-.sav" id="toc-reading-in-.sav" class="nav-link" data-scroll-target="#reading-in-.sav"><span class="header-section-number">4.3.1</span> Reading in .sav</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link" data-scroll-target="#read-in-the-data"><span class="header-section-number">5</span> Read in the data</a></li>
   </ul>
 </nav>
     </div>
@@ -245,74 +256,417 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
-<section id="reading-in-excel-spreadsheets" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="reading-in-excel-spreadsheets"><span class="header-section-number">3.1</span> Reading in Excel spreadsheets</h2>
+
+<section id="packages-for-this-chapter" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Packages for this chapter</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at C:/Users/lwilliams/Documents/r4psych_book</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'janitor'
+
+The following objects are masked from 'package:stats':
+
+    chisq.test, fisher.test</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(surveytoolbox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="reading-in-excel-spreadsheets" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="reading-in-excel-spreadsheets"><span class="header-section-number">4.1</span> Reading in Excel spreadsheets</h2>
 <p>This is</p>
-<section id="reading-in-.csv" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="reading-in-.csv"><span class="header-section-number">3.1.1</span> Reading in .csv</h3>
+<section id="reading-in-.csv" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="reading-in-.csv"><span class="header-section-number">4.1.1</span> Reading in .csv</h3>
 </section>
 </section>
-<section id="reading-in-spss" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="reading-in-spss"><span class="header-section-number">3.2</span> Reading in SPSS</h2>
+<section id="reading-in-spss" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="reading-in-spss"><span class="header-section-number">4.2</span> Reading in SPSS</h2>
 </section>
-<section id="reading-in-qualtrics-data" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="reading-in-qualtrics-data"><span class="header-section-number">3.3</span> Reading in Qualtrics data</h2>
-<section id="reading-in-.sav" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="reading-in-.sav"><span class="header-section-number">3.3.1</span> Reading in .sav</h3>
+<section id="reading-in-qualtrics-data" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="reading-in-qualtrics-data"><span class="header-section-number">4.3</span> Reading in Qualtrics data</h2>
+<section id="reading-in-.sav" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="reading-in-.sav"><span class="header-section-number">4.3.1</span> Reading in .sav</h3>
 </section>
 </section>
-<section id="read-in-the-data" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Read in the data</h1>
+</section>
+<section id="read-in-the-data" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Read in the data</h1>
 <p>Remember the file setup described above? This is where that starts to be important. Remember, our working directory (i.e., where R thinks “here” is) was set via the Rproj file – so it is the “Williams Lab Core R” folder. You can check this by typing <code>getwd()</code> or <code>here()</code> in the console.</p>
 <p>For most of this core script, we’ll be using data from a file called sampledata.sav, which should be in the data subfolder from the zipped file. If not, sort that out now!</p>
 <p>A .sav file is in SPSS format. When you export from Qualtrics into .sav/SPSS format, it retains helpful information like question wording and response labels. If you export straight to .csv, you lose that info and will find yourself cross-checking back to Qualtrics. So, strong word of advice to always export to .sav.</p>
 <p>The code below uses the <code>here</code> command to direct R to the data folder <em>from the working directory</em>, and then the .sav file within it.</p>
 <p>The <code>glimpse</code> command gives a nice overview of the variables, their type, and a preview of the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"sampledata.sav"</span>)) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">here</span>(<span class="st">"book"</span>, <span class="st">"data"</span>, <span class="st">"sampledata.sav"</span>)) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 199
+Columns: 13
+$ participantid         &lt;dbl&gt; 103, 109, 118, 121, 122, 126, 128, 129, 132, 133…
+$ IPAddress             &lt;chr&gt; "73.173.1", "97.102.1", "108.30.2", "75.128.9", …
+$ Variable1             &lt;dbl+lbl&gt; 4, 1, 3, 2, 6, 3, 2, 1, 2, 2, 1, 7, 2, 1, 1,…
+$ Variable2             &lt;dbl+lbl&gt; 4, 4, 6, 5, 2, 6, 2, 4, 4, 3, 5, 2, 6, 5, 5,…
+$ Variable3             &lt;dbl+lbl&gt; 6, 4, 6, 5, 3, 6, 3, 4, 4, 3, 5, 2, 6, 5, 5,…
+$ Variable4             &lt;dbl&gt; 5, 4, 2, 2, 5, 6, 5, 1, 3, 3, 4, 5, 6, 5, 6, 3, …
+$ Variable5             &lt;dbl&gt; 5, 5, 3, 1, 6, 7, 6, 1, 4, 2, 5, 7, 6, 7, 4, 3, …
+$ Variable6             &lt;dbl&gt; 6, 6, 2, 1, 5, 6, 7, 3, 3, 4, 5, 6, 5, 6, 7, 2, …
+$ Demographicscateg     &lt;dbl+lbl&gt; 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1,…
+$ condition12           &lt;dbl+lbl&gt; 1, 2, 1, 1, 1, 2, 1, 2, 2, 1, 1, 2, 2, 1, 1,…
+$ condition1234         &lt;dbl+lbl&gt; 3, 3, 1, 2, 4, 1, 1, 3, 3, 3, 1, 1, 1, 1, 4,…
+$ comments              &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "", …
+$ CompletionTimeseconds &lt;dbl&gt; 527, 287, 391, 377, 359, 595, 296, 466, 296, 550…</code></pre>
+</div>
 </div>
 <p>These variable names won’t be very nice to work with with awkward and inconsistent capitalisation. Actual Qualtrics exports are even messier!</p>
 <p>The <code>clean_names</code> function from <code>janitor</code> helps clean them up!</p>
 <p><code>data_cleanednames &lt;-</code> at the start of the line saves the change to a new dataframe. Alternately, you could write it back to the same dataframe (e.g., <code>data &lt;-</code> ), but this should be done very intentionally as it makes it harder to backtrack to the source of an error. The general rule is to create a new dataframe each time you implement a big change on the data.</p>
 <p>The <code>glimpse</code> command here shows you that you effectively cleaned the variable names!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(data)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(data)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 199
+Columns: 13
+$ participantid          &lt;dbl&gt; 103, 109, 118, 121, 122, 126, 128, 129, 132, 13…
+$ ip_address             &lt;chr&gt; "73.173.1", "97.102.1", "108.30.2", "75.128.9",…
+$ variable1              &lt;dbl+lbl&gt; 4, 1, 3, 2, 6, 3, 2, 1, 2, 2, 1, 7, 2, 1, 1…
+$ variable2              &lt;dbl+lbl&gt; 4, 4, 6, 5, 2, 6, 2, 4, 4, 3, 5, 2, 6, 5, 5…
+$ variable3              &lt;dbl+lbl&gt; 6, 4, 6, 5, 3, 6, 3, 4, 4, 3, 5, 2, 6, 5, 5…
+$ variable4              &lt;dbl&gt; 5, 4, 2, 2, 5, 6, 5, 1, 3, 3, 4, 5, 6, 5, 6, 3,…
+$ variable5              &lt;dbl&gt; 5, 5, 3, 1, 6, 7, 6, 1, 4, 2, 5, 7, 6, 7, 4, 3,…
+$ variable6              &lt;dbl&gt; 6, 6, 2, 1, 5, 6, 7, 3, 3, 4, 5, 6, 5, 6, 7, 2,…
+$ demographicscateg      &lt;dbl+lbl&gt; 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1…
+$ condition12            &lt;dbl+lbl&gt; 1, 2, 1, 1, 1, 2, 1, 2, 2, 1, 1, 2, 2, 1, 1…
+$ condition1234          &lt;dbl+lbl&gt; 3, 3, 1, 2, 4, 1, 1, 3, 3, 3, 1, 1, 1, 1, 4…
+$ comments               &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "",…
+$ completion_timeseconds &lt;dbl&gt; 527, 287, 391, 377, 359, 595, 296, 466, 296, 55…</code></pre>
+</div>
 </div>
 <p>A few things about working with files in SPSS format (.sav) before we continue. The reason why we bother with this is that the SPSS format maximises the information in the file. Unlike exporting to .csv or another spreadsheet format, .sav retains information about question wording (saved as a variable label) and response labelling (saved as a value label).</p>
 <p>If you look at the variable types at the right of the <code>glimpse</code> output, you’ll see the some of the variables are dbl (numeric) while some are dbl+lbl (numeric with labelled values). If you view the <code>data</code> object (by clicking on it in the Environment or using <code>view(data)</code>) you will see that some of the variables have the question wording below the variable name.</p>
 <p>Having this information on hand is really helpful when working with your data!</p>
 <p>The <code>view_df</code> function from the <code>sjPlot</code> package creates a really nicely formatted html file that includes variable names, question wording, response options, and response labelling. This code saves the html file to the <code>output_files</code> folder using the <code>here</code> package (which starts where your Rproj file is). This html file is nice as a reference for your own use or to share with a supervisor or collaborator!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames, <span class="at">file=</span><span class="fu">here</span>(<span class="st">"output_files"</span>,<span class="st">"spsstest_codebook.html"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Data frame: data_cleanednames</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">ID</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Name</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Label</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Values</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Value Labels</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">participantid</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 103-996</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">ip_address</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">&lt;output omitted&gt;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">3</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable1</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable 1 question wording</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">strongly disagree<br>
+strongly agree</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable 2 question wording</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">1<br>
+7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">strongly disagree<br>
+strongly agree</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable3</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable 3 question wording</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">strongly disgree<br>
+strongly agree</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">6</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable 4 question wording</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"><em>range: 1-7</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable 5 question wording</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 1-7</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">8</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable6</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable 6 question wording</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"><em>range: 1-7</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">9</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">demographicscateg</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">demographics question</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">category 1<br>
+category 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">10</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">condition12</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">two conditions</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">1<br>
+2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">condition 1<br>
+condition 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">11</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">condition1234</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">four conditions</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+2<br>
+3<br>
+4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">condition 1<br>
+condition 2<br>
+condition 3<br>
+condition 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">12</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">comments</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">comments</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">13</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">completion_timeseconds</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">completion time (seconds)</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 30-597</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames, <span class="at">file=</span><span class="fu">here</span>(<span class="st">"output_files"</span>,<span class="st">"spsstest_codebook.html"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Data frame: data_cleanednames</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">ID</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Name</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Label</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Values</td>
+<td data-quarto-table-cell-role="th" style="text-align: left; border-bottom: double; font-style: italic; font-weight: normal; padding: 0.2cm; vertical-align: top;">Value Labels</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">participantid</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 103-996</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">ip_address</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">&lt;output omitted&gt;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">3</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable1</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable 1 question wording</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">strongly disagree<br>
+strongly agree</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable 2 question wording</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">1<br>
+7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">strongly disagree<br>
+strongly agree</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable3</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable 3 question wording</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">strongly disgree<br>
+strongly agree</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">6</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable 4 question wording</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"><em>range: 1-7</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">7</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable5</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">variable 5 question wording</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 1-7</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">8</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable6</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">variable 6 question wording</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"><em>range: 1-7</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">9</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">demographicscateg</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">demographics question</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">category 1<br>
+category 2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">10</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">condition12</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">two conditions</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">1<br>
+2</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">condition 1<br>
+condition 2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">11</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">condition1234</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">four conditions</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">1<br>
+2<br>
+3<br>
+4</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">condition 1<br>
+condition 2<br>
+condition 3<br>
+condition 4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">12</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">comments</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;">comments</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top; background-color: #eeeeee;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">13</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">completion_timeseconds</td>
+<td style="text-align: left; padding: 0.2cm; vertical-align: top;">completion time (seconds)</td>
+<td colspan="2" style="text-align: left; padding: 0.2cm; vertical-align: top;"><em>range: 30-597</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <p>The <code>data_dict</code> function from <code>surveytoolbox</code> makes a dataframe with all the variable and response labels - similar to the html created above, but this can be called upon later in R as it’s now part of the environment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>datadictionary <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>datadictionary <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s say you just want to know the question wording or response labels for a particular variable, you can do this via code rather than checking the whole dataset. The <code>extract_vallab</code> command from <code>surveytoolbox</code> returns the value labels for a given variable.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_vallab</span>(<span class="st">"demographicscateg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_vallab</span>(<span class="st">"demographicscateg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+     id demographicscateg
+  &lt;dbl&gt; &lt;chr&gt;            
+1     1 category 1       
+2     2 category 2       </code></pre>
+</div>
 </div>
 <p>There are (evidently) times when packages <em>do not like</em> labelled data. So, here are a few tools for removing labels from the <code>haven</code> package. Keep these up your sleeve for problem solving later! <code>zap_labels</code> and <code>zap_label</code> not surprisingly removes the labels - the first removes the value labels and the second removes the variable labels! The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_zapped <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_labels</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_label</span>()</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>datadictionary_zapped <span class="ot">&lt;-</span> data_zapped <span class="sc">%&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_zapped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data_zapped <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_labels</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_label</span>()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>datadictionary_zapped <span class="ot">&lt;-</span> data_zapped <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_zapped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 199
+Columns: 13
+$ participantid          &lt;dbl&gt; 103, 109, 118, 121, 122, 126, 128, 129, 132, 13…
+$ ip_address             &lt;chr&gt; "73.173.1", "97.102.1", "108.30.2", "75.128.9",…
+$ variable1              &lt;dbl&gt; 4, 1, 3, 2, 6, 3, 2, 1, 2, 2, 1, 7, 2, 1, 1, 3,…
+$ variable2              &lt;dbl&gt; 4, 4, 6, 5, 2, 6, 2, 4, 4, 3, 5, 2, 6, 5, 5, 6,…
+$ variable3              &lt;dbl&gt; 6, 4, 6, 5, 3, 6, 3, 4, 4, 3, 5, 2, 6, 5, 5, 7,…
+$ variable4              &lt;dbl&gt; 5, 4, 2, 2, 5, 6, 5, 1, 3, 3, 4, 5, 6, 5, 6, 3,…
+$ variable5              &lt;dbl&gt; 5, 5, 3, 1, 6, 7, 6, 1, 4, 2, 5, 7, 6, 7, 4, 3,…
+$ variable6              &lt;dbl&gt; 6, 6, 2, 1, 5, 6, 7, 3, 3, 4, 5, 6, 5, 6, 7, 2,…
+$ demographicscateg      &lt;dbl&gt; 2, 2, 1, 2, 2, 2, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1,…
+$ condition12            &lt;dbl&gt; 1, 2, 1, 1, 1, 2, 1, 2, 2, 1, 1, 2, 2, 1, 1, 1,…
+$ condition1234          &lt;dbl&gt; 3, 3, 1, 2, 4, 1, 1, 3, 3, 3, 1, 1, 1, 1, 4, 2,…
+$ comments               &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "",…
+$ completion_timeseconds &lt;dbl&gt; 527, 287, 391, 377, 359, 595, 296, 466, 296, 55…</code></pre>
+</div>
 </div>
 <p>For the rest of this script, we will work with the <em>zapped</em> dataframe. This is the recommended approach to save headaches with errors down the line.</p>
 
@@ -399,10 +753,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -412,8 +783,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -425,7 +805,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -469,6 +972,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -494,6 +998,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -555,17 +1085,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./organise.html" class="pagination-link">
+      <a href="./organise.html" class="pagination-link" aria-label="Organise">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Organise</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./wrangle.html" class="pagination-link">
+      <a href="./wrangle.html" class="pagination-link" aria-label="Wrangle">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wrangle</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

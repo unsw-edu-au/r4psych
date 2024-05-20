@@ -1,5 +1,18 @@
 # Import
 
+# Packages for this chapter
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+library(haven)
+library(sjPlot)
+library(surveytoolbox)
+
+```
+
+
 ## Reading in Excel spreadsheets
 
 This is
@@ -24,9 +37,9 @@ The code below uses the `here` command to direct R to the data folder *from the 
 
 The `glimpse` command gives a nice overview of the variables, their type, and a preview of the data.
 
-```{r eval = FALSE}
+```{r}
 
-data <- read_sav(here("data", "sampledata.sav")) 
+data <- read_sav(here("book", "data", "sampledata.sav")) 
 
 glimpse(data)
 
@@ -41,7 +54,7 @@ The `clean_names` function from `janitor` helps clean them up!
 
 The `glimpse` command here shows you that you effectively cleaned the variable names!
 
-```{r eval = FALSE}
+```{r}
 
 data_cleanednames <- clean_names(data)
 
@@ -57,7 +70,7 @@ Having this information on hand is really helpful when working with your data!
 
 The `view_df` function from the `sjPlot` package creates a really nicely formatted html file that includes variable names, question wording, response options, and response labelling. This code saves the html file to the `output_files` folder using the `here` package (which starts where your Rproj file is). This html file is nice as a reference for your own use or to share with a supervisor or collaborator!
 
-```{r eval = FALSE}
+```{r }
 
 view_df(data_cleanednames)
 
@@ -67,21 +80,21 @@ view_df(data_cleanednames, file=here("output_files","spsstest_codebook.html"))
 
 The `data_dict` function from `surveytoolbox` makes a dataframe with all the variable and response labels - similar to the html created above, but this can be called upon later in R as it's now part of the environment. 
 
-```{r eval = FALSE}
+```{r }
 datadictionary <- data_cleanednames %>%
   data_dict()
 ```
 
 Let's say you just want to know the question wording or response labels for a particular variable, you can do this via code rather than checking the whole dataset. The `extract_vallab` command from `surveytoolbox` returns the value labels for a given variable.
 
-```{r eval = FALSE}
+```{r }
 data_cleanednames %>%
   extract_vallab("demographicscateg")
 ```
 
 There are (evidently) times when packages *do not like* labelled data. So, here are a few tools for removing labels from the `haven` package. Keep these up your sleeve for problem solving later! `zap_labels` and `zap_label` not surprisingly removes the labels - the first removes the value labels and the second removes the variable labels! The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.
 
-```{r eval = FALSE}
+```{r }
 
 data_zapped <- data_cleanednames %>%
   zap_labels() %>%
