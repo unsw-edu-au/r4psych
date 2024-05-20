@@ -4,4 +4,6 @@
 .Ruserdata
 ~$*
 *.docx
+/.quarto/
+/_site/
 
