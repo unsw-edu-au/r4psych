@@ -1,1 +1,48 @@
 # Describe
+
+## getting a feel for your data
+
+`str`
+
+`glimpse`
+
+`skimr`
+
+## counting things
+
+`group_by` + `summarise` + `count`
+
+`n`
+
+`tabyl`
+
+## getting descriptives
+
+`group_by` + `summarise` + `mean` & `sd`
+
+```{r eval = FALSE}
+
+scale1_by_condition12 <- data_scalescomputed %>%
+  group_by(condition12) %>%
+  summarise(mean_scale1 = mean(scale1_index, na.rm = TRUE),
+            sd_scale1 = sd(scale1_index, na.rm = TRUE))
+
+
+
+```
+
+### Three things to remember
+
+1.  When we compute means, we need to set the decimals via `round()`.
+2.  We also need to tell R to calculate the mean, even if some of the contributing data points are missing. This is what `na.rm = TRUE` does.
+3.  As noted above, `rowwise` asks R to do something for each row (which is what we want here -- to compute the mean of the contributing items for each participant). Whenever we use `rowwise` (or `group_by`), we need to `ungroup()` at the end to avoid issues down the line.
+
+## tables??
+
+`gt`
+
+```{r eval = FALSE}
+gt(scale1_by_condition12)
+```
+
+`apaTable`

@@ -37,16 +37,16 @@
   {
     "objectID": "contributing.html#book-structure",
     "href": "contributing.html#book-structure",
-    "title": "3  Contributing",
-    "section": "3.1 Book Structure",
-    "text": "3.1 Book Structure"
+    "title": "8  Contributing",
+    "section": "8.1 Book Structure",
+    "text": "8.1 Book Structure"
   },
   {
     "objectID": "contributing.html#book-practices-and-conventions",
     "href": "contributing.html#book-practices-and-conventions",
-    "title": "3  Contributing",
-    "section": "3.2 Book Practices and Conventions",
-    "text": "3.2 Book Practices and Conventions"
+    "title": "8  Contributing",
+    "section": "8.2 Book Practices and Conventions",
+    "text": "8.2 Book Practices and Conventions"
   },
   {
     "objectID": "contributing.html#book-edits",
@@ -58,9 +58,9 @@
   {
     "objectID": "contributing.html#contribution-review",
     "href": "contributing.html#contribution-review",
-    "title": "3  Contributing",
-    "section": "3.4 Contribution Review",
-    "text": "3.4 Contribution Review"
+    "title": "8  Contributing",
+    "section": "8.4 Contribution Review",
+    "text": "8.4 Contribution Review"
   },
   {
     "objectID": "intro.html#what-you-will-learn",
@@ -100,16 +100,16 @@
   {
     "objectID": "contributing.html#book-contributions",
     "href": "contributing.html#book-contributions",
-    "title": "3  Contributing",
-    "section": "3.3 Book Contributions",
-    "text": "3.3 Book Contributions\n\n3.3.1 Edits\n\n\n3.3.2 Additions"
+    "title": "8  Contributing",
+    "section": "8.3 Book Contributions",
+    "text": "8.3 Book Contributions\n\n8.3.1 Edits\n\n\n8.3.2 Additions"
   },
   {
     "objectID": "inferences.html",
     "href": "inferences.html",
-    "title": "6  Making Inferences",
+    "title": "7  Infer",
     "section": "",
-    "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2"
+    "text": "8 Moving into analyses\nlw_addnarrativehere\nthis asks the lm package to use predictor to predict outcome\nlm(outcome ~ predictor )\nregression1 &lt;- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4 + scale1_index)\n\nsummary(regression1)\nlw_addnarrativehere simulates hierarchical stepwise regression?\nregressionlm1 &lt;- lm(data = data_scalescomputed, variable6 ~ demographicscateg)\nregressionlm2 &lt;- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4)\nregressionlm3 &lt;- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4 + scale1_index)\n\nsummary(regressionlm1)\nsummary(regressionlm2)\nsummary(regressionlm3)\n\n\napa.reg.table(regressionlm1, regressionlm2, regressionlm3, filename = here(\"output_files\",\"RegressionTable3_APA.doc\"), table.number = 3)\n\nreport(regressionlm3)\nlw add narrative\n4 (between participants - condition1234) x2 (between participants - individual difference categorical variable - demographicscateg) design\noutcome: scale1_index\n## first tell R that condition and demographicscateg are categorical (factors)\n\ndata_scalescomputed$condition1234 &lt;- as.factor(data_scalescomputed$condition1234)\ndata_scalescomputed$demographicscateg &lt;- as.factor(data_scalescomputed$demographicscateg)\n\n## this creates a dataframe that contains the summary statistics (means, standard deviations, etc.)\n\nscale1_stats &lt;- ezStats(data = data_scalescomputed, \n                            dv = scale1_index,\n                            wid = participantid,\n                            between = c(\"condition1234\",\"demographicscateg\"))\n                            \nprint(scale1_stats)\n\n## this carries out an anova with condition1234 and demographicscateg as between-participants factors\n## the output includes statistical tests of the main effect of condition1234, the main effect of demographicscateg, and the interaction between the two\n\nscale1_anova &lt;- ezANOVA(data = data_scalescomputed, \n                            dv = scale1_index,\n                            wid = participantid,\n                            between = c(\"condition1234\",\"demographicscateg\"),\n                            return_aov = TRUE)\n\nprint(scale1_anova)\n\n## NOTE THAT THE FOLLOWING WOULD BE DONE TO FURTHER INVESTIGATE AN INTERACTION OR A DIFFERENCE IN A MULTI-CATEGORICAL VARIABLE. \n## to build the contrasts we want to do (e.g., baseline vs. midpoint for PhD), we need to ask emmeans to create output to see what the rows represent.\n\nscale1_emm &lt;- emmeans(scale1_anova$aov, ~ condition1234 * demographicscateg)\n\nscale1_emm\n\n## now we can create a set of named vectors that represent each of the 8 means, based on the position in the 8-item list from emmeans.\n\ncond1categ1 = c(1,0,0,0,0,0,0,0)\ncond2categ1 = c(0,1,0,0,0,0,0,0)\ncond3categ1 = c(0,0,1,0,0,0,0,0)\ncond4categ1 = c(0,0,0,1,0,0,0,0)\ncond1categ2 = c(0,0,0,0,1,0,0,0)\ncond2categ2 = c(0,0,0,0,0,1,0,0)\ncond3categ2 = c(0,0,0,0,0,0,1,0)\ncond4categ2 = c(0,0,0,0,0,0,0,1)\n\ncond1 = c(1,0,0,0,1,0,0,0)\ncond2 = c(0,1,0,0,0,1,0,0)\ncond3 = c(0,0,1,0,0,0,1,0)\ncond4 = c(0,0,0,1,0,0,0,1)\n\n\n## now we can ask for contrasts based on these vectors; we will explore the main effect of condition1234 by comparing each of the conditions to one another\n\nscale1_contrasts &lt;- contrast(scale1_emm, method = list(\"cond1 - cond2\" = cond1 - cond2,\n                                       \"cond1 - cond3\" = cond1 - cond3,\n                                       \"cond1 - cond4\" = cond1 - cond4,\n                                       \"cond2 - cond3\" = cond2 - cond3,\n                                       \"cond2 - cond4\" = cond2 - cond4,\n                                       \"cond3 - cond4\" = cond3 - cond4)) \n  \n\nscale1_contrasts\n\n## here's a version with confidence intervals instead of t and p values\n\nscale1_contrastsCI &lt;- scale1_contrasts %&gt;%\n                          confint()\n\nscale1_contrastsCI\n\n#you may have a specific planned contrast to run. Here let's imagine you want to compare condition 2 to all of the other 3 conditions in one comparison.\n\nscale1_plannedcontraststats &lt;- ezStats(data = data_scalescomputed, \n                            dv = scale1_index,\n                            wid = participantid,\n                            between = c(\"condition1234\"))\n\nscale1_plannedcontraststats\n\ncond2v134 = c(0,1,0,0,0,1,0,0)\ncond134v2 = c(1,0,1,1,1,0,1,1)\n\nscale1_plannedcontrasts &lt;- contrast(scale1_emm, method = list(\"condition 1 vs all the rest\" = cond2v134 - cond134v2))\n  \nscale1_plannedcontrasts\nLet’s make a figure!\ndata_scalescomputed %&gt;%\n  ggplot(aes(x = condition1234, y = scale1_index, fill = demographicscateg)) +\n  geom_boxplot() +\n  theme_light()\n\n\ndata_scalescomputed %&gt;%\n  ggplot(aes(x = condition1234, y = scale1_index)) +\n  geom_boxplot() +\n  theme_light()"
   },
   {
     "objectID": "import.html#reading-in-excel",
@@ -128,9 +128,9 @@
   {
     "objectID": "import.html#reading-in-spss",
     "href": "import.html#reading-in-spss",
-    "title": "2  Import",
-    "section": "2.2 Reading in SPSS",
-    "text": "2.2 Reading in SPSS"
+    "title": "3  Import",
+    "section": "3.2 Reading in SPSS",
+    "text": "3.2 Reading in SPSS"
   },
   {
     "objectID": "import.html#reading-in-qualtrics",
@@ -149,16 +149,16 @@
   {
     "objectID": "import.html#reading-in-qualtrics-data",
     "href": "import.html#reading-in-qualtrics-data",
-    "title": "2  Import",
-    "section": "2.3 Reading in Qualtrics data",
-    "text": "2.3 Reading in Qualtrics data\n\n2.3.1 Reading in .sav"
+    "title": "3  Import",
+    "section": "3.3 Reading in Qualtrics data",
+    "text": "3.3 Reading in Qualtrics data\n\n3.3.1 Reading in .sav"
   },
   {
     "objectID": "import.html#reading-in-excel-spreadsheets",
     "href": "import.html#reading-in-excel-spreadsheets",
-    "title": "2  Import",
-    "section": "2.1 Reading in Excel spreadsheets",
-    "text": "2.1 Reading in Excel spreadsheets\nThis is\n\n2.1.1 Reading in .csv"
+    "title": "3  Import",
+    "section": "3.1 Reading in Excel spreadsheets",
+    "text": "3.1 Reading in Excel spreadsheets\nThis is\n\n3.1.1 Reading in .csv"
   },
   {
     "objectID": "organise.html#r-projects",
@@ -186,7 +186,7 @@
     "href": "organise.html#documenting-things",
     "title": "2  Organise",
     "section": "2.5 documenting things",
-    "text": "2.5 documenting things\n\n2.5.1 README\nIn addition to the breadcrumbs that our file names leave, it is also a good idea to leave explicit notes to your future self (or someone else) in a README.md file. This is a simple text file that contains instructions for how the user should engage with your project.\nCreate a new Markdown file and save it as README.md\nUse it to leave yourself instructions that look a bit like this.\n\n\n\nAn example README file\n\n\n\n\n2.5.2 R Markdown\nIn addition to leaving your future self explicit notes about how to engage with the project generally in a README document, it is also best practice to document your code in a way that makes it really clear what the code is doing and why. For this reason, we recommend using R Markdown documents (rather than R scripts) for your analysis.\nR Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to write explanations, interpretations, thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time.\nR Markdown documents can also be “knitted” into html, pdf, or word documents, allowing you to share your analysis (and associated thoughts) with collaborators, even if they don’t know R.\nTo get up to speed on R Markdown and how to use it, check out RLadiesSydney #RYouWithMe MarkyMark module"
+    "text": "2.5 documenting things\n\n2.5.1 README\nIn addition to the breadcrumbs that our file names leave, it is also a good idea to leave explicit notes to your future self (or someone else) in a README.md file. This is a simple text file that contains instructions for how the user should engage with your project.\nCreate a new Markdown file and save it as README.md\nUse it to leave yourself instructions that look a bit like this.\n\n\n\nAn example README file\n\n\n\n\n2.5.2 R Markdown\nIn addition to leaving your future self explicit notes about how to engage with the project generally in a README document, it is also best practice to document your code in a way that makes it really clear what the code is doing and why. For this reason, we recommend using R Markdown documents (rather than R scripts) for your analysis.\nR Markdown is a handy file format that allows you to intersperse chunks of code with notes. This kind of document makes it easy to write explanations, interpretations, and thoughts for your future self as you code. This kind of documentation makes it much more likely to be able to make sense of what you have done and why, when you come back to your analysis in a few months time.\nR Markdown documents can also be “knitted” into html, pdf, or word documents, allowing you to share your analysis (and associated thoughts) with collaborators, even if they don’t know R.\nTo get up to speed on R Markdown and how to use it, check out RLadiesSydney #RYouWithMe MarkyMark module"
   },
   {
     "objectID": "organise.html#section",
@@ -242,14 +242,14 @@
     "href": "organise.html#where-is-here",
     "title": "2  Organise",
     "section": "2.2 where is here?",
-    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will work, even if someone else is trying to run it on a different computer.\nOnce you have installed the here() package, use it to tell R where you find your data like this. This code chunk loads there here() and readr() packages and then tells R to read in a csv file, located in the “data” folder, and the file is called file.csv\n\nlibrary(here)\nlibrary(readr)\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan"
+    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will work, even if someone else is trying to run it on a different computer.\nOnce you have installed the here() package, use it to tell R where you find your data like this. This code chunk loads there here() and readr() packages and then tells R to read in a csv file, located in the “data” folder, and the file is called file.csv\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan"
   },
   {
     "objectID": "appendix.html",
     "href": "appendix.html",
-    "title": "10  appendix",
+    "title": "10  Appendix",
     "section": "",
-    "text": "11 how to install packages\nYou only need to install a package once on your machine. Once the package is installed, you will need to use library() to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab."
+    "text": "11 how to install R and RStudio on your machine\nThe marvellous Danielle Navarro has LOTS of useful R learning resources on her YouTube channel. This playlist about how to install R and RStudio is particularly useful; no matter which operating system you are dealing with… Dani has you covered.\nYou only need to install a package once on your machine. Once the package is installed, you will need to use library() to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab.\n#pulls from the exclusions_summary tabyl created above\n\ncomments_only_count &lt;- exclusions_summary %&gt;% filter(exclude_coded == \"comments only\") %&gt;% pull(n)\ncomments_only_count2 &lt;- exclusions_summary$n[which(exclusions_summary$exclude_coded==\"comments_only\")]\n\ntime_only_count &lt;- exclusions_summary %&gt;% filter(exclude_coded == \"time only\") %&gt;% pull(n)\nvariance_only_count &lt;- exclusions_summary %&gt;% filter(exclude_coded == \"variance only\") %&gt;% pull(n)\ntotal &lt;- exclusions_summary %&gt;% filter(exclude_coded == \"Total\") %&gt;% pull(n)\nkept &lt;- exclusions_summary %&gt;% filter(exclude_coded == \"kept\") %&gt;% pull(n)\nUse of inline code is really helpful in avoiding transcription errors and saving time when writing up! Here, we use code to pull in some descriptive statistics from the exclusion reason table we made above:\nOption-Command-I = inserts a new code chunk Command-Enter = runs the chunk of code that your cursor is in"
   },
   {
     "objectID": "appendix.html#option-1-in-the-console",
@@ -268,16 +268,16 @@
   {
     "objectID": "appendix.html#option-1",
     "href": "appendix.html#option-1",
-    "title": "10  appendix",
-    "section": "11.1 option 1",
-    "text": "11.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")"
+    "title": "10  Appendix",
+    "section": "12.1 option 1",
+    "text": "12.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")"
   },
   {
     "objectID": "appendix.html#option-2",
     "href": "appendix.html#option-2",
-    "title": "10  appendix",
-    "section": "11.2 option 2",
-    "text": "11.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work."
+    "title": "10  Appendix",
+    "section": "12.2 option 2",
+    "text": "12.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work."
   },
   {
     "objectID": "organise.html#consist-folder-structure",
@@ -298,6 +298,76 @@
     "href": "organise.html#folder-structure",
     "title": "2  Organise",
     "section": "2.3 folder structure",
-    "text": "2.3 folder structure\nOnce you have your project set up, you might like to think about imposing some structure on it. It is mostly personal preference, but many analysis projects include the following folders.\n\ndata\n\nraw-data\nclean-data\n\noutput\n\nfigures\ntables\n\nmanuscript\n\nYou always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process, so a raw-data subfolder can be useful.\nIn addition, you might want to organise your figures and tables into an output folder and put any writing that you are doing in the manuscripts folder.\n\nIf you want to write a manuscript using RMarkdown, check out the papaja (Preparing APA Journal Articles) package\n\nUsually the scripts (or R Markdown) documents that you write your code in, live in the top level of your project file. In RStudio, your project structure might look something like this.\n\n\n\nA project structure template"
+    "text": "2.3 folder structure\nOnce you have your project set up, you might like to think about imposing some structure on it. It is mostly personal preference, but many analysis projects include the following folders.\n\ndata\n\nraw-data\nclean-data\n\noutput\n\nfigures\ntables\n\nmanuscript\n\nYou always want to keep your raw data untouched and separate from any data that you write back to your machine after your data cleaning process, so a raw-data subfolder can be useful.\nIn addition, you might want to organise your figures and tables into an output folder and put any writing that you are doing in the manuscripts folder.\n\nIf you want to write a manuscript (or maybe your whole thesis!) using RMarkdown, check out the papaja (Preparing APA Journal Articles) package\n\nUsually the scripts (or R Markdown) documents that you write your code in, live in the top level of your project file. In RStudio, your project structure might look something like this.\n\n\n\nA project structure template"
+  },
+  {
+    "objectID": "inferences.html#plots-and-descriptives",
+    "href": "inferences.html#plots-and-descriptives",
+    "title": "7  Infer",
+    "section": "8.1 Plots and descriptives",
+    "text": "8.1 Plots and descriptives\nNow, let’s test whether this scale varies by condition (condition 1 vs. condition 2 in condition12).\nBefore jumping into t-tests, let’s first visualise the data (scale1_index) to get a sense of what it looks like.\nThe first command here tells R to treat condition12 as a categorical variable that groups the data (technically, a factor). This is helpful for plotting. The code uses the dataframe$variablename structure to do a command on just one variable.\nThe second command pipes the data into a command to create a boxplot (geom_boxplot) with the datapoints plotted as well (geom_jitter).The width command makes the plotting of the dots a bit narrower to help with interpretation.\n\ndata_scalescomputed$condition12 &lt;- as.factor(data_scalescomputed$condition12)\n\ndata_scalescomputed %&gt;%\n  ggplot(aes(x = condition12, y = scale1_index, fill = condition12)) +\n  geom_boxplot(alpha = .5) +\n  geom_jitter(alpha = .5, width = 0.2)\n\nBased on the boxplot, we’d expect a t-test to be nonsignificant - the wide boxes of the plots for each condition overlap, even though the mean of condition 2 is slightly higher than condition 1 (the horizontal line through the box)."
+  },
+  {
+    "objectID": "inferences.html#t-test",
+    "href": "inferences.html#t-test",
+    "title": "7  Infer",
+    "section": "8.2 t-test",
+    "text": "8.2 t-test\nThe first line of code uses the base R command to run a t-test. It tells R to do the test on the data_scalescomputed data frame, asking whether scale1_index varies by (~) condition. var. sets the assumption of variance and conf.level sets the desired alpha of the test. That command is wrapped in the handy t_apa function, which makes the output much easier to read (and pull directly into a write-up!), and also allows us to get a confidence interval on the effect size (es_ci).\nFor reporting, you’d probably also want to know the means and standard deviations by condition. The next bit of code asks R to do this, using the summarise function, separately for each condition. Reminder to use na.rm here to account for any missing values.\nThe gt() command shows the requested dataframe in a nice formatting.\n\nt_apa(t.test(data = data_scalescomputed, scale1_index ~ condition12, var. = TRUE, conf.level = .95), es_ci = TRUE)\n\n\nscale1_by_condition12 &lt;- data_scalescomputed %&gt;%\n  group_by(condition12) %&gt;%\n  summarise(mean_scale1 = mean(scale1_index, na.rm = TRUE),\n            sd_scale1 = sd(scale1_index, na.rm = TRUE))\n\n\ngt(scale1_by_condition12)"
+  },
+  {
+    "objectID": "describe.html#getting-a-feel-for-your-data",
+    "href": "describe.html#getting-a-feel-for-your-data",
+    "title": "5  Describe",
+    "section": "5.1 getting a feel for your data",
+    "text": "5.1 getting a feel for your data\nstr\nglimpse\nskimr"
+  },
+  {
+    "objectID": "describe.html#counting-things",
+    "href": "describe.html#counting-things",
+    "title": "5  Describe",
+    "section": "5.2 counting things",
+    "text": "5.2 counting things\ngroup_by + summarise + count\nn\ntabyl"
+  },
+  {
+    "objectID": "describe.html#getting-descriptives",
+    "href": "describe.html#getting-descriptives",
+    "title": "5  Describe",
+    "section": "5.3 getting descriptives",
+    "text": "5.3 getting descriptives\ngroup_by + summarise + mean & sd\n\nscale1_by_condition12 &lt;- data_scalescomputed %&gt;%\n  group_by(condition12) %&gt;%\n  summarise(mean_scale1 = mean(scale1_index, na.rm = TRUE),\n            sd_scale1 = sd(scale1_index, na.rm = TRUE))\n\n\n5.3.1 Three things to remember\n\nWhen we compute means, we need to set the decimals via round().\nWe also need to tell R to calculate the mean, even if some of the contributing data points are missing. This is what na.rm = TRUE does.\nAs noted above, rowwise asks R to do something for each row (which is what we want here – to compute the mean of the contributing items for each participant). Whenever we use rowwise (or group_by), we need to ungroup() at the end to avoid issues down the line."
+  },
+  {
+    "objectID": "describe.html#tables",
+    "href": "describe.html#tables",
+    "title": "5  Describe",
+    "section": "5.4 tables??",
+    "text": "5.4 tables??\ngt\n\ngt(scale1_by_condition12)\n\napaTable"
+  },
+  {
+    "objectID": "import.html",
+    "href": "import.html",
+    "title": "3  Import",
+    "section": "",
+    "text": "4 Read in the data\nRemember the file setup described above? This is where that starts to be important. Remember, our working directory (i.e., where R thinks “here” is) was set via the Rproj file – so it is the “Williams Lab Core R” folder. You can check this by typing getwd() or here() in the console.\nFor most of this core script, we’ll be using data from a file called sampledata.sav, which should be in the data subfolder from the zipped file. If not, sort that out now!\nA .sav file is in SPSS format. When you export from Qualtrics into .sav/SPSS format, it retains helpful information like question wording and response labels. If you export straight to .csv, you lose that info and will find yourself cross-checking back to Qualtrics. So, strong word of advice to always export to .sav.\nThe code below uses the here command to direct R to the data folder from the working directory, and then the .sav file within it.\nThe glimpse command gives a nice overview of the variables, their type, and a preview of the data.\ndata &lt;- read_sav(here(\"data\", \"sampledata.sav\")) \n\nglimpse(data)\nThese variable names won’t be very nice to work with with awkward and inconsistent capitalisation. Actual Qualtrics exports are even messier!\nThe clean_names function from janitor helps clean them up!\ndata_cleanednames &lt;- at the start of the line saves the change to a new dataframe. Alternately, you could write it back to the same dataframe (e.g., data &lt;- ), but this should be done very intentionally as it makes it harder to backtrack to the source of an error. The general rule is to create a new dataframe each time you implement a big change on the data.\nThe glimpse command here shows you that you effectively cleaned the variable names!\ndata_cleanednames &lt;- clean_names(data)\n\nglimpse(data_cleanednames)\nA few things about working with files in SPSS format (.sav) before we continue. The reason why we bother with this is that the SPSS format maximises the information in the file. Unlike exporting to .csv or another spreadsheet format, .sav retains information about question wording (saved as a variable label) and response labelling (saved as a value label).\nIf you look at the variable types at the right of the glimpse output, you’ll see the some of the variables are dbl (numeric) while some are dbl+lbl (numeric with labelled values). If you view the data object (by clicking on it in the Environment or using view(data)) you will see that some of the variables have the question wording below the variable name.\nHaving this information on hand is really helpful when working with your data!\nThe view_df function from the sjPlot package creates a really nicely formatted html file that includes variable names, question wording, response options, and response labelling. This code saves the html file to the output_files folder using the here package (which starts where your Rproj file is). This html file is nice as a reference for your own use or to share with a supervisor or collaborator!\nview_df(data_cleanednames)\n\nview_df(data_cleanednames, file=here(\"output_files\",\"spsstest_codebook.html\"))\nThe data_dict function from surveytoolbox makes a dataframe with all the variable and response labels - similar to the html created above, but this can be called upon later in R as it’s now part of the environment.\ndatadictionary &lt;- data_cleanednames %&gt;%\n  data_dict()\nLet’s say you just want to know the question wording or response labels for a particular variable, you can do this via code rather than checking the whole dataset. The extract_vallab command from surveytoolbox returns the value labels for a given variable.\ndata_cleanednames %&gt;%\n  extract_vallab(\"demographicscateg\")\nThere are (evidently) times when packages do not like labelled data. So, here are a few tools for removing labels from the haven package. Keep these up your sleeve for problem solving later! zap_labels and zap_label not surprisingly removes the labels - the first removes the value labels and the second removes the variable labels! The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.\ndata_zapped &lt;- data_cleanednames %&gt;%\n  zap_labels() %&gt;%\n  zap_label()\n\ndatadictionary_zapped &lt;- data_zapped %&gt;%\n  data_dict()\n\nglimpse(data_zapped)\nFor the rest of this script, we will work with the zapped dataframe. This is the recommended approach to save headaches with errors down the line."
+  },
+  {
+    "objectID": "appendix.html#useful-packages-for-psychology",
+    "href": "appendix.html#useful-packages-for-psychology",
+    "title": "10  Appendix",
+    "section": "12.3 useful packages for psychology",
+    "text": "12.3 useful packages for psychology\n\ntidyverse this is a cluster of super helpful data wrangling and visualisation tools.\nhere this package helps direct R to the correct place for files based on the current working directory.\njanitor this package helps us clean up data - especially awkward variable names.\nqualtRics this package is helpful in reading in data files from Qualtrics… except for .sav SPSS format files! (see next)\nhaven this package is a good one for reading in .sav SPSS format files\nsjplot this package is helpful for making a ‘codebook’ of your variables and values from imported .sav files\nsurveytoolbox this package is helpful in drawing out the value labels of variables imported in .sav format – note: because surveytoolbox is on github and not CRAN, you’ll want to do the following two steps in the console. Note that we do this in the console since we only need to do it once! If the install asks you about updating packages, go ahead and do it! —(1) install the devtools package: install.packages(“devtools”) —(2) install via github: devtools::install_github(“martinctc/surveytoolbox”)\nufs this package (short for user friendly science) is a nice tool for computing the internal reliability of scales – note: one of the commands we will use in ufs requires the psych package to be installed (but doesn’t need to be loaded via library()). Ensure you install that first. Two steps: —-(1) install the `remotes`` package: install.packages(“remotes”) —-(2) install via github_lab: remotes::install_gitlab(‘r-packages/ufs’)\napa nice for making statistical output into APA style\ngt nice for making your tables look pretty\napaTables makes nice APA-styled tables of correlation, ANOVA, regression etc. output\nreport is a package to help with results reporting\npsych is an umbrella package for lots of common psych tasks\nez is a great package for stats, including analysis of variance\nemmeans is helpful for comparing specific means in a factorial design"
+  },
+  {
+    "objectID": "plot.html#plotting-raw-data",
+    "href": "plot.html#plotting-raw-data",
+    "title": "6  Plot",
+    "section": "6.1 Plotting raw data",
+    "text": "6.1 Plotting raw data\ngeom_point\ngeom_histogram\ngeom_boxplot\ngeom_violin"
+  },
+  {
+    "objectID": "plot.html#plotting-data-summaries",
+    "href": "plot.html#plotting-data-summaries",
+    "title": "6  Plot",
+    "section": "6.2 Plotting data summaries",
+    "text": "6.2 Plotting data summaries\ngeom_col"
   }
 ]
