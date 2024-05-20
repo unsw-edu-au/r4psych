@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -151,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./inferences.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Making Inferences</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Infer</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -184,7 +218,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#getting-a-feel-for-your-data" id="toc-getting-a-feel-for-your-data" class="nav-link active" data-scroll-target="#getting-a-feel-for-your-data"><span class="header-section-number">5.1</span> getting a feel for your data</a></li>
+  <li><a href="#counting-things" id="toc-counting-things" class="nav-link" data-scroll-target="#counting-things"><span class="header-section-number">5.2</span> counting things</a></li>
+  <li><a href="#getting-descriptives" id="toc-getting-descriptives" class="nav-link" data-scroll-target="#getting-descriptives"><span class="header-section-number">5.3</span> getting descriptives</a>
+  <ul class="collapse">
+  <li><a href="#three-things-to-remember" id="toc-three-things-to-remember" class="nav-link" data-scroll-target="#three-things-to-remember"><span class="header-section-number">5.3.1</span> Three things to remember</a></li>
+  </ul></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables"><span class="header-section-number">5.4</span> tables??</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -208,8 +254,46 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="getting-a-feel-for-your-data" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="getting-a-feel-for-your-data"><span class="header-section-number">5.1</span> getting a feel for your data</h2>
+<p><code>str</code></p>
+<p><code>glimpse</code></p>
+<p><code>skimr</code></p>
+</section>
+<section id="counting-things" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="counting-things"><span class="header-section-number">5.2</span> counting things</h2>
+<p><code>group_by</code> + <code>summarise</code> + <code>count</code></p>
+<p><code>n</code></p>
+<p><code>tabyl</code></p>
+</section>
+<section id="getting-descriptives" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="getting-descriptives"><span class="header-section-number">5.3</span> getting descriptives</h2>
+<p><code>group_by</code> + <code>summarise</code> + <code>mean</code> &amp; <code>sd</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scale1_by_condition12 <span class="ot">&lt;-</span> data_scalescomputed <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(condition12) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_scale1 =</span> <span class="fu">mean</span>(scale1_index, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_scale1 =</span> <span class="fu">sd</span>(scale1_index, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="three-things-to-remember" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="three-things-to-remember"><span class="header-section-number">5.3.1</span> Three things to remember</h3>
+<ol type="1">
+<li>When we compute means, we need to set the decimals via <code>round()</code>.</li>
+<li>We also need to tell R to calculate the mean, even if some of the contributing data points are missing. This is what <code>na.rm = TRUE</code> does.</li>
+<li>As noted above, <code>rowwise</code> asks R to do something for each row (which is what we want here – to compute the mean of the contributing items for each participant). Whenever we use <code>rowwise</code> (or <code>group_by</code>), we need to <code>ungroup()</code> at the end to avoid issues down the line.</li>
+</ol>
+</section>
+</section>
+<section id="tables" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="tables"><span class="header-section-number">5.4</span> tables??</h2>
+<p><code>gt</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gt</span>(scale1_by_condition12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>apaTable</code></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -84,7 +84,7 @@
     "href": "organise.html#where-is-here",
     "title": "2  Organise",
     "section": "2.2 where is here?",
-    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will work, even if someone else is trying to run it on a different computer.\nOnce you have installed the here() package, use it to tell R where you find your data like this. This code chunk loads there here() and readr() packages and then tells R to read in a csv file, located in the “data” folder, and the file is called file.csv\n\nlibrary(here)\nlibrary(readr)\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan",
+    "text": "2.2 where is here?\nOnce you have set up a project to contain your analysis, you can avoid further file path drama by using the here() package. This package makes it super easy to refer to file paths and ensures that your code will work, even if someone else is trying to run it on a different computer.\nOnce you have installed the here() package, use it to tell R where you find your data like this. This code chunk loads there here() and readr() packages and then tells R to read in a csv file, located in the “data” folder, and the file is called file.csv\n\nmydata &lt;- read_csv(here(\"data\", \"file.csv\"))\n\nBy referring to the location of your data using the here() package, here is no need worry about working directories, and you can be sure that your code will work on any machine.\n\nTo read more about why projects and the here() package are useful, check out this blog by Jenny Bryan",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Organise</span>"
     ]
@@ -124,7 +124,7 @@
     "href": "import.html",
     "title": "3  Import",
     "section": "",
-    "text": "3.1 Reading in Excel spreadsheets\nThis is gobbledygook.",
+    "text": "4 Packages for this chapter\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(here)\n\nhere() starts at /home/runner/work/r4psych/r4psych\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\nlibrary(haven)\nlibrary(sjPlot)\n\nLearn more about sjPlot with 'browseVignettes(\"sjPlot\")'.\n\n# remotes::install_github(\"martinctc/surveytoolbox\")\nlibrary(surveytoolbox)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
     ]
@@ -133,8 +133,8 @@
     "objectID": "import.html#reading-in-excel-spreadsheets",
     "href": "import.html#reading-in-excel-spreadsheets",
     "title": "3  Import",
-    "section": "",
-    "text": "3.1.1 Reading in .csv",
+    "section": "4.1 Reading in Excel spreadsheets",
+    "text": "4.1 Reading in Excel spreadsheets\nThis is gobbledygook.\n\n4.1.1 Reading in .csv",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
     ]
@@ -143,8 +143,8 @@
     "objectID": "import.html#reading-in-spss",
     "href": "import.html#reading-in-spss",
     "title": "3  Import",
-    "section": "3.2 Reading in SPSS",
-    "text": "3.2 Reading in SPSS",
+    "section": "4.2 Reading in SPSS",
+    "text": "4.2 Reading in SPSS",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
     ]
@@ -153,8 +153,8 @@
     "objectID": "import.html#reading-in-qualtrics-data",
     "href": "import.html#reading-in-qualtrics-data",
     "title": "3  Import",
-    "section": "3.3 Reading in Qualtrics data",
-    "text": "3.3 Reading in Qualtrics data\n\n3.3.1 Reading in .sav",
+    "section": "4.3 Reading in Qualtrics data",
+    "text": "4.3 Reading in Qualtrics data\n\n4.3.1 Reading in .sav",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
     ]
@@ -200,13 +200,93 @@
     ]
   },
   {
+    "objectID": "describe.html",
+    "href": "describe.html",
+    "title": "5  Describe",
+    "section": "",
+    "text": "5.1 getting a feel for your data\nstr\nglimpse\nskimr",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describe</span>"
+    ]
+  },
+  {
+    "objectID": "describe.html#counting-things",
+    "href": "describe.html#counting-things",
+    "title": "5  Describe",
+    "section": "5.2 counting things",
+    "text": "5.2 counting things\ngroup_by + summarise + count\nn\ntabyl",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describe</span>"
+    ]
+  },
+  {
+    "objectID": "describe.html#getting-descriptives",
+    "href": "describe.html#getting-descriptives",
+    "title": "5  Describe",
+    "section": "5.3 getting descriptives",
+    "text": "5.3 getting descriptives\ngroup_by + summarise + mean & sd\n\nscale1_by_condition12 &lt;- data_scalescomputed %&gt;%\n  group_by(condition12) %&gt;%\n  summarise(mean_scale1 = mean(scale1_index, na.rm = TRUE),\n            sd_scale1 = sd(scale1_index, na.rm = TRUE))\n\n\n5.3.1 Three things to remember\n\nWhen we compute means, we need to set the decimals via round().\nWe also need to tell R to calculate the mean, even if some of the contributing data points are missing. This is what na.rm = TRUE does.\nAs noted above, rowwise asks R to do something for each row (which is what we want here – to compute the mean of the contributing items for each participant). Whenever we use rowwise (or group_by), we need to ungroup() at the end to avoid issues down the line.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describe</span>"
+    ]
+  },
+  {
+    "objectID": "describe.html#tables",
+    "href": "describe.html#tables",
+    "title": "5  Describe",
+    "section": "5.4 tables??",
+    "text": "5.4 tables??\ngt\n\ngt(scale1_by_condition12)\n\napaTable",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Describe</span>"
+    ]
+  },
+  {
+    "objectID": "plot.html",
+    "href": "plot.html",
+    "title": "6  Plot",
+    "section": "",
+    "text": "6.1 Plotting raw data\ngeom_point\ngeom_histogram\ngeom_boxplot\ngeom_violin",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Plot</span>"
+    ]
+  },
+  {
+    "objectID": "plot.html#plotting-data-summaries",
+    "href": "plot.html#plotting-data-summaries",
+    "title": "6  Plot",
+    "section": "6.2 Plotting data summaries",
+    "text": "6.2 Plotting data summaries\ngeom_col",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Plot</span>"
+    ]
+  },
+  {
     "objectID": "inferences.html",
     "href": "inferences.html",
-    "title": "7  Making Inferences",
+    "title": "7  Infer",
     "section": "",
-    "text": "Take it away Lisa!\n\n1 + 1\n\n[1] 2",
+    "text": "8 Moving into analyses",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Making Inferences</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Infer</span>"
+    ]
+  },
+  {
+    "objectID": "inferences.html#plots-and-descriptives",
+    "href": "inferences.html#plots-and-descriptives",
+    "title": "7  Infer",
+    "section": "8.1 Plots and descriptives",
+    "text": "8.1 Plots and descriptives\nNow, let’s test whether this scale varies by condition (condition 1 vs. condition 2 in condition12).\nBefore jumping into t-tests, let’s first visualise the data (scale1_index) to get a sense of what it looks like.\nThe first command here tells R to treat condition12 as a categorical variable that groups the data (technically, a factor). This is helpful for plotting. The code uses the dataframe$variablename structure to do a command on just one variable.\nThe second command pipes the data into a command to create a boxplot (geom_boxplot) with the datapoints plotted as well (geom_jitter).The width command makes the plotting of the dots a bit narrower to help with interpretation.\n\ndata_scalescomputed$condition12 &lt;- as.factor(data_scalescomputed$condition12)\n\ndata_scalescomputed %&gt;%\n  ggplot(aes(x = condition12, y = scale1_index, fill = condition12)) +\n  geom_boxplot(alpha = .5) +\n  geom_jitter(alpha = .5, width = 0.2)\n\nBased on the boxplot, we’d expect a t-test to be nonsignificant - the wide boxes of the plots for each condition overlap, even though the mean of condition 2 is slightly higher than condition 1 (the horizontal line through the box).",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Infer</span>"
+    ]
+  },
+  {
+    "objectID": "inferences.html#t-test",
+    "href": "inferences.html#t-test",
+    "title": "7  Infer",
+    "section": "8.2 t-test",
+    "text": "8.2 t-test\nThe first line of code uses the base R command to run a t-test. It tells R to do the test on the data_scalescomputed data frame, asking whether scale1_index varies by (~) condition. var. sets the assumption of variance and conf.level sets the desired alpha of the test. That command is wrapped in the handy t_apa function, which makes the output much easier to read (and pull directly into a write-up!), and also allows us to get a confidence interval on the effect size (es_ci).\nFor reporting, you’d probably also want to know the means and standard deviations by condition. The next bit of code asks R to do this, using the summarise function, separately for each condition. Reminder to use na.rm here to account for any missing values.\nThe gt() command shows the requested dataframe in a nice formatting.\n\nt_apa(t.test(data = data_scalescomputed, scale1_index ~ condition12, var. = TRUE, conf.level = .95), es_ci = TRUE)\n\n\nscale1_by_condition12 &lt;- data_scalescomputed %&gt;%\n  group_by(condition12) %&gt;%\n  summarise(mean_scale1 = mean(scale1_index, na.rm = TRUE),\n            sd_scale1 = sd(scale1_index, na.rm = TRUE))\n\n\ngt(scale1_by_condition12)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Infer</span>"
     ]
   },
   {
@@ -264,7 +344,7 @@
     "href": "appendix.html",
     "title": "10  Appendix",
     "section": "",
-    "text": "11 how to install packages\nYou only need to install a package once on your machine. Once the package is installed, you will need to use library() to load the functions in it every time you want to use it, but the installation is a one time job. So you can either do it in the console, or using the packages tab.",
+    "text": "11 how to install R and RStudio on your machine\nThe marvellous Danielle Navarro has LOTS of useful R learning resources on her YouTube channel. This playlist about how to install R and RStudio is particularly useful; no matter which operating system you are dealing with… Dani has you covered.",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
     ]
@@ -273,8 +353,8 @@
     "objectID": "appendix.html#option-1",
     "href": "appendix.html#option-1",
     "title": "10  Appendix",
-    "section": "11.1 option 1",
-    "text": "11.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")",
+    "section": "12.1 option 1",
+    "text": "12.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
     ]
@@ -283,8 +363,18 @@
     "objectID": "appendix.html#option-2",
     "href": "appendix.html#option-2",
     "title": "10  Appendix",
-    "section": "11.2 option 2",
-    "text": "11.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work.",
+    "section": "12.2 option 2",
+    "text": "12.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+    ]
+  },
+  {
+    "objectID": "appendix.html#useful-packages-for-psychology",
+    "href": "appendix.html#useful-packages-for-psychology",
+    "title": "10  Appendix",
+    "section": "12.3 useful packages for psychology",
+    "text": "12.3 useful packages for psychology\n\ntidyverse this is a cluster of super helpful data wrangling and visualisation tools.\nhere this package helps direct R to the correct place for files based on the current working directory.\njanitor this package helps us clean up data - especially awkward variable names.\nqualtRics this package is helpful in reading in data files from Qualtrics… except for .sav SPSS format files! (see next)\nhaven this package is a good one for reading in .sav SPSS format files\nsjplot this package is helpful for making a ‘codebook’ of your variables and values from imported .sav files\nsurveytoolbox this package is helpful in drawing out the value labels of variables imported in .sav format – note: because surveytoolbox is on github and not CRAN, you’ll want to do the following two steps in the console. Note that we do this in the console since we only need to do it once! If the install asks you about updating packages, go ahead and do it! —(1) install the devtools package: install.packages(“devtools”) —(2) install via github: devtools::install_github(“martinctc/surveytoolbox”)\nufs this package (short for user friendly science) is a nice tool for computing the internal reliability of scales – note: one of the commands we will use in ufs requires the psych package to be installed (but doesn’t need to be loaded via library()). Ensure you install that first. Two steps: —-(1) install the `remotes`` package: install.packages(“remotes”) —-(2) install via github_lab: remotes::install_gitlab(‘r-packages/ufs’)\napa nice for making statistical output into APA style\ngt nice for making your tables look pretty\napaTables makes nice APA-styled tables of correlation, ANOVA, regression etc. output\nreport is a package to help with results reporting\npsych is an umbrella package for lots of common psych tasks\nez is a great package for stats, including analysis of variance\nemmeans is helpful for comparing specific means in a factorial design",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
     ]
