@@ -1,6 +1,7 @@
 /.quart/_site/
 *.pdf
 .DS_Store
+_book/
 .Rproj.user
 .Rhistory
 .RData
@@ -16,5 +17,4 @@ index.tex
 docs/
 .quarto/
 .DS_Store
-
 /.quarto/
