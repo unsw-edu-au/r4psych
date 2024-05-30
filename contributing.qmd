@@ -12,7 +12,7 @@ You can learn more about the capabilities of Quarto in [this talk](https://www.y
 
 #### Install Quarto
 
-Let's first make sure we the latest version of [Quarto](https://quarto.org/docs/get-started/) installed.
+First things first, let's make sure we have the latest version of [Quarto](https://quarto.org/docs/get-started/) installed.
 
 ### GitHub Workflow
 
@@ -38,9 +38,9 @@ Follow [these instructions](https://happygitwithr.com/install-git) from "Happy G
 
 #### Install a git client {#sec-installgitclient}
 
-Traditionally, git has been used in the shell terminal. This is the 'back-end' of the computer and you can interact with your computer using code. This means that you have to type out commands to tell git what to do. This method can become a little overwhelming when you are starting out because you have to learn all the different commands.
+Traditionally, git has been used in the shell terminal. This is the 'back-end' of the computer and allows you to interact with your computer using code. This means that you have to type out commands to tell git what to do. This approach can become a little overwhelming when you are starting out. 
 
-If you are starting out with git and GitHub, we suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative.
+Instead, we suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative.
 
 There are many [git clients to choose from](https://git-scm.com/downloads/guis). Once you start to get the hang on things, all of these clients are much of the same and its a matter of personal preference.
 
@@ -50,13 +50,27 @@ If you are an RStudio user, there is a [git tab that is built-in](https://jennyb
 For the rest of the chapter, we will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
 :::
 
-#### Cloning: make a local copy
+#### Forking
 
 Now that we have all the installation out of the way, we can get started!
 
-Lets first get you a local copy of the book onto your computer by "cloning" the repository
+The best way to contribute to the book is to create an independent copy that lives in your Github account. This process is called **creating a fork** and it allows you to take your time to make your contributions without it affect the current version of the book. 
 
-Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych):
+1. To create a fork, head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych) and click on the **Fork** button on the right hand side of the webpage
+
+![](images/fork.png)
+
+2. Continue to the next webpage and leave the default settings as they are and click the green button *Create fork*
+
+![](images/create_fork.png)
+
+Forking will create a duplicate of the `r4psych` book remote repo into your account. This is **your**  remote copy that you can make your contributions to. We will talk about how we bring your contributions back to the `r4psych`  remote repo later in [Create a pull request](XX).
+
+#### Cloning: make a local copy
+
+Once you have a fork, we will get a local copy of the book onto your computer by "cloning" the forked repository
+
+
 
 1.  Click on the big green button that says **Code**
 
@@ -88,46 +102,47 @@ We will **stick with the default option of using HTTPS** a.k.a. cloning by using
 
 ### The contributing workflow
 
-We will work in branches so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaborative changes on branches is what GitHub does best.
+We will work in branches so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaborative changes on branches is what GitHub does best. A nice clean workflow with branches is to consider them temporary. 
 
-The `main` branch will be the current approved version of the book. The `main` branch is what displays at https://unsw-edu-au.github.io/r4psych/
+The `main` branch will be the current approved version of the book. The `main` branch is what is displayed at https://unsw-edu-au.github.io/r4psych/
 
-A nice clean workflow with branches is to consider them temporary. 
+Here's an overview of the contributing workflow looks like:
 
-A written overview of the contributing workflow looks like this:
-
-1. You pull the most recent from `main`
+1. You fork the most recent version from `main`
 
 2. You **create a branch locally**
 
-3. You make your edits, you commit regularly, you push regularly to the remote (github.com)
+3. You make your edits, you **commit** regularly, you **push** regularly to the remote (github.com)
 
-4. When you are happy with your changes, you will create a pull request for your contribution and one of the core maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you. 
+4. When you are happy with your changes, you will create a **pull request** for your contribution and one of the core maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you. 
 
-5. Once everything and everyone is happy and dandy with the final changes, your changes will be approved and merged into main. When this happens, your branch is deleted on the remote and you will also delete it locally.
+5. Once everything and everyone is happy and dandy with the final changes, your changes will be **approved and merged into main**. When this happens, your branch is deleted on the remote and you will also delete it locally.
 
-Now we will practically walk through this workflow here:
+Now let's walk through this workflow step by step 
 
 ::: {.callout-note}
 The following sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient)
 :::
 
-#### Fetch the latest version
+#### Create a fork
 
-#### Stage and add your changes
+#### Create a branch
+
+#### Make your changes
 
 #### Push your work to remote
 
-### Quarto Workflow
+#### Create a pull request
 
-## Book Structure {#sec-bookstructure}
+### `renv`: Managing R packages 
 
-## Book Practices and Conventions
+#### Overview
 
-## Book Contributions
+#### `renv` workflow
 
-### Edits
+### Book Structure {#sec-bookstructure}
 
-### Additions
+#### Book Practices and Conventions
 
-## Submit a pull request
+### Can I make a contribution without using Git?
+
