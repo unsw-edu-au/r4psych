@@ -39,7 +39,7 @@ The `glimpse` command gives a nice overview of the variables, their type, and a 
 
 ```{r}
 
-data <- read_sav(here("book", "data", "sampledata.sav")) 
+data <- read_sav(here("data", "sampledata.sav")) 
 
 glimpse(data)
 
