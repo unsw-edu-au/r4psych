@@ -6,11 +6,66 @@ The set up for maintainer's is the same for contributors. Check out the followin
 
 - [Install Quarto](#sec-installquarto)
 - [GitHub Workflow](#sec-githubworkflow)
--
 
 ### The Maintainer's workflow
 
-#### Make a branch
+First, let's make sure you have collaborator access to the repository.
+
+1. Head over to your [repository settings](https://github.com/settings/repositories)
+
+2. If you see **unsw-edu-au** and the repo name: `unsw-edu-au/r4psych` in the list then you have collaborator access to the repository.
+
+![](images/repo_access.png)
+
+If you don't, let's go through how you can request an invite to be a collaborator
+
+#### Request access
+
+[Create an issue](https://github.com/unsw-edu-au/r4psych/issues) requesting for collaborator access and one of the maintainers with admin rights will send through an invite. 
+
+#### Clone: Make a local copy of the book
+
+Now that we have all the installation out of the way, we can get started! 
+
+Lets first get you a local copy of the book onto your computer by "cloning" the repository
+
+Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych): 
+
+1. Click on the big green button that says **Code**
+
+![](images/remote_repo.png)
+
+Here you will find a drop-down menu showing different methods of cloning the code from the remote repo. 
+
+We will **stick with the default option of using HTTPS** a.k.a. cloning by using the URL of the remote repo. 
+
+3. Click on the copy URL button (The stacked squares icon)
+
+4. Navigate to Github Desktop and click on the first drop down menu from the left. Here you will find the **Add** button.
+
+![](images/add_repo.png)
+
+5. Click on **Add** and then **Clone Repository** 
+
+6. Click on the **URL** option and paste in the URL of this book's remote repo e.g. **https://github.com/unsw-edu-au/r4psych**
+
+7. Under **Local Path**, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git's ability to track your changes. 
+
+8. Finally, click **Clone** and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer! 
+
+9. Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in [Book Structure](#sec-bookstructure) 
+
+#### Branches
+
+We will work in branches so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaboratives changes on branches is what GitHub does best.
+
+The `main` branch will be the current approved version of the book. The `main` branch is what displays at https://unsw-edu-au.github.io/r4psych/
+
+A nice clean workflow with branches is to consider them temporary. You pull the most recent from `main`, you **create a branch locally**, you make your edits, you commit regularly, you push regularly to github.com, and then you create a pull request for it to be merged into main, and when it’s approved the branch is deleted on github.com and you also delete it locally. That’s the workflow we’ll walk through here. A great resource on GitHub setup and collaboration is Happy Git with R, which includes fantastic background philosophy as well as bash commands for setup, workflows, and collaboration.
+
+::: {.callout-note}
+The following sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient)
+:::
 
 #### Make your changes
 
