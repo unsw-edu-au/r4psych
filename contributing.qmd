@@ -12,11 +12,11 @@ You can learn more about the capabilities of Quarto in [this talk](https://www.y
 
 #### Install Quarto
 
-First things first, let's make sure we have the latest version of [Quarto](https://quarto.org/docs/get-started/) installed.
+First things first, let's make sure we have the latest version of Quarto installed using these [instructions](https://quarto.org/docs/get-started/)
 
 ### GitHub Workflow
 
-Let’s talk about the Git/GitHub part of the workflow. Git is a **version control** system. It that **tracks changes in our code** that generated this book and helps us **coordinate our collaborative edits**.
+Next, we need to talk about the Git/GitHub part of the workflow. Git is a **version control** system. It that **tracks changes in our code** that generated this book and helps us **coordinate our collaborative edits**.
 
 Git monitors the changes in a project directory a.k.a **repository** or "repo". There are two types of repositories:
 
@@ -50,11 +50,33 @@ If you are an RStudio user, there is a [git tab that is built-in](https://jennyb
 For the rest of the chapter, we will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
 :::
 
-#### Forking
+### The contributing workflow
+
+We will work on forks (independent copies of the book) so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaborative changes on the same project is what GitHub does best. 
+
+The `main` branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/
+
+The contributing workflow looks like this:
+
+1. You fork the most recent version from `main`
+
+2. You make your edits, you **commit** regularly, you **push** regularly to the remote (github.com)
+
+3. When you are happy with your changes, you will create a **pull request** for your contribution and one of the core maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you. 
+
+4. Once everything and everyone is happy and dandy with the final changes, your changes will be **approved and merged into main**. When this happens, your branch is deleted on the remote and you will also delete it locally.
+
+Now let's walk through this workflow step by step 
+
+::: {.callout-note}
+The following sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient)
+:::
+
+#### Fork: Create an independent copy of the book
 
 Now that we have all the installation out of the way, we can get started!
 
-The best way to contribute to the book is to create an independent copy that lives in your Github account. This process is called **creating a fork** and it allows you to take your time to make your contributions without it affect the current version of the book. 
+The best way to contribute to the book is to create an independent copy that lives in your Github account. This process is called **creating a fork** and it allows you to make your contributions without it affecting the approved version of the book. 
 
 1. To create a fork, head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych) and click on the **Fork** button on the right hand side of the webpage
 
@@ -66,15 +88,14 @@ The best way to contribute to the book is to create an independent copy that liv
 
 Forking will create a duplicate of the `r4psych` book remote repo into your account. This is **your**  remote copy that you can make your contributions to. We will talk about how we bring your contributions back to the `r4psych`  remote repo later in [Create a pull request](XX).
 
-#### Cloning: make a local copy
+#### Clone: Create a local copy of your fork
+Once you have a fork, we will get a local copy of the book onto your computer by "cloning" the forked repository.
 
-Once you have a fork, we will get a local copy of the book onto your computer by "cloning" the forked repository
+1. Head to the webpage of your forked repository. The URL for it should look something like: **https://github.com/your-usename/r4psych**
 
+2.  Click on the big green button that says **Code**
 
-
-1.  Click on the big green button that says **Code**
-
-![](images/remote_repo.png)
+![](images/remote_repo_clone.png)
 
 Here you will find a drop-down menu showing different methods of cloning the code from the remote repo.
 
@@ -88,7 +109,7 @@ We will **stick with the default option of using HTTPS** a.k.a. cloning by using
 
 5.  Click on **Add** and then **Clone Repository**
 
-6.  Click on the **URL** option and paste in the URL of this book's remote repo e.g. **https://github.com/unsw-edu-au/r4psych**
+6.  Click on the **URL** option and paste in the URL of your fork's remote repo e.g. **https://github.com/your-username/r4psych**
 
 7.  Under **Local Path**, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git's ability to track your changes.
 
@@ -96,49 +117,15 @@ We will **stick with the default option of using HTTPS** a.k.a. cloning by using
 
 9.  Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in [Book Structure](#sec-bookstructure)
 
-#### Branches
-
-<!-- What are branches -->
-
-### The contributing workflow
-
-We will work in branches so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaborative changes on branches is what GitHub does best. A nice clean workflow with branches is to consider them temporary. 
-
-The `main` branch will be the current approved version of the book. The `main` branch is what is displayed at https://unsw-edu-au.github.io/r4psych/
-
-Here's an overview of the contributing workflow looks like:
-
-1. You fork the most recent version from `main`
-
-2. You **create a branch locally**
-
-3. You make your edits, you **commit** regularly, you **push** regularly to the remote (github.com)
-
-4. When you are happy with your changes, you will create a **pull request** for your contribution and one of the core maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you. 
-
-5. Once everything and everyone is happy and dandy with the final changes, your changes will be **approved and merged into main**. When this happens, your branch is deleted on the remote and you will also delete it locally.
-
-Now let's walk through this workflow step by step 
-
-::: {.callout-note}
-The following sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient)
-:::
-
-#### Create a fork
-
-#### Create a branch
-
 #### Make your changes
 
 #### Push your work to remote
 
 #### Create a pull request
 
-### `renv`: Managing R packages 
+### `{renv}`: Managing R packages 
 
-#### Overview
-
-#### `renv` workflow
+#### `{renv}` workflow
 
 ### Book Structure {#sec-bookstructure}
 
