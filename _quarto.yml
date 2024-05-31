@@ -14,6 +14,7 @@ book:
     - describe.qmd
     - plot.qmd
     - inferences.qmd
+    - maintain.qmd
     - contributing.qmd
     - datasets.qmd
     - appendix.qmd
@@ -25,5 +26,5 @@ format:
   html:
     theme: cosmo
 
-editor: visual
+editor: source
 

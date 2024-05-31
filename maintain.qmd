@@ -1,0 +1,120 @@
+# Maintainer's Guide
+
+### Getting access
+
+First, let's make sure you have collaborator access to the repository.
+
+1. Head over to your [repository settings](https://github.com/settings/repositories)
+
+2. If you see **unsw-edu-au** and the repo name: `unsw-edu-au/r4psych` in the list then you have collaborator access to the repository.
+
+![](images/repo_access.png)
+
+If you don't, let's go through how you can request an invite to be a collaborator
+
+#### Request access
+
+[Create an issue](https://github.com/unsw-edu-au/r4psych/issues) requesting for collaborator access and one of the maintainers with admin rights will send through an invite. 
+
+### The set up
+
+The set up for maintainer's is the same for contributors. Check out the following sections to get started:
+
+- [Install Quarto](#sec-installquarto)
+- [GitHub Workflow](#sec-githubworkflow)
+
+### The Maintainer's workflow
+
+The maintainer's workflow goes like this:
+
+1. You [clone](sec-maintain-clone) the [remote repo](https://github.com/unsw-edu-au/r4psych/)
+
+2. You create a new feature [**branch**](sec-maintain-branch).
+
+2. You work on your branch and [make your edits](sec-maintain-edit), you **commit** regularly, you **push** regularly to the remote. 
+
+3. When you are happy with your changes, you will create a [**pull request**](sec-maintain-pr) for your contribution and one of the other maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you. 
+
+4. Once everything and everyone is happy and dandy with the final changes, your changes will be **approved and merged into main**. When this happens, your branch is deleted on the remote and you will also delete it locally.
+
+This workflow treats branches as temporary entities and will keeps the remote tidy and streamlined.
+
+Now let's walk through this workflow step by step. 
+
+::: {.callout-note}
+The next sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient). We will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
+:::
+
+#### Clone: Create a local copy of the book {sec-maintain-clone}
+
+Now that we have all the installation/setup out of the way, we can get started! 
+
+Lets first get you a local copy of the book onto your computer by "cloning" the repository
+
+Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych): 
+
+1. Click on the big green button that says **Code**
+
+![](images/remote_repo.png)
+
+Here you will find a drop-down menu showing different methods of cloning the code from the remote repo. 
+
+We will **stick with the default option of using HTTPS** a.k.a. cloning by using the URL of the remote repo. 
+
+3. Click on the copy URL button (The stacked squares icon)
+
+4. Navigate to Github Desktop and click on the first drop down menu from the left. Here you will find the **Add** button.
+
+![](images/add_repo.png)
+
+5. Click on **Add** and then **Clone Repository** 
+
+6. Click on the **URL** option and paste in the URL of this book's remote repo e.g. **https://github.com/unsw-edu-au/r4psych**
+
+7. Under **Local Path**, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git's ability to track your changes. 
+
+8. Finally, click **Clone** and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer! 
+
+9. Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in [Book Structure](#sec-bookstructure) 
+
+#### Branches: Create your own working copy {sec-maintain-branch}
+
+As maintainers, we will work on [branches](sec-maintain-branch). (internal copies of the book) so as to not overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best. 
+
+The `main` branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/
+
+When you clone a repository, the `main` branch is selected by default. 
+
+To create your own branch: 
+
+1. Click on the middle menu that says "Current branch **main**" 
+
+2. Click on **"New Branch"**
+
+![](images/branch.png)
+
+3. Give your branch a name.
+
+Keep it concise and related to the feature you are going to work on e.g `restructure-wrangle`. Separate words with a hyphen. 
+
+At the end of your branch name, put down your initials, that way other maintainers know who is working on which branch. e.g `restructure-wrangle-fk` 
+
+4. Click on "Create Branch" and voila! Git will automatically switch from `main` to your branch for you. 
+
+At this stage, your branch exists locally on your computer, no where else.
+
+5. Next, we will click on "Publish branch", this will make your branch available on the remote repo so we can formally incorporate its changes to the `main` once your edits are done. Publishing your branch also allows other maintainer's see your progress. 
+
+#### Make your changes {sec-maintain-edit}
+
+
+
+#### Create a pull request {sec-maintain-pr}
+
+### `{renv}`: Managing R packages 
+
+#### `{renv}` workflow
+
+### Book Structure {#sec-bookstructure}
+
+
