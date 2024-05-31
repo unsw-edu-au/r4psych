@@ -1,0 +1,27 @@
+# Maintainer's Guide
+
+### The set up
+
+The set up for maintainer's is the same for contributors. Check out the following sections to get started:
+
+- [Install Quarto](#sec-installquarto)
+- [GitHub Workflow](#sec-githubworkflow)
+-
+
+### The Maintainer's workflow
+
+#### Make a branch
+
+#### Make your changes
+
+#### Push your work to remote
+
+#### Create a pull request
+
+### `{renv}`: Managing R packages 
+
+#### `{renv}` workflow
+
+### Book Structure {#sec-bookstructure}
+
+#### Book Practices and Conventions

@@ -1,8 +1,8 @@
-# Contributing
+# Contributing Guidelines
 
 This resource is created in mind so that the community that uses it, can also contribute to it. We hope this mindset will encourage the resource to grow and stay up-to-date for R learners.
 
-Importantly, **all skill levels** are welcome to contribute, even if you think your skills are not up to scratch - this is what this guide is for!
+Importantly, **all skill levels** are welcome to contribute, even if you think your skills are not up to scratch - this is what this guide is for! There is also a way for you to contribute [if code/git/Quarto is not your cup of tea](#sec-noncode-contributions). 
 
 ### Hello Quarto!
 
@@ -10,11 +10,11 @@ This book is built by [Quarto](https://quarto.org/) which is an open source, cro
 
 You can learn more about the capabilities of Quarto in [this talk](https://www.youtube.com/watch?v=p7Hxu4coDl8) by Mine Çetinkaya-Rundel & Julia Stewart Lowndes at posit::conf(2023)
 
-#### Install Quarto
+#### Install Quarto {#sec-installquarto}
 
 First things first, let's make sure we have the latest version of Quarto installed using these [instructions](https://quarto.org/docs/get-started/)
 
-### GitHub Workflow
+### GitHub Workflow {#sec-githubworkflow}
 
 Next, we need to talk about the Git/GitHub part of the workflow. Git is a **version control** system. It that **tracks changes in our code** that generated this book and helps us **coordinate our collaborative edits**.
 
@@ -50,7 +50,7 @@ If you are an RStudio user, there is a [git tab that is built-in](https://jennyb
 For the rest of the chapter, we will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
 :::
 
-### The contributing workflow
+### The Contributor's workflow
 
 We will work on forks (independent copies of the book) so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaborative changes on the same project is what GitHub does best. 
 
@@ -131,5 +131,5 @@ We will **stick with the default option of using HTTPS** a.k.a. cloning by using
 
 #### Book Practices and Conventions
 
-### Can I make a contribution without using Git?
+### Can I make a contribution without using Git? {#sec-noncode-contributions}
 
