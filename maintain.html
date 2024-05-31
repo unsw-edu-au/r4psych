@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Psychology - 1&nbsp; Introduction</title>
+<title>R for Psychology - 8&nbsp; Maintainer’s Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./organise.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./contributing.html" rel="next">
+<link href="./inferences.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./maintain.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Maintainer’s Guide</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -148,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -190,7 +156,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maintain.html" class="sidebar-item-text sidebar-link">
+  <a href="./maintain.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Maintainer’s Guide</span></span></a>
   </div>
 </li>
@@ -228,24 +194,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link active" data-scroll-target="#what-you-will-learn"><span class="header-section-number">1.1</span> What you will learn</a></li>
-  <li><a href="#how-book-is-organised" id="toc-how-book-is-organised" class="nav-link" data-scroll-target="#how-book-is-organised"><span class="header-section-number">1.2</span> How book is organised</a>
-  <ul class="collapse">
-  <li><a href="#conventions" id="toc-conventions" class="nav-link" data-scroll-target="#conventions"><span class="header-section-number">1.2.1</span> Conventions</a></li>
-  </ul></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">1.3</span> Prerequisites</a>
-  <ul class="collapse">
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="header-section-number">1.3.1</span> R</a></li>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">1.3.2</span> RStudio</a></li>
-  <li><a href="#version-control-with-git" id="toc-version-control-with-git" class="nav-link" data-scroll-target="#version-control-with-git"><span class="header-section-number">1.3.3</span> Version control with git</a></li>
-  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages"><span class="header-section-number">1.3.4</span> R packages</a></li>
-  </ul></li>
-  <li><a href="#virtual-environments" id="toc-virtual-environments" class="nav-link" data-scroll-target="#virtual-environments"><span class="header-section-number">1.4</span> Virtual environments</a>
-  <ul class="collapse">
-  <li><a href="#download-our-virtual-environment" id="toc-download-our-virtual-environment" class="nav-link" data-scroll-target="#download-our-virtual-environment"><span class="header-section-number">1.4.1</span> Download our virtual environment</a></li>
-  <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install"><span class="header-section-number">1.4.2</span> Install</a></li>
-  <li><a href="#recreate-virtual-enviroment" id="toc-recreate-virtual-enviroment" class="nav-link" data-scroll-target="#recreate-virtual-enviroment"><span class="header-section-number">1.4.3</span> Recreate virtual enviroment</a></li>
-  </ul></li>
+  <li><a href="#getting-access" id="toc-getting-access" class="nav-link active" data-scroll-target="#getting-access"><span class="header-section-number">8.0.1</span> Getting access</a></li>
+  <li><a href="#the-set-up" id="toc-the-set-up" class="nav-link" data-scroll-target="#the-set-up"><span class="header-section-number">8.0.2</span> The set up</a></li>
+  <li><a href="#the-maintainers-workflow" id="toc-the-maintainers-workflow" class="nav-link" data-scroll-target="#the-maintainers-workflow"><span class="header-section-number">8.0.3</span> The Maintainer’s workflow</a></li>
+  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.4</span> <code>{renv}</code>: Managing R packages</a></li>
+  <li><a href="#sec-bookstructure" id="toc-sec-bookstructure" class="nav-link" data-scroll-target="#sec-bookstructure"><span class="header-section-number">8.0.5</span> Book Structure</a></li>
   </ul>
 </nav>
     </div>
@@ -254,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Maintainer’s Guide</span></h1>
 </div>
 
 
@@ -271,111 +224,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="what-you-will-learn" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="what-you-will-learn"><span class="header-section-number">1.1</span> What you will learn</h2>
-<p>How to:</p>
+<section id="getting-access" class="level3" data-number="8.0.1">
+<h3 data-number="8.0.1" class="anchored" data-anchor-id="getting-access"><span class="header-section-number">8.0.1</span> Getting access</h3>
+<p>First, let’s make sure you have collaborator access to the repository.</p>
+<ol type="1">
+<li><p>Head over to your <a href="https://github.com/settings/repositories">repository settings</a></p></li>
+<li><p>If you see <strong>unsw-edu-au</strong> and the repo name: <code>unsw-edu-au/r4psych</code> in the list then you have collaborator access to the repository.</p></li>
+</ol>
+<p><img src="images/repo_access.png" class="img-fluid"></p>
+<p>If you don’t, let’s go through how you can request an invite to be a collaborator</p>
+<section id="request-access" class="level4" data-number="8.0.1.1">
+<h4 data-number="8.0.1.1" class="anchored" data-anchor-id="request-access"><span class="header-section-number">8.0.1.1</span> Request access</h4>
+<p><a href="https://github.com/unsw-edu-au/r4psych/issues">Create an issue</a> requesting for collaborator access and one of the maintainers with admin rights will send through an invite.</p>
+</section>
+</section>
+<section id="the-set-up" class="level3" data-number="8.0.2">
+<h3 data-number="8.0.2" class="anchored" data-anchor-id="the-set-up"><span class="header-section-number">8.0.2</span> The set up</h3>
+<p>The set up for maintainer’s is the same for contributors. Check out the following sections to get started:</p>
 <ul>
-<li><strong>Read</strong> your hard-earned data into R</li>
-<li><strong>Wrangle and clean</strong> the data in a R-friendly format</li>
-<li><strong>Produce</strong> summary statistics</li>
-<li><strong>Analyse</strong> your data</li>
-<li><strong>Visualise</strong> your findings</li>
+<li><a href="contributing.html#sec-installquarto">Install Quarto</a></li>
+<li><a href="contributing.html#sec-githubworkflow">GitHub Workflow</a></li>
 </ul>
-<p>Pre-analysis stages:</p>
-<ul>
-<li></li>
-</ul>
-<p>Analysis stages:</p>
-<!-- Some simply, yet profound conceptual diagram that shows the reader all these processes -->
 </section>
-<section id="how-book-is-organised" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="how-book-is-organised"><span class="header-section-number">1.2</span> How book is organised</h2>
-<p>This book is organised by data type (e.g.&nbsp;<a href="survey.qmd">Survey data</a>, Questionnaire data).</p>
-<p>Each chapter will walk through the process will work with real-world Psychology data and will walk you through reading in data, to cleaning and eventually analysis and visualising the results.</p>
-<section id="conventions" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="conventions"><span class="header-section-number">1.2.1</span> Conventions</h3>
-<p>We will refer to packages as <code>{dplyr}</code> and functions as <code>mean()</code>. Variables and objects (such as file names or data objects) as <code>age</code> and <code>mtcars</code>. Where it would aid understanding, we will sometimes refer to functions within a particular packages as <code>dplyr::mutute()</code></p>
-</section>
-</section>
-<section id="prerequisites" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">1.3</span> Prerequisites</h2>
-<p>Content drawn from existing resources such as https://r4ds.hadley.nz/intro#prerequisites</p>
-<section id="r" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="r"><span class="header-section-number">1.3.1</span> R</h3>
-<p>Download Point to intro to R content (RUWithme, Environmental Computing, Software Carpentry)</p>
-</section>
-<section id="rstudio" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">1.3.2</span> RStudio</h3>
-<p>RStudio projects Point to resource about Rproj (SWC)</p>
-<p>Running R code https://r4ds.hadley.nz/intro#running-r-code</p>
-</section>
-<section id="version-control-with-git" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="version-control-with-git"><span class="header-section-number">1.3.3</span> Version control with git</h3>
-<section id="what-is-git" class="level4" data-number="1.3.3.1">
-<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="what-is-git"><span class="header-section-number">1.3.3.1</span> What is git?</h4>
-</section>
-<section id="why-do-i-need-git" class="level4" data-number="1.3.3.2">
-<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="why-do-i-need-git"><span class="header-section-number">1.3.3.2</span> Why do I need git?</h4>
-<!-- Point to Happy with git R -->
-</section>
-</section>
-<section id="r-packages" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="r-packages"><span class="header-section-number">1.3.4</span> R packages</h3>
-<p>Every code section will always begin with calls to R packages. There will be code that is commented out (have <code>#</code> preceding the code) for you to install these if you don’t have them on your computer</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(dplyr)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="the-maintainers-workflow" class="level3" data-number="8.0.3">
+<h3 data-number="8.0.3" class="anchored" data-anchor-id="the-maintainers-workflow"><span class="header-section-number">8.0.3</span> The Maintainer’s workflow</h3>
+<p>The maintainer’s workflow goes like this:</p>
+<ol type="1">
+<li><p>You <a href="sec-maintain-clone">clone</a> the <a href="https://github.com/unsw-edu-au/r4psych/">remote repo</a></p></li>
+<li><p>You create a new feature <a href="sec-maintain-branch"><strong>branch</strong></a>.</p></li>
+<li><p>You work on your branch and <a href="sec-maintain-edit">make your edits</a>, you <strong>commit</strong> regularly, you <strong>push</strong> regularly to the remote.</p></li>
+<li><p>When you are happy with your changes, you will create a <a href="sec-maintain-pr"><strong>pull request</strong></a> for your contribution and one of the other maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you.</p></li>
+<li><p>Once everything and everyone is happy and dandy with the final changes, your changes will be <strong>approved and merged into main</strong>. When this happens, your branch is deleted on the remote and you will also delete it locally.</p></li>
+</ol>
+<p>This workflow treats branches as temporary entities and will keeps the remote tidy and streamlined.</p>
+<p>Now let’s walk through this workflow step by step.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>There are few R packages that will be on heavy rotation when it comes to working with Psychology data. #### {tidyverse}</p>
-<p><a href="https://www.tidyverse.org/">{tidyverse}</a> is a collection of R packages that is essential to a data scientist’s toolkit. By installing <code>{tidyverse}</code> you are actually installing 8 other packages. The ones we will most often use include:</p>
-<ul>
-<li><a href="https://dplyr.tidyverse.org/">{dplyr}</a></li>
-<li><a href="https://ggplot2.tidyverse.org/">{ggplot2}</a></li>
-<li><a href="https://tidyr.tidyverse.org/">{tidyr}</a></li>
-</ul>
-<p>The handy thing is, when you load the <code>{tidyverse}</code> library into R, it will load the core suite of packages for you instead of you loading each of them independently! Efficiency!! <span class="emoji" data-emoji="rocket">🚀</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
-<p>Other packages that will be helpful for your R workflows include:</p>
-<ul>
-<li><a href="https://here.r-lib.org/">{here}</a><br>
-</li>
-<li><a href="http://sfirke.github.io/janitor/">{janitor}</a></li>
-</ul>
-<p>At the end of each chapter, we will also include our call to <code>sessionInfo()</code> so you can see what version of packages we are using.</p>
-</section>
-</section>
-<section id="virtual-environments" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="virtual-environments"><span class="header-section-number">1.4</span> Virtual environments</h2>
-<p>Speaking on what package versions as we write this book, we understand the R package space is constantly changing. This means sometimes code will break due to package updates and this is all part of the process! To combat this problem, we’ve enlisted <a href="https://rstudio.github.io/renv/articles/renv.html#getting-started"><code>renv</code></a> to create a reproducible environment for building this book.</p>
-<section id="download-our-virtual-environment" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="download-our-virtual-environment"><span class="header-section-number">1.4.1</span> Download our virtual environment</h3>
-<p>The virtual environment used to build this book is stored in a <code>lockfile</code>. You can find this file in the <a href="https://github.com/unsw-edu-au/r4psych">GitHub repository</a> where the source code of this book lives.</p>
-<p>The lockfile is named <code>renv.lock</code>. You can download this file directly but clicking on the file name and clicking on the “Download raw file” button.</p>
-<p><img src="images/renv.png" class="img-fluid"></p>
-<p>Alternatively, you can <a href="https://happygitwithr.com/clone.html?q=clone#clone">clone</a> our repository into your computer. Learn more about cloning repositorsies and other GitHub workflows in <a href="https://happygitwithr.com/">Happy Git</a> by Jenny Bryan.</p>
-<p>Once you have this file downloaded, move it in a relevant <a href="">project directory</a> and then we can let <code>{renv}</code> work its magic.</p>
-</section>
-<section id="install" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="install"><span class="header-section-number">1.4.2</span> Install</h3>
-<p>First things first, lets install <code>renv</code> if we don’t have it already.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"renv"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(renv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="recreate-virtual-enviroment" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="recreate-virtual-enviroment"><span class="header-section-number">1.4.3</span> Recreate virtual enviroment</h3>
-<p>Now let’s tell <code>renv</code> where our downloaded <code>renv.lock</code> file is. Specific the path to the file in the function <code>restore()</code> and you are good to go!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">restore</span>(<span class="at">lockfile =</span> <span class="st">"path_to_renv.lock"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-body-container callout-body">
+<p>The next sections assumes you’ve completed the initial set-up of <a href="contributing.html#sec-installgit">installing git</a> and a <a href="contributing.html#sec-installgitclient">git client</a>. We will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.</p>
 </div>
+</div>
+<section id="clone-create-a-local-copy-of-the-book-sec-maintain-clone" class="level4" data-number="8.0.3.1">
+<h4 data-number="8.0.3.1" class="anchored" data-anchor-id="clone-create-a-local-copy-of-the-book-sec-maintain-clone"><span class="header-section-number">8.0.3.1</span> Clone: Create a local copy of the book {sec-maintain-clone}</h4>
+<p>Now that we have all the installation/setup out of the way, we can get started!</p>
+<p>Lets first get you a local copy of the book onto your computer by “cloning” the repository</p>
+<p>Head over to the <a href="https://github.com/unsw-edu-au/r4psych">remote repo for the book</a>:</p>
+<ol type="1">
+<li>Click on the big green button that says <strong>Code</strong></li>
+</ol>
+<p><img src="images/remote_repo.png" class="img-fluid"></p>
+<p>Here you will find a drop-down menu showing different methods of cloning the code from the remote repo.</p>
+<p>We will <strong>stick with the default option of using HTTPS</strong> a.k.a. cloning by using the URL of the remote repo.</p>
+<ol start="3" type="1">
+<li><p>Click on the copy URL button (The stacked squares icon)</p></li>
+<li><p>Navigate to Github Desktop and click on the first drop down menu from the left. Here you will find the <strong>Add</strong> button.</p></li>
+</ol>
+<p><img src="images/add_repo.png" class="img-fluid"></p>
+<ol start="5" type="1">
+<li><p>Click on <strong>Add</strong> and then <strong>Clone Repository</strong></p></li>
+<li><p>Click on the <strong>URL</strong> option and paste in the URL of this book’s remote repo e.g.&nbsp;<strong>https://github.com/unsw-edu-au/r4psych</strong></p></li>
+<li><p>Under <strong>Local Path</strong>, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git’s ability to track your changes.</p></li>
+<li><p>Finally, click <strong>Clone</strong> and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer!</p></li>
+<li><p>Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in <a href="#sec-bookstructure">Book Structure</a></p></li>
+</ol>
+</section>
+<section id="branches-create-your-own-working-copy-sec-maintain-branch" class="level4" data-number="8.0.3.2">
+<h4 data-number="8.0.3.2" class="anchored" data-anchor-id="branches-create-your-own-working-copy-sec-maintain-branch"><span class="header-section-number">8.0.3.2</span> Branches: Create your own working copy {sec-maintain-branch}</h4>
+<p>As maintainers, we will work on <a href="sec-maintain-branch">branches</a>. (internal copies of the book) so as to not overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best.</p>
+<p>The <code>main</code> branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/</p>
+<p>When you clone a repository, the <code>main</code> branch is selected by default.</p>
+<p>To create your own branch:</p>
+<ol type="1">
+<li><p>Click on the middle menu that says “Current branch <strong>main</strong>”</p></li>
+<li><p>Click on <strong>“New Branch”</strong></p></li>
+</ol>
+<p><img src="images/branch.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Give your branch a name.</li>
+</ol>
+<p>Keep it concise and related to the feature you are going to work on e.g <code>restructure-wrangle</code>. Separate words with a hyphen.</p>
+<p>At the end of your branch name, put down your initials, that way other maintainers know who is working on which branch. e.g <code>restructure-wrangle-fk</code></p>
+<ol start="4" type="1">
+<li>Click on “Create Branch” and voila! Git will automatically switch from <code>main</code> to your branch for you.</li>
+</ol>
+<p>At this stage, your branch exists locally on your computer, no where else.</p>
+<ol start="5" type="1">
+<li>Next, we will click on “Publish branch”, this will make your branch available on the remote repo so we can formally incorporate its changes to the <code>main</code> once your edits are done. Publishing your branch also allows other maintainer’s see your progress.</li>
+</ol>
+</section>
+<section id="make-your-changes-sec-maintain-edit" class="level4" data-number="8.0.3.3">
+<h4 data-number="8.0.3.3" class="anchored" data-anchor-id="make-your-changes-sec-maintain-edit"><span class="header-section-number">8.0.3.3</span> Make your changes {sec-maintain-edit}</h4>
+</section>
+<section id="create-a-pull-request-sec-maintain-pr" class="level4" data-number="8.0.3.4">
+<h4 data-number="8.0.3.4" class="anchored" data-anchor-id="create-a-pull-request-sec-maintain-pr"><span class="header-section-number">8.0.3.4</span> Create a pull request {sec-maintain-pr}</h4>
+</section>
+</section>
+<section id="renv-managing-r-packages" class="level3" data-number="8.0.4">
+<h3 data-number="8.0.4" class="anchored" data-anchor-id="renv-managing-r-packages"><span class="header-section-number">8.0.4</span> <code>{renv}</code>: Managing R packages</h3>
+<section id="renv-workflow" class="level4" data-number="8.0.4.1">
+<h4 data-number="8.0.4.1" class="anchored" data-anchor-id="renv-workflow"><span class="header-section-number">8.0.4.1</span> <code>{renv}</code> workflow</h4>
+</section>
+</section>
+<section id="sec-bookstructure" class="level3" data-number="8.0.5">
+<h3 data-number="8.0.5" class="anchored" data-anchor-id="sec-bookstructure"><span class="header-section-number">8.0.5</span> Book Structure</h3>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -790,13 +750,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Welcome!">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome!</span>
+      <a href="./inferences.html" class="pagination-link" aria-label="Infer">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Infer</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./organise.html" class="pagination-link" aria-label="Organise">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Organise</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./contributing.html" class="pagination-link" aria-label="Contributing Guidelines">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Contributing Guidelines</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

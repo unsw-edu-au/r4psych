@@ -124,7 +124,7 @@
     "href": "import.html",
     "title": "3  Import",
     "section": "",
-    "text": "4 Packages for this chapter\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(here)\n\nhere() starts at /home/runner/work/r4psych/r4psych\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\nlibrary(haven)\nlibrary(sjPlot)\n\nLearn more about sjPlot with 'browseVignettes(\"sjPlot\")'.\n\n# remotes::install_github(\"martinctc/surveytoolbox\")\nlibrary(surveytoolbox)",
+    "text": "4 Packages for this chapter\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(here)\n\nhere() starts at /home/runner/work/r4psych/r4psych\n\nlibrary(janitor)\n\n\nAttaching package: 'janitor'\n\nThe following objects are masked from 'package:stats':\n\n    chisq.test, fisher.test\n\nlibrary(haven)\nlibrary(sjPlot)\n\n#refugeeswelcome\n\n# remotes::install_github(\"martinctc/surveytoolbox\")\nlibrary(surveytoolbox)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Import</span>"
     ]
@@ -290,93 +290,63 @@
     ]
   },
   {
+    "objectID": "maintain.html",
+    "href": "maintain.html",
+    "title": "8  Maintainer’s Guide",
+    "section": "",
+    "text": "8.0.1 Getting access\nFirst, let’s make sure you have collaborator access to the repository.\n\nHead over to your repository settings\nIf you see unsw-edu-au and the repo name: unsw-edu-au/r4psych in the list then you have collaborator access to the repository.\n\n\nIf you don’t, let’s go through how you can request an invite to be a collaborator\n\n8.0.1.1 Request access\nCreate an issue requesting for collaborator access and one of the maintainers with admin rights will send through an invite.\n\n\n\n8.0.2 The set up\nThe set up for maintainer’s is the same for contributors. Check out the following sections to get started:\n\nInstall Quarto\nGitHub Workflow\n\n\n\n8.0.3 The Maintainer’s workflow\nThe maintainer’s workflow goes like this:\n\nYou clone the remote repo\nYou create a new feature branch.\nYou work on your branch and make your edits, you commit regularly, you push regularly to the remote.\nWhen you are happy with your changes, you will create a pull request for your contribution and one of the other maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you.\nOnce everything and everyone is happy and dandy with the final changes, your changes will be approved and merged into main. When this happens, your branch is deleted on the remote and you will also delete it locally.\n\nThis workflow treats branches as temporary entities and will keeps the remote tidy and streamlined.\nNow let’s walk through this workflow step by step.\n\n\n\n\n\n\nNote\n\n\n\nThe next sections assumes you’ve completed the initial set-up of installing git and a git client. We will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.\n\n\n\n8.0.3.1 Clone: Create a local copy of the book {sec-maintain-clone}\nNow that we have all the installation/setup out of the way, we can get started!\nLets first get you a local copy of the book onto your computer by “cloning” the repository\nHead over to the remote repo for the book:\n\nClick on the big green button that says Code\n\n\nHere you will find a drop-down menu showing different methods of cloning the code from the remote repo.\nWe will stick with the default option of using HTTPS a.k.a. cloning by using the URL of the remote repo.\n\nClick on the copy URL button (The stacked squares icon)\nNavigate to Github Desktop and click on the first drop down menu from the left. Here you will find the Add button.\n\n\n\nClick on Add and then Clone Repository\nClick on the URL option and paste in the URL of this book’s remote repo e.g. https://github.com/unsw-edu-au/r4psych\nUnder Local Path, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git’s ability to track your changes.\nFinally, click Clone and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer!\nNavigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in Book Structure\n\n\n\n8.0.3.2 Branches: Create your own working copy {sec-maintain-branch}\nAs maintainers, we will work on branches. (internal copies of the book) so as to not overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best.\nThe main branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/\nWhen you clone a repository, the main branch is selected by default.\nTo create your own branch:\n\nClick on the middle menu that says “Current branch main”\nClick on “New Branch”\n\n\n\nGive your branch a name.\n\nKeep it concise and related to the feature you are going to work on e.g restructure-wrangle. Separate words with a hyphen.\nAt the end of your branch name, put down your initials, that way other maintainers know who is working on which branch. e.g restructure-wrangle-fk\n\nClick on “Create Branch” and voila! Git will automatically switch from main to your branch for you.\n\nAt this stage, your branch exists locally on your computer, no where else.\n\nNext, we will click on “Publish branch”, this will make your branch available on the remote repo so we can formally incorporate its changes to the main once your edits are done. Publishing your branch also allows other maintainer’s see your progress.\n\n\n\n8.0.3.3 Make your changes {sec-maintain-edit}\n\n\n8.0.3.4 Create a pull request {sec-maintain-pr}\n\n\n\n8.0.4 {renv}: Managing R packages\n\n8.0.4.1 {renv} workflow\n\n\n\n8.0.5 Book Structure",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Maintainer's Guide</span>"
+    ]
+  },
+  {
     "objectID": "contributing.html",
     "href": "contributing.html",
-    "title": "8  Contributing",
+    "title": "9  Contributing Guidelines",
     "section": "",
-    "text": "8.0.1 Hello Quarto!\nThis book is built by Quarto which is an open source, cross-language publishing system that allows users to build beautiful things from blogs, to websites and books!\nYou can learn more about the capabilities of Quarto in this talk by Mine Çetinkaya-Rundel & Julia Stewart Lowndes at posit::conf(2023)",
+    "text": "This resource is created in mind so that the community that uses it, can also contribute to it. We hope this mindset will encourage the resource to grow and stay up-to-date for R learners.\nImportantly, all skill levels are welcome to contribute, even if you think your skills are not up to scratch - this is what this guide is for! There is also a way for you to contribute if code/git/Quarto is not your cup of tea.\n\n9.0.1 Hello Quarto!\nThis book is built by Quarto which is an open source, cross-language publishing system that allows users to build beautiful things from blogs, to websites and books!\nYou can learn more about the capabilities of Quarto in this talk by Mine Çetinkaya-Rundel & Julia Stewart Lowndes at posit::conf(2023)\n\n9.0.1.1 Install Quarto\nFirst things first, let’s make sure we have the latest version of Quarto installed using these instructions\n\n\n\n9.0.2 GitHub Workflow\nNext, we need to talk about the Git/GitHub part of the workflow. Git is a version control system. It that tracks changes in our code that generated this book and helps us coordinate our collaborative edits.\nGit monitors the changes in a project directory a.k.a repository or “repo”. There are two types of repositories:\n\nLocal repository: This is a project directory that exists locally in your computer than git is actively watching over.\nRemote repository: This is a synced copy of your local repo. The remote repo for this book lives on GitHub. GitHub centralises our collaborative efforts. It provides a platform for the community to make a local copy of the book, create changes and introduce them back to the remote repository. GitHub also acts as the hosting service for the book itself which is also a big bonus for us.\n\n\n\n\n\n\n\nTip\n\n\n\nA great resource on GitHub setup and collaboration is Happy Git with R, which includes fantastic background philosophy as well as tips for set-up, workflows, and collaboration.\n\n\n\n9.0.2.1 Sign up to GitHub\nStart by getting yourself an account at GitHub by signing up here\n\n\n9.0.2.2 Install git\nFollow these instructions from “Happy Git with R” to install git to your computer. There are specific instructions for different operating systems.\n\n\n9.0.2.3 Install a git client\nTraditionally, git has been used in the shell terminal. This is the ‘back-end’ of the computer and allows you to interact with your computer using code. This means that you have to type out commands to tell git what to do. This approach can become a little overwhelming when you are starting out.\nInstead, we suggest using a git client like Github Desktop, however it is limited to only to Windows and Mac. If you use Linux, GitKraken is also a great alternative. There are many git clients to choose from. Once you start to get the hang on things, all of these clients are much of the same and its a matter of personal preference.\nIf you are an RStudio user, there is a built-in git tab to the interface, its features are more simplified than the previously mentioned clients but does the basic commands that we will talk about next.\nOnce you have downloaded a client, follow it’s instructions to login and connect your Github account to the client.\n\n\n\n\n\n\nNote\n\n\n\nFor the rest of the chapter, we will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.\n\n\n\n\n\n9.0.3 The Contributor’s workflow\nWe will work on forks (independent copies of the book) so as to not overwrite each other’s work and have a systematic way in introducing new contributions to the book. Coordinating collaborative changes on the same project is what GitHub does best.\nThe main branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/\nThe contributing workflow looks like this:\n\nYou fork the most recent version from main\nYou make your edits, you commit regularly, you push regularly to the remote (github.com)\nWhen you are happy with your changes, you will create a pull request for your contribution and one of the core maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you.\nOnce everything and everyone is happy and dandy with the final changes, your changes will be approved and merged into main. When this happens, your branch is deleted on the remote and you will also delete it locally.\n\nNow let’s walk through this workflow step by step\n\n\n\n\n\n\nNote\n\n\n\nThe following sections assumes you’ve completed the initial set-up of installing git and a git client\n\n\n\n9.0.3.1 Fork: Create an independent copy of the book\nNow that we have all the installation out of the way, we can get started!\nThe best way to contribute to the book is to create an independent copy that lives in your Github account. This process is called creating a fork and it allows you to make your contributions without it affecting the approved version of the book.\n\nTo create a fork, head over to the remote repo for the book and click on the Fork button on the right hand side of the webpage\n\n\n\nContinue to the next webpage and leave the default settings as they are and click the green button Create fork\n\n\nForking will create a duplicate of the r4psych book remote repo into your account. This is your remote copy that you can make your contributions to. We will talk about how we bring your contributions back to the r4psych remote repo later in Create a pull request.\n\n\n9.0.3.2 Clone: Create a local copy of your fork\nOnce you have a fork, we will get a local copy of the book onto your computer by “cloning” the forked repository.\n\nHead to the webpage of your forked repository. The URL for it should look something like: https://github.com/your-usename/r4psych\nClick on the big green button that says Code\n\n\nHere you will find a drop-down menu showing different methods of cloning the code from the remote repo.\nWe will stick with the default option of using HTTPS a.k.a. cloning by using the URL of the remote repo.\n\nClick on the copy URL button (The stacked squares icon)\nNavigate to Github Desktop and click on the first drop down menu from the left. Here you will find the Add button.\n\n\n\nClick on Add and then Clone Repository\nClick on the URL option and paste in the URL of your fork’s remote repo e.g. https://github.com/your-username/r4psych\nUnder Local Path, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git’s ability to track your changes.\nFinally, click Clone and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer!\nNavigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in Book Structure\n\n\n\n9.0.3.3 Make your changes\n\n\n9.0.3.4 Push your work to remote\n\n\n9.0.3.5 Create a pull request\n\n\n\n9.0.4 {renv}: Managing R packages\n\n9.0.4.1 {renv} workflow\n\n\n\n9.0.5 Book Structure\n\n9.0.5.1 Book Practices and Conventions\n\n\n\n9.0.6 Can I make a contribution without using Git?",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
-    ]
-  },
-  {
-    "objectID": "contributing.html#sec-bookstructure",
-    "href": "contributing.html#sec-bookstructure",
-    "title": "8  Contributing",
-    "section": "8.1 Book Structure",
-    "text": "8.1 Book Structure",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
-    ]
-  },
-  {
-    "objectID": "contributing.html#book-practices-and-conventions",
-    "href": "contributing.html#book-practices-and-conventions",
-    "title": "8  Contributing",
-    "section": "8.2 Book Practices and Conventions",
-    "text": "8.2 Book Practices and Conventions",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
-    ]
-  },
-  {
-    "objectID": "contributing.html#book-contributions",
-    "href": "contributing.html#book-contributions",
-    "title": "8  Contributing",
-    "section": "8.3 Book Contributions",
-    "text": "8.3 Book Contributions\n\n8.3.1 Edits\n\n\n8.3.2 Additions",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
-    ]
-  },
-  {
-    "objectID": "contributing.html#submit-a-pull-request",
-    "href": "contributing.html#submit-a-pull-request",
-    "title": "8  Contributing",
-    "section": "8.4 Submit a pull request",
-    "text": "8.4 Submit a pull request",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Contributing</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Contributing Guidelines</span>"
     ]
   },
   {
     "objectID": "appendix.html",
     "href": "appendix.html",
-    "title": "10  Appendix",
+    "title": "11  Appendix",
     "section": "",
-    "text": "11 how to install R and RStudio on your machine\nThe marvellous Danielle Navarro has LOTS of useful R learning resources on her YouTube channel. This playlist about how to install R and RStudio is particularly useful; no matter which operating system you are dealing with… Dani has you covered.",
+    "text": "12 how to install R and RStudio on your machine\nThe marvellous Danielle Navarro has LOTS of useful R learning resources on her YouTube channel. This playlist about how to install R and RStudio is particularly useful; no matter which operating system you are dealing with… Dani has you covered.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
     "objectID": "appendix.html#option-1",
     "href": "appendix.html#option-1",
-    "title": "10  Appendix",
-    "section": "12.1 option 1",
-    "text": "12.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")",
+    "title": "11  Appendix",
+    "section": "13.1 option 1",
+    "text": "13.1 option 1\nInstall a package by typing the following command with the name of the package you would like to install in the console.\ninstall.packages(\"packagename\")",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
     "objectID": "appendix.html#option-2",
     "href": "appendix.html#option-2",
-    "title": "10  Appendix",
-    "section": "12.2 option 2",
-    "text": "12.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work.",
+    "title": "11  Appendix",
+    "section": "13.2 option 2",
+    "text": "13.2 option 2\nAlternatively, search for the package you would like to install in the packages tab.\n\n\n\nYou can search for packages and install them from CRAN via the packages tab\n\n\n\nRemember once you have installed a package, you will need to use the library() function to load it before it will work.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
     ]
   },
   {
     "objectID": "appendix.html#useful-packages-for-psychology",
     "href": "appendix.html#useful-packages-for-psychology",
-    "title": "10  Appendix",
-    "section": "12.3 useful packages for psychology",
-    "text": "12.3 useful packages for psychology\n\ntidyverse this is a cluster of super helpful data wrangling and visualisation tools.\nhere this package helps direct R to the correct place for files based on the current working directory.\njanitor this package helps us clean up data - especially awkward variable names.\nqualtRics this package is helpful in reading in data files from Qualtrics… except for .sav SPSS format files! (see next)\nhaven this package is a good one for reading in .sav SPSS format files\nsjplot this package is helpful for making a ‘codebook’ of your variables and values from imported .sav files\nsurveytoolbox this package is helpful in drawing out the value labels of variables imported in .sav format – note: because surveytoolbox is on github and not CRAN, you’ll want to do the following two steps in the console. Note that we do this in the console since we only need to do it once! If the install asks you about updating packages, go ahead and do it! —(1) install the devtools package: install.packages(“devtools”) —(2) install via github: devtools::install_github(“martinctc/surveytoolbox”)\nufs this package (short for user friendly science) is a nice tool for computing the internal reliability of scales – note: one of the commands we will use in ufs requires the psych package to be installed (but doesn’t need to be loaded via library()). Ensure you install that first. Two steps: —-(1) install the `remotes`` package: install.packages(“remotes”) —-(2) install via github_lab: remotes::install_gitlab(‘r-packages/ufs’)\napa nice for making statistical output into APA style\ngt nice for making your tables look pretty\napaTables makes nice APA-styled tables of correlation, ANOVA, regression etc. output\nreport is a package to help with results reporting\npsych is an umbrella package for lots of common psych tasks\nez is a great package for stats, including analysis of variance\nemmeans is helpful for comparing specific means in a factorial design",
+    "title": "11  Appendix",
+    "section": "13.3 useful packages for psychology",
+    "text": "13.3 useful packages for psychology\n\ntidyverse this is a cluster of super helpful data wrangling and visualisation tools.\nhere this package helps direct R to the correct place for files based on the current working directory.\njanitor this package helps us clean up data - especially awkward variable names.\nqualtRics this package is helpful in reading in data files from Qualtrics… except for .sav SPSS format files! (see next)\nhaven this package is a good one for reading in .sav SPSS format files\nsjplot this package is helpful for making a ‘codebook’ of your variables and values from imported .sav files\nsurveytoolbox this package is helpful in drawing out the value labels of variables imported in .sav format – note: because surveytoolbox is on github and not CRAN, you’ll want to do the following two steps in the console. Note that we do this in the console since we only need to do it once! If the install asks you about updating packages, go ahead and do it! —(1) install the devtools package: install.packages(“devtools”) —(2) install via github: devtools::install_github(“martinctc/surveytoolbox”)\nufs this package (short for user friendly science) is a nice tool for computing the internal reliability of scales – note: one of the commands we will use in ufs requires the psych package to be installed (but doesn’t need to be loaded via library()). Ensure you install that first. Two steps: —-(1) install the `remotes`` package: install.packages(“remotes”) —-(2) install via github_lab: remotes::install_gitlab(‘r-packages/ufs’)\napa nice for making statistical output into APA style\ngt nice for making your tables look pretty\napaTables makes nice APA-styled tables of correlation, ANOVA, regression etc. output\nreport is a package to help with results reporting\npsych is an umbrella package for lots of common psych tasks\nez is a great package for stats, including analysis of variance\nemmeans is helpful for comparing specific means in a factorial design",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Appendix</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Appendix</span>"
     ]
   }
 ]
