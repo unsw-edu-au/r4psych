@@ -40,11 +40,11 @@ Follow [these instructions](https://happygitwithr.com/install-git) from "Happy G
 
 Traditionally, git has been used in the shell terminal. This is the 'back-end' of the computer and allows you to interact with your computer using code. This means that you have to type out commands to tell git what to do. This approach can become a little overwhelming when you are starting out. 
 
-Instead, we suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative.
+Instead, we suggest using a git client like [Github Desktop](https://desktop.github.com/), however it is limited to only to Windows and Mac. If you use Linux, [GitKraken](https://www.gitkraken.com/git-client) is also a great alternative. There are many [git clients to choose from](https://git-scm.com/downloads/guis). Once you start to get the hang on things, all of these clients are much of the same and its a matter of personal preference.
 
-There are many [git clients to choose from](https://git-scm.com/downloads/guis). Once you start to get the hang on things, all of these clients are much of the same and its a matter of personal preference.
+If you are an RStudio user, there is a [built-in git tab  ](https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html#configurerstudio) to the interface, its features are more simplified than the previously mentioned clients but does the basic commands that we will talk about next.
 
-If you are an RStudio user, there is a [git tab that is built-in](https://jennybc.github.io/2014-05-12-ubc/ubc-r/session03_git.html#configurerstudio) to the interface, its features are more simplified than the previously mentioned clients but does the basic commands that we will talk about next.
+Once you have downloaded a client, follow it's instructions to login and connect your Github account to the client. 
 
 ::: callout-note
 For the rest of the chapter, we will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
