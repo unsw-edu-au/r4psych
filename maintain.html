@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -197,8 +197,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#getting-access" id="toc-getting-access" class="nav-link active" data-scroll-target="#getting-access"><span class="header-section-number">8.0.1</span> Getting access</a></li>
   <li><a href="#the-set-up" id="toc-the-set-up" class="nav-link" data-scroll-target="#the-set-up"><span class="header-section-number">8.0.2</span> The set up</a></li>
   <li><a href="#the-maintainers-workflow" id="toc-the-maintainers-workflow" class="nav-link" data-scroll-target="#the-maintainers-workflow"><span class="header-section-number">8.0.3</span> The Maintainer’s workflow</a></li>
-  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.4</span> <code>{renv}</code>: Managing R packages</a></li>
-  <li><a href="#sec-bookstructure" id="toc-sec-bookstructure" class="nav-link" data-scroll-target="#sec-bookstructure"><span class="header-section-number">8.0.5</span> Book Structure</a></li>
+  <li><a href="#sec-maintain-clone" id="toc-sec-maintain-clone" class="nav-link" data-scroll-target="#sec-maintain-clone"><span class="header-section-number">8.0.4</span> Clone: Create a local copy of the book</a></li>
+  <li><a href="#sec-maintain-branch" id="toc-sec-maintain-branch" class="nav-link" data-scroll-target="#sec-maintain-branch"><span class="header-section-number">8.0.5</span> Branches: Create your own working copy</a></li>
+  <li><a href="#sec-maintain-edit" id="toc-sec-maintain-edit" class="nav-link" data-scroll-target="#sec-maintain-edit"><span class="header-section-number">8.0.6</span> Make your changes</a></li>
+  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.7</span> <code>{renv}</code>: Managing R packages</a></li>
+  <li><a href="#sec-bookstructure" id="toc-sec-bookstructure" class="nav-link" data-scroll-target="#sec-bookstructure"><span class="header-section-number">8.0.8</span> Book Structure</a></li>
   </ul>
 </nav>
     </div>
@@ -271,10 +274,11 @@ Note
 <p>The next sections assumes you’ve completed the initial set-up of <a href="contributing.html#sec-installgit">installing git</a> and a <a href="contributing.html#sec-installgitclient">git client</a>. We will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.</p>
 </div>
 </div>
-<section id="clone-create-a-local-copy-of-the-book-sec-maintain-clone" class="level4" data-number="8.0.3.1">
-<h4 data-number="8.0.3.1" class="anchored" data-anchor-id="clone-create-a-local-copy-of-the-book-sec-maintain-clone"><span class="header-section-number">8.0.3.1</span> Clone: Create a local copy of the book {sec-maintain-clone}</h4>
+</section>
+<section id="sec-maintain-clone" class="level3" data-number="8.0.4">
+<h3 data-number="8.0.4" class="anchored" data-anchor-id="sec-maintain-clone"><span class="header-section-number">8.0.4</span> Clone: Create a local copy of the book</h3>
 <p>Now that we have all the installation/setup out of the way, we can get started!</p>
-<p>Lets first get you a local copy of the book onto your computer by “cloning” the repository</p>
+<p>Lets get you a local copy of the book onto your computer by “cloning” the repository</p>
 <p>Head over to the <a href="https://github.com/unsw-edu-au/r4psych">remote repo for the book</a>:</p>
 <ol type="1">
 <li>Click on the big green button that says <strong>Code</strong></li>
@@ -295,9 +299,9 @@ Note
 <li><p>Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in <a href="#sec-bookstructure">Book Structure</a></p></li>
 </ol>
 </section>
-<section id="branches-create-your-own-working-copy-sec-maintain-branch" class="level4" data-number="8.0.3.2">
-<h4 data-number="8.0.3.2" class="anchored" data-anchor-id="branches-create-your-own-working-copy-sec-maintain-branch"><span class="header-section-number">8.0.3.2</span> Branches: Create your own working copy {sec-maintain-branch}</h4>
-<p>As maintainers, we will work on <a href="sec-maintain-branch">branches</a>. (internal copies of the book) so as to not overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best.</p>
+<section id="sec-maintain-branch" class="level3" data-number="8.0.5">
+<h3 data-number="8.0.5" class="anchored" data-anchor-id="sec-maintain-branch"><span class="header-section-number">8.0.5</span> Branches: Create your own working copy</h3>
+<p>As maintainers, we will work on <a href="sec-maintain-branch">branches</a> which are internal copies of the book. This is so we overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best.</p>
 <p>The <code>main</code> branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/</p>
 <p>When you clone a repository, the <code>main</code> branch is selected by default.</p>
 <p>To create your own branch:</p>
@@ -310,30 +314,90 @@ Note
 <li>Give your branch a name.</li>
 </ol>
 <p>Keep it concise and related to the feature you are going to work on e.g <code>restructure-wrangle</code>. Separate words with a hyphen.</p>
-<p>At the end of your branch name, put down your initials, that way other maintainers know who is working on which branch. e.g <code>restructure-wrangle-fk</code></p>
+<p>At the end of your branch name, <strong>put down your initials</strong>, that way other maintainers know who is working on which branch. e.g <code>restructure-wrangle-fk</code></p>
 <ol start="4" type="1">
-<li>Click on “Create Branch” and voila! Git will automatically switch from <code>main</code> to your branch for you.</li>
+<li>Click on <strong>“Create Branch”</strong> and voila! Git will automatically switch from <code>main</code> to your branch for you.</li>
 </ol>
 <p>At this stage, your branch exists locally on your computer, no where else.</p>
 <ol start="5" type="1">
 <li>Next, we will click on “Publish branch”, this will make your branch available on the remote repo so we can formally incorporate its changes to the <code>main</code> once your edits are done. Publishing your branch also allows other maintainer’s see your progress.</li>
 </ol>
 </section>
-<section id="make-your-changes-sec-maintain-edit" class="level4" data-number="8.0.3.3">
-<h4 data-number="8.0.3.3" class="anchored" data-anchor-id="make-your-changes-sec-maintain-edit"><span class="header-section-number">8.0.3.3</span> Make your changes {sec-maintain-edit}</h4>
+<section id="sec-maintain-edit" class="level3" data-number="8.0.6">
+<h3 data-number="8.0.6" class="anchored" data-anchor-id="sec-maintain-edit"><span class="header-section-number">8.0.6</span> Make your changes</h3>
+<p>Now that you have our own internal copy of the book, you can freely make changes pertaining to the feature you want to work on.</p>
+<p>Navigate to the local repo and click on the <strong><code>r4pysch.Rproj</code></strong> file. This will open up the project in RStudio.</p>
+<p>You can also use the buttons in Github Desktop to quickly navigate to the project files.</p>
+<p><img src="images/ghd_shortcuts.png" class="img-fluid"> #### Commit: A save point for your work {#sec-maintain-commit}</p>
+<p>Now let’s make a change to a chapter. As an example, correct a typo, or add some punctuation. Go for it!</p>
+<p>Before we launch into actual edits to the book, let’s talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.</p>
 </section>
-<section id="create-a-pull-request-sec-maintain-pr" class="level4" data-number="8.0.3.4">
-<h4 data-number="8.0.3.4" class="anchored" data-anchor-id="create-a-pull-request-sec-maintain-pr"><span class="header-section-number">8.0.3.4</span> Create a pull request {sec-maintain-pr}</h4>
+<section id="renv-managing-r-packages" class="level3" data-number="8.0.7">
+<h3 data-number="8.0.7" class="anchored" data-anchor-id="renv-managing-r-packages"><span class="header-section-number">8.0.7</span> <code>{renv}</code>: Managing R packages</h3>
+<p>We use <code>renv</code> to manage the R packages that are used by the book across different R versions and operating systems. <code>renv</code> uses a package cache. That means you only ever have to download and install a package once, and for each subsequent install!</p>
+<p>Learn more from the <code>renv</code> <a href="https://rstudio.github.io/renv/articles/renv.html">website</a></p>
+<p>Briefly, <code>renv</code> monitors and installs any R packages that are used in a project. <code>renv</code> records this information so that anyone opening up this book will have access to the same R package versions:</p>
+<p><code>renv</code> stores information in several places:</p>
+<ul>
+<li><code>renv/library/</code> directory</li>
+</ul>
+<p>Here you can see R packages for the different versions of R that was used during the creation of this book.</p>
+<ul>
+<li><code>renv.lock</code></li>
+</ul>
+<p>This is a lockfile and contains information about the R packages so that it can be re-installed on a new computer. The great thing about a lockfile is that you can share this which colleagues and they can use <code>renv</code> to reproduce the exact R package environment that was recorded.</p>
+<ul>
+<li><code>.Rprofile</code> This is a project profile and it is run automatically every time you start R. <code>renv</code> uses it to configure your R session to use the project library in <code>renv/library/</code>.</li>
+</ul>
+<section id="renv-workflow" class="level4" data-number="8.0.7.1">
+<h4 data-number="8.0.7.1" class="anchored" data-anchor-id="renv-workflow"><span class="header-section-number">8.0.7.1</span> <code>{renv}</code> workflow</h4>
+<p>We are going to learn some new <code>renv</code> lingo so help us manage our R package environment.</p>
+<section id="when-you-open-up-the-project" class="level5" data-number="8.0.7.1.1">
+<h5 data-number="8.0.7.1.1" class="anchored" data-anchor-id="when-you-open-up-the-project"><span class="header-section-number">8.0.7.1.1</span> When you open up the project</h5>
+<p>Each time you open this book project up run:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>- The library is already synchronized with the lockfile.</code></pre>
+</div>
+</div>
+<p>This will prompt <code>renv</code> to check and install any R packages that you may not have locally. If you have all the packages installed already, <code>renv</code> will tell you you’re synchronised.</p>
+</section>
+<section id="when-you-want-to-add-r-packages" class="level5" data-number="8.0.7.1.2">
+<h5 data-number="8.0.7.1.2" class="anchored" data-anchor-id="when-you-want-to-add-r-packages"><span class="header-section-number">8.0.7.1.2</span> When you want to add R packages</h5>
+<p>Over time, our book will need more packages. You can continue to use familiar tools like <code>install.packages()</code>. You can also use <code>renv::install()</code> it’s a little less typing and can install packages from GitHub, Bioconductor, and more, not just CRAN. Ta-da!</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>The following package(s) will be installed:
+- janitor [2.2.0]
+These packages will be installed into "~/work/r4psych/r4psych/renv/library/R-4.4/x86_64-pc-linux-gnu".
+
+# Installing packages --------------------------------------------------------
+- Installing janitor ...                        OK [linked from cache]
+Successfully installed 1 package in 5.5 milliseconds.</code></pre>
+</div>
+</div>
+<p>After installing the package and checking that your code works, you should call <code>renv::snapshot()</code> to record the latest package versions in your lockfile. You’ll need to <a href="sec-maintain-commit">commit those changes to git</a> and let your collaborators know that you’ve updated the lockfile and they should call <code>renv::restore()</code> when they’re next working on a project.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is why its good practice to call <code>renv::restore()</code> each time you open the project</p>
+</div>
+</div>
 </section>
 </section>
-<section id="renv-managing-r-packages" class="level3" data-number="8.0.4">
-<h3 data-number="8.0.4" class="anchored" data-anchor-id="renv-managing-r-packages"><span class="header-section-number">8.0.4</span> <code>{renv}</code>: Managing R packages</h3>
-<section id="renv-workflow" class="level4" data-number="8.0.4.1">
-<h4 data-number="8.0.4.1" class="anchored" data-anchor-id="renv-workflow"><span class="header-section-number">8.0.4.1</span> <code>{renv}</code> workflow</h4>
+<section id="sec-maintain-pr" class="level4" data-number="8.0.7.2">
+<h4 data-number="8.0.7.2" class="anchored" data-anchor-id="sec-maintain-pr"><span class="header-section-number">8.0.7.2</span> Create a pull request</h4>
 </section>
 </section>
-<section id="sec-bookstructure" class="level3" data-number="8.0.5">
-<h3 data-number="8.0.5" class="anchored" data-anchor-id="sec-bookstructure"><span class="header-section-number">8.0.5</span> Book Structure</h3>
+<section id="sec-bookstructure" class="level3" data-number="8.0.8">
+<h3 data-number="8.0.8" class="anchored" data-anchor-id="sec-bookstructure"><span class="header-section-number">8.0.8</span> Book Structure</h3>
 
 
 </section>
