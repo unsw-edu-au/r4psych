@@ -1,3 +1,8 @@
+---
+execute:
+  echo: false
+---
+
 # Maintainer's Guide
 
 ### Getting access
@@ -45,11 +50,11 @@ Now let's walk through this workflow step by step.
 The next sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient). We will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
 :::
 
-#### Clone: Create a local copy of the book {sec-maintain-clone}
+### Clone: Create a local copy of the book {#sec-maintain-clone}
 
 Now that we have all the installation/setup out of the way, we can get started! 
 
-Lets first get you a local copy of the book onto your computer by "cloning" the repository
+Lets get you a local copy of the book onto your computer by "cloning" the repository
 
 Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych): 
 
@@ -77,9 +82,9 @@ We will **stick with the default option of using HTTPS** a.k.a. cloning by using
 
 9. Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in [Book Structure](#sec-bookstructure) 
 
-#### Branches: Create your own working copy {sec-maintain-branch}
+### Branches: Create your own working copy {#sec-maintain-branch}
 
-As maintainers, we will work on [branches](sec-maintain-branch). (internal copies of the book) so as to not overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best. 
+As maintainers, we will work on [branches](sec-maintain-branch) which are internal copies of the book. This is so we overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best. 
 
 The `main` branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/
 
@@ -97,23 +102,83 @@ To create your own branch:
 
 Keep it concise and related to the feature you are going to work on e.g `restructure-wrangle`. Separate words with a hyphen. 
 
-At the end of your branch name, put down your initials, that way other maintainers know who is working on which branch. e.g `restructure-wrangle-fk` 
+At the end of your branch name, **put down your initials**, that way other maintainers know who is working on which branch. e.g `restructure-wrangle-fk` 
 
-4. Click on "Create Branch" and voila! Git will automatically switch from `main` to your branch for you. 
+4. Click on **"Create Branch"** and voila! Git will automatically switch from `main` to your branch for you. 
 
 At this stage, your branch exists locally on your computer, no where else.
 
 5. Next, we will click on "Publish branch", this will make your branch available on the remote repo so we can formally incorporate its changes to the `main` once your edits are done. Publishing your branch also allows other maintainer's see your progress. 
 
-#### Make your changes {sec-maintain-edit}
+### Make your changes {#sec-maintain-edit}
+
+Now that you have our own internal copy of the book, you can freely make changes pertaining to the feature you want to work on. 
+
+Navigate to the local repo and click on the **`r4pysch.Rproj`** file. This will open up the project in RStudio. 
+
+You can also use the buttons in Github Desktop to quickly navigate to the project files. 
+
+![](images/ghd_shortcuts.png)
+#### Commit: A save point for your work {#sec-maintain-commit}
+
+Now let's make a change to a chapter. 
+As an example, correct a typo, or add some punctuation. Go for it!
 
 
 
-#### Create a pull request {sec-maintain-pr}
+Before we launch into actual edits to the book, let's talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers. 
 
 ### `{renv}`: Managing R packages 
 
+We use `renv` to manage the R packages that are used by the book across different R versions and operating systems. `renv` uses a package cache. That means you only ever have to download and install a package once, and for each subsequent install!
+
+Learn more from the `renv` [website](https://rstudio.github.io/renv/articles/renv.html)
+
+Briefly, `renv` monitors and installs any R packages that are used in a project. `renv` records this information so that anyone opening up this book will have access to the same R package versions: 
+
+`renv` stores information in several places:
+
+- `renv/library/` directory
+
+Here you can see R packages for the different versions of R that was used during the creation of this book. 
+
+- `renv.lock` 
+
+This is a lockfile and contains information about the R packages so that it can be re-installed on a new computer. The great thing about a lockfile is that you can share this which colleagues and they can use `renv` to reproduce the exact R package environment that was recorded. 
+
+- `.Rprofile` This is a project profile and it is run automatically every time you start R. `renv` uses it to configure your R session to use the project library in `renv/library/`.
+
 #### `{renv}` workflow
+
+We are going to learn some new `renv` lingo so help us manage our R package environment. 
+
+##### When you open up the project
+
+Each time you open this book project up run: 
+
+```{r}
+renv::restore()
+```
+
+This will prompt `renv` to check and install any R packages that you may not have locally. If you have all the packages installed already, `renv` will tell you you're synchronised. 
+
+##### When you want to add R packages
+
+Over time, our book will need more packages. You can continue to use familiar tools like `install.packages()`. You can also use `renv::install()` it’s a little less typing and can install packages from GitHub, Bioconductor, and more, not just CRAN. Ta-da! 
+
+```{r}
+renv::install("janitor")
+```
+
+After installing the package and checking that your code works, you should call `renv::snapshot()` to record the latest package versions in your lockfile. You’ll need to [commit those changes to git](sec-maintain-commit) and let your collaborators know that you’ve updated the lockfile and they should call `renv::restore()` when they’re next working on a project.
+
+:::{.callout-note}
+This is why its good practice to call `renv::restore()` each time you open the project 
+:::
+
+#### Create a pull request {#sec-maintain-pr}
+
+
 
 ### Book Structure {#sec-bookstructure}
 
