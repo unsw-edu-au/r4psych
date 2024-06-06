@@ -396,7 +396,12 @@ Note
 </section>
 <section id="b-open-pr-from-github-website" class="level4" data-number="8.0.7.2">
 <h4 data-number="8.0.7.2" class="anchored" data-anchor-id="b-open-pr-from-github-website"><span class="header-section-number">8.0.7.2</span> B: Open PR from Github Website</h4>
-<p>You can al</p>
+<p>You can also directly open a PR via the <a href="https://github.com/unsw-edu-au/r4psych/pulls">Github website</a> by clicking on the “Pull Request tab”.</p>
+<ol type="1">
+<li><p>Click on the green button labelled “New Pull Request”</p></li>
+<li><p>Select the branch you want merge <strong>into</strong> <code>main</code>. Github will display a preview of your PR here.</p></li>
+<li><p>Click on the green button “Create Pull Request” where you will be taken to the same screen as step 2. from the previous section.</p></li>
+</ol>
 </section>
 <section id="if-suggestions-are-requested" class="level4" data-number="8.0.7.3">
 <h4 data-number="8.0.7.3" class="anchored" data-anchor-id="if-suggestions-are-requested"><span class="header-section-number">8.0.7.3</span> If suggestions are requested</h4>
@@ -445,7 +450,7 @@ These packages will be installed into "~/work/r4psych/r4psych/renv/library/R-4.4
 
 # Installing packages --------------------------------------------------------
 - Installing janitor ...                        OK [linked from cache]
-Successfully installed 1 package in 7.4 milliseconds.</code></pre>
+Successfully installed 1 package in 5.4 milliseconds.</code></pre>
 </div>
 </div>
 <p>After installing the package and checking that your code works, you should call <code>renv::snapshot()</code> to record the latest package versions in your lockfile. You’ll need to <a href="sec-maintain-commit">commit those changes to git</a> and let your collaborators know that you’ve updated the lockfile and they should call <code>renv::restore()</code> when they’re next working on a project.</p>
