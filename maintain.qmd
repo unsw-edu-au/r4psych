@@ -9,9 +9,9 @@ execute:
 
 First, let's make sure you have collaborator access to the repository.
 
-1. Head over to your [repository settings](https://github.com/settings/repositories)
+1.  Head over to your [repository settings](https://github.com/settings/repositories)
 
-2. If you see **unsw-edu-au** and the repo name: `unsw-edu-au/r4psych` in the list then you have collaborator access to the repository.
+2.  If you see **unsw-edu-au** and the repo name: `unsw-edu-au/r4psych` in the list then you have collaborator access to the repository.
 
 ![](images/repo_access.png)
 
@@ -19,152 +19,230 @@ If you don't, let's go through how you can request an invite to be a collaborato
 
 #### Request access
 
-[Create an issue](https://github.com/unsw-edu-au/r4psych/issues) requesting for collaborator access and one of the maintainers with admin rights will send through an invite. 
+[Create an issue](https://github.com/unsw-edu-au/r4psych/issues) requesting for collaborator access and one of the maintainers with admin rights will send through an invite.
 
 ### The set up
 
 The set up for maintainer's is the same for contributors. Check out the following sections to get started:
 
-- [Install Quarto](#sec-installquarto)
-- [GitHub Workflow](#sec-githubworkflow)
+-   [Install Quarto](#sec-installquarto)
+-   [GitHub Workflow](#sec-githubworkflow)
 
 ### The Maintainer's workflow
 
 The maintainer's workflow goes like this:
 
-1. You [clone](sec-maintain-clone) the [remote repo](https://github.com/unsw-edu-au/r4psych/)
+1.  You [clone](sec-maintain-clone) the [remote repo](https://github.com/unsw-edu-au/r4psych/)
 
-2. You create a new feature [**branch**](sec-maintain-branch).
+2.  You create a new feature [**branch**](sec-maintain-branch).
 
-2. You work on your branch and [make your edits](sec-maintain-edit), you **commit** regularly, you **push** regularly to the remote. 
+3.  You work on your branch and [make your edits](sec-maintain-edit), you **commit** regularly, you **push** regularly to the remote.
 
-3. When you are happy with your changes, you will create a [**pull request**](sec-maintain-pr) for your contribution and one of the other maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you. 
+4.  When you are happy with your changes, you will create a [**pull request**](sec-maintain-pr) for your contribution and one of the other maintainers will review it. Edits may be requested or one of the maintainers will make the changes after having a conversation with you.
 
-4. Once everything and everyone is happy and dandy with the final changes, your changes will be **approved and merged into main**. When this happens, your branch is deleted on the remote and you will also delete it locally.
+5.  Once everything and everyone is happy and dandy with the final changes, your changes will be **approved and merged into main**. When this happens, your branch is deleted on the remote and you will also delete it locally.
 
 This workflow treats branches as temporary entities and will keeps the remote tidy and streamlined.
 
-Now let's walk through this workflow step by step. 
+Now let's walk through this workflow step by step.
 
-::: {.callout-note}
+::: callout-note
 The next sections assumes you’ve completed the initial set-up of [installing git](#sec-installgit) and a [git client](#sec-installgitclient). We will focus on using Github Desktop, but the main git commands should translate to whichever client you are using.
 :::
 
 ### Clone: Create a local copy of the book {#sec-maintain-clone}
 
-Now that we have all the installation/setup out of the way, we can get started! 
+Now that we have all the installation/setup out of the way, we can get started!
 
 Lets get you a local copy of the book onto your computer by "cloning" the repository
 
-Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych): 
+Head over to the [remote repo for the book](https://github.com/unsw-edu-au/r4psych):
 
-1. Click on the big green button that says **Code**
+1.  Click on the big green button that says **Code**
 
 ![](images/remote_repo.png)
 
-Here you will find a drop-down menu showing different methods of cloning the code from the remote repo. 
+Here you will find a drop-down menu showing different methods of cloning the code from the remote repo.
 
-We will **stick with the default option of using HTTPS** a.k.a. cloning by using the URL of the remote repo. 
+We will **stick with the default option of using HTTPS** a.k.a. cloning by using the URL of the remote repo.
 
-3. Click on the copy URL button (The stacked squares icon)
+3.  Click on the copy URL button (The stacked squares icon)
 
-4. Navigate to Github Desktop and click on the first drop down menu from the left. Here you will find the **Add** button.
+4.  Navigate to Github Desktop and click on the first drop down menu from the left. Here you will find the **Add** button.
 
 ![](images/add_repo.png)
 
-5. Click on **Add** and then **Clone Repository** 
+5.  Click on **Add** and then **Clone Repository**
 
-6. Click on the **URL** option and paste in the URL of this book's remote repo e.g. **https://github.com/unsw-edu-au/r4psych**
+6.  Click on the **URL** option and paste in the URL of this book's remote repo e.g. **https://github.com/unsw-edu-au/r4psych**
 
-7. Under **Local Path**, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git's ability to track your changes. 
+7.  Under **Local Path**, you can choose where you want to place this cloned repo. Avoid putting your repos in Cloud services such as Dropbox or Google Drive. These can sometimes interfere with git's ability to track your changes.
 
-8. Finally, click **Clone** and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer! 
+8.  Finally, click **Clone** and let git do the work! It will copy everything that is in the remote repo and bring it down locally on your computer!
 
-9. Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in [Book Structure](#sec-bookstructure) 
+9.  Navigate to the local path where you told git to clone to in Step 7 and check out the directories. You will learn more about these in [Book Structure](#sec-bookstructure)
 
 ### Branches: Create your own working copy {#sec-maintain-branch}
 
-As maintainers, we will work on [branches](sec-maintain-branch) which are internal copies of the book. This is so we overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best. 
+As maintainers, we will work on [branches](sec-maintain-branch) which are internal copies of the book. This is so we overwrite each other’s work. This approach will also allow us to have a systematic way in introducing new content to the book. Coordinating collaborative changes on the same project is what GitHub does best.
 
 The `main` branch is currently the most recent approved version of the book - this is displayed at https://unsw-edu-au.github.io/r4psych/
 
-When you clone a repository, the `main` branch is selected by default. 
+When you clone a repository, the `main` branch is selected by default.
 
-To create your own branch: 
+To create your own branch:
 
-1. Click on the middle menu that says "Current branch **main**" 
+1.  Click on the middle menu that says "Current branch **main**"
 
-2. Click on **"New Branch"**
+2.  Click on **"New Branch"**
 
 ![](images/branch.png)
 
-3. Give your branch a name.
+3.  Give your branch a name.
 
-Keep it concise and related to the feature you are going to work on e.g `restructure-wrangle`. Separate words with a hyphen. 
+Keep it concise and related to the feature you are going to work on e.g `restructure-wrangle`. Separate words with a hyphen.
 
-At the end of your branch name, **put down your initials**, that way other maintainers know who is working on which branch. e.g `restructure-wrangle-fk` 
+At the end of your branch name, **put down your initials**, that way other maintainers know who is working on which branch. e.g `restructure-wrangle-fk`
 
-4. Click on **"Create Branch"** and voila! Git will automatically switch from `main` to your branch for you. 
+4.  Click on **"Create Branch"** and voila! Git will automatically switch from `main` to your branch for you.
 
 At this stage, your branch exists locally on your computer, no where else.
 
-5. Next, we will click on "Publish branch", this will make your branch available on the remote repo so we can formally incorporate its changes to the `main` once your edits are done. Publishing your branch also allows other maintainer's see your progress. 
+5.  Next, we will click on "Publish branch", this will make your branch available on the remote repo so we can formally incorporate its changes to the `main` once your edits are done. Publishing your branch also allows other maintainer's see your progress.
 
 ### Make your changes {#sec-maintain-edit}
 
-Now that you have our own internal copy of the book, you can freely make changes pertaining to the feature you want to work on. 
+Now that you have our own internal copy of the book, you can freely make changes pertaining to the feature you want to work on.
 
-Navigate to the local repo and click on the **`r4pysch.Rproj`** file. This will open up the project in RStudio. 
+Navigate to the local repo and click on the **`r4pysch.Rproj`** file. This will open up the project in RStudio.
 
-You can also use the buttons in Github Desktop to quickly navigate to the project files. 
+You can also use the buttons in Github Desktop to quickly navigate to the project files.
 
 ![](images/ghd_shortcuts.png)
+
 #### Commit: A save point for your work {#sec-maintain-commit}
 
-Now let's make a change to a chapter. 
-As an example, correct a typo, or add some punctuation. Go for it!
+Now let's make a change to a chapter.
 
+1.  As a proof of concept, let's add a comment in the Wrangle chapter.
 
+![](images/wrangle_comment.png)
 
-Before we launch into actual edits to the book, let's talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers. 
+2.  Save this change and have a look at Github Desktop. Notice how git has detected your change? Additions are flagged in green, any deletions are flagged in red. Cool right?!
 
-### `{renv}`: Managing R packages 
+Now we are going to **commit** these changes. Think of committing your work as saving your progress in a video. A commit is a safe anchor point to come back to if you need.
+
+3.  By default, git will tick the check box for you. This check box process is technically called "staging". Its choosing the files you want git to track.
+
+4.  Now include a meaningful, **concise message** that will be associated with your commit. These are usually summaries that pertains to the changes you've made. In this case, "Added comment to Wrangle chapter" will suffice.
+
+5.  Click on the blue button **Commit to restructure-wrangle** and git will save your changes as a checkpoint.
+
+There is not hard and fast rule with how often you should commit your work. Typically they are bite-sized amounts of work towards the feature you are working on. Thinking about commits as potential check points in time you want to come back to e.g. just after some restructuring/rewording of a big section.
+
+#### Push: Sync your work with remote {#sec-maintain-push}
+
+Up until this point, all your changes exist locally on your computer. No one else has these changes. Our last step to complete our git/Github workflow is to **push** our work to the **remote repo** so other it is available for others to review.
+
+To push your work:
+
+1.  Click on the blue button that says **"Push origin"**
+
+This is sync your local changes with those on the remote. Once you've done that, you can view your synced changes on the remote repo by selecting your feature branch name under the left dropdown menu
+
+![](images/remote_branches.png)
+
+::: {callout-note}
+Alternatively, you can click on the third tab menu also labelled as "Push origin" that has an up arrow ⬆️
+:::
+
+Continue [committing](#sec-maintain-commit) and pushing your work as you make your edits on your feature branch. Its generally good practice to push your work before you step away from working on the book. This is to ensure all your work is synced and shared on the remote.
+
+### Pull Request: Submit your feature for review
+
+Once you are happy with your edits on your feature branch and we will prepare a **pull request** so we can merge them into the `main` [branch](sec-maintain-branch).
+
+::: {callout-note}
+We will refer to **pull requests** as PR from now on
+:::
+
+Think of a pull request like code peer review. The idea is have another maintainer go over your eidts and provide any constructive feedback/edits. This process ensures that the contributions are vetted by the maintainers and merged in to the `main` branch systematically.
+
+There are two ways to **create a pull request**:
+
+#### A. Open PR within GitHub Desktop
+
+1.  After [pushing your changes](sec-maintain-push), Github Desktop will automatically prompt you to **"Preview Pull Request"**. Clicking on this blue button will open a window showing you some key details
+
+![](images/preview_pr.png)
+
+-   At the top, it will tell you what which base branch you are merging **into**. By default it will be set to `main`. In the screenshot above, we can see that we are proposing to merge `restructure-wrangle` into `base: main`
+
+-   You will see a preview of the changes you've made to the book. Green are additions, red are deletions.
+
+-   At the bottom, it will say whether your edits can be easily merged it or whether there are conflicts. We will talk about how to handle conflicts next.
+
+Once you are happy with your preview, click on the blue botton to **"Create Pull Request"**
+
+2.  Clicking this button will open a browser to the Github website.
+
+![](images/maintain-pr-github.png) Here you see the same sort of information from the preview. You are prompted to write a short title and short summary for your PR. These will form the basis of your commit message when it's approved.
+
+3.  Keep your summary concise, use bullet points or hyperlinks if you find them helpful. You can refer to a Github Issue number using a \# suffix. (More of this later).
+
+4.  Request one of the [maintainers]() using the Reviewer dropdown menu to they can review your PR.
+
+5.  Once you are happy, click the green button **"Create Pull Request"**
+
+TA-DA!!! 🎉 You're done!!! That is the entire git/Github workflow. Now leave this with the maintainer you've tagged, they may request have some suggestions for you before the official approval but the hardest part is over!
+
+#### B: Open PR from Github Website
+
+You can al
+
+#### If suggestions are requested
+
+You will be prompted via email if there are comments or suggestions made to our PR. The conversations are documented via the PR tab on the Github website. Your feature branch is still active, you can continue making changes and commits to your feature and once they are pushed. They are show up in the PR you have created.
+
+Before you launch into making actual edits to the book, let's talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.
+
+### `{renv}`: Managing R packages
 
 We use `renv` to manage the R packages that are used by the book across different R versions and operating systems. `renv` uses a package cache. That means you only ever have to download and install a package once, and for each subsequent install!
 
 Learn more from the `renv` [website](https://rstudio.github.io/renv/articles/renv.html)
 
-Briefly, `renv` monitors and installs any R packages that are used in a project. `renv` records this information so that anyone opening up this book will have access to the same R package versions: 
+Briefly, `renv` monitors and installs any R packages that are used in a project. `renv` records this information so that anyone opening up this book will have access to the same R package versions:
 
 `renv` stores information in several places:
 
-- `renv/library/` directory
+-   `renv/library/` directory
 
-Here you can see R packages for the different versions of R that was used during the creation of this book. 
+Here you can see R packages for the different versions of R that was used during the creation of this book.
 
-- `renv.lock` 
+-   `renv.lock`
 
-This is a lockfile and contains information about the R packages so that it can be re-installed on a new computer. The great thing about a lockfile is that you can share this which colleagues and they can use `renv` to reproduce the exact R package environment that was recorded. 
+This is a lockfile and contains information about the R packages so that it can be re-installed on a new computer. The great thing about a lockfile is that you can share this which colleagues and they can use `renv` to reproduce the exact R package environment that was recorded.
 
-- `.Rprofile` This is a project profile and it is run automatically every time you start R. `renv` uses it to configure your R session to use the project library in `renv/library/`.
+-   `.Rprofile` This is a project profile and it is run automatically every time you start R. `renv` uses it to configure your R session to use the project library in `renv/library/`.
 
 #### `{renv}` workflow
 
-We are going to learn some new `renv` lingo so help us manage our R package environment. 
+We are going to learn some new `renv` lingo so help us manage our R package environment.
 
 ##### When you open up the project
 
-Each time you open this book project up run: 
+Each time you open this book project up run:
 
 ```{r}
 renv::restore()
 ```
 
-This will prompt `renv` to check and install any R packages that you may not have locally. If you have all the packages installed already, `renv` will tell you you're synchronised. 
+This will prompt `renv` to check and install any R packages that you may not have locally. If you have all the packages installed already, `renv` will tell you you're synchronised.
 
 ##### When you want to add R packages
 
-Over time, our book will need more packages. You can continue to use familiar tools like `install.packages()`. You can also use `renv::install()` it’s a little less typing and can install packages from GitHub, Bioconductor, and more, not just CRAN. Ta-da! 
+Over time, our book will need more packages. You can continue to use familiar tools like `install.packages()`. You can also use `renv::install()` it’s a little less typing and can install packages from GitHub, Bioconductor, and more, not just CRAN. Ta-da!
 
 ```{r}
 renv::install("janitor")
@@ -172,14 +250,8 @@ renv::install("janitor")
 
 After installing the package and checking that your code works, you should call `renv::snapshot()` to record the latest package versions in your lockfile. You’ll need to [commit those changes to git](sec-maintain-commit) and let your collaborators know that you’ve updated the lockfile and they should call `renv::restore()` when they’re next working on a project.
 
-:::{.callout-note}
-This is why its good practice to call `renv::restore()` each time you open the project 
+::: callout-note
+This is why its good practice to call `renv::restore()` each time you open the project 😁
 :::
 
-#### Create a pull request {#sec-maintain-pr}
-
-
-
 ### Book Structure {#sec-bookstructure}
-
-
