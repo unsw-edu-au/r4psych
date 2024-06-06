@@ -1,6 +1,8 @@
 ---
 execute:
   echo: false
+toc: TRUE
+toc-depth: 4
 ---
 
 # Maintainer's Guide
@@ -166,7 +168,7 @@ Once you are happy with your edits on your feature branch and we will prepare a 
 We will refer to **pull requests** as PR from now on
 :::
 
-Think of a pull request like code peer review. The idea is have another maintainer go over your eidts and provide any constructive feedback/edits. This process ensures that the contributions are vetted by the maintainers and merged in to the `main` branch systematically.
+Think of a pull request like code peer review. The idea is have another maintainer go over your edits and provide any constructive feedback/edits. This process ensures that the contributions are vetted by the maintainers and merged in to the `main` branch systematically.
 
 There are two ways to **create a pull request**:
 
@@ -194,8 +196,6 @@ Once you are happy with your preview, click on the blue botton to **"Create Pull
 
 5.  Once you are happy, click the green button **"Create Pull Request"**
 
-TA-DA!!! 🎉 You're done!!! That is the entire git/Github workflow. Now leave this with the maintainer you've tagged, they may request have some suggestions for you before the official approval but the hardest part is over!
-
 #### B: Open PR from Github Website
 
 You can also directly open a PR via the [Github website](https://github.com/unsw-edu-au/r4psych/pulls) by clicking on the "Pull Request tab".
@@ -210,7 +210,9 @@ You can also directly open a PR via the [Github website](https://github.com/unsw
 
 You will be prompted via email if there are comments or suggestions made to our PR. The conversations are documented via the PR tab on the Github website. Your feature branch is still active, you can continue making changes and commits to your feature and once they are pushed. They are show up in the PR you have created.
 
-Before you launch into making actual edits to the book, let's talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.
+TA-DA!!! 🎉 You're done!!! That is the entire git/Github workflow. Now leave this with the maintainer you've tagged, they may request have some suggestions for you before the official approval but the hardest part is over!
+
+Before you launch into making edits to the book, let's talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.
 
 ### `{renv}`: Managing R packages
 
