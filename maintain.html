@@ -200,8 +200,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-maintain-clone" id="toc-sec-maintain-clone" class="nav-link" data-scroll-target="#sec-maintain-clone"><span class="header-section-number">8.0.4</span> Clone: Create a local copy of the book</a></li>
   <li><a href="#sec-maintain-branch" id="toc-sec-maintain-branch" class="nav-link" data-scroll-target="#sec-maintain-branch"><span class="header-section-number">8.0.5</span> Branches: Create your own working copy</a></li>
   <li><a href="#sec-maintain-edit" id="toc-sec-maintain-edit" class="nav-link" data-scroll-target="#sec-maintain-edit"><span class="header-section-number">8.0.6</span> Make your changes</a></li>
-  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.7</span> <code>{renv}</code>: Managing R packages</a></li>
-  <li><a href="#sec-bookstructure" id="toc-sec-bookstructure" class="nav-link" data-scroll-target="#sec-bookstructure"><span class="header-section-number">8.0.8</span> Book Structure</a></li>
+  <li><a href="#pull-request-submit-your-feature-for-review" id="toc-pull-request-submit-your-feature-for-review" class="nav-link" data-scroll-target="#pull-request-submit-your-feature-for-review"><span class="header-section-number">8.0.7</span> Pull Request: Submit your feature for review</a></li>
+  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.8</span> <code>{renv}</code>: Managing R packages</a></li>
+  <li><a href="#sec-bookstructure" id="toc-sec-bookstructure" class="nav-link" data-scroll-target="#sec-bookstructure"><span class="header-section-number">8.0.9</span> Book Structure</a></li>
   </ul>
 </nav>
     </div>
@@ -328,12 +329,83 @@ Note
 <p>Now that you have our own internal copy of the book, you can freely make changes pertaining to the feature you want to work on.</p>
 <p>Navigate to the local repo and click on the <strong><code>r4pysch.Rproj</code></strong> file. This will open up the project in RStudio.</p>
 <p>You can also use the buttons in Github Desktop to quickly navigate to the project files.</p>
-<p><img src="images/ghd_shortcuts.png" class="img-fluid"> #### Commit: A save point for your work {#sec-maintain-commit}</p>
-<p>Now let’s make a change to a chapter. As an example, correct a typo, or add some punctuation. Go for it!</p>
-<p>Before we launch into actual edits to the book, let’s talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.</p>
+<p><img src="images/ghd_shortcuts.png" class="img-fluid"></p>
+<section id="sec-maintain-commit" class="level4" data-number="8.0.6.1">
+<h4 data-number="8.0.6.1" class="anchored" data-anchor-id="sec-maintain-commit"><span class="header-section-number">8.0.6.1</span> Commit: A save point for your work</h4>
+<p>Now let’s make a change to a chapter.</p>
+<ol type="1">
+<li>As a proof of concept, let’s add a comment in the Wrangle chapter.</li>
+</ol>
+<p><img src="images/wrangle_comment.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Save this change and have a look at Github Desktop. Notice how git has detected your change? Additions are flagged in green, any deletions are flagged in red. Cool right?!</li>
+</ol>
+<p>Now we are going to <strong>commit</strong> these changes. Think of committing your work as saving your progress in a video. A commit is a safe anchor point to come back to if you need.</p>
+<ol start="3" type="1">
+<li><p>By default, git will tick the check box for you. This check box process is technically called “staging”. Its choosing the files you want git to track.</p></li>
+<li><p>Now include a meaningful, <strong>concise message</strong> that will be associated with your commit. These are usually summaries that pertains to the changes you’ve made. In this case, “Added comment to Wrangle chapter” will suffice.</p></li>
+<li><p>Click on the blue button <strong>Commit to restructure-wrangle</strong> and git will save your changes as a checkpoint.</p></li>
+</ol>
+<p>There is not hard and fast rule with how often you should commit your work. Typically they are bite-sized amounts of work towards the feature you are working on. Thinking about commits as potential check points in time you want to come back to e.g.&nbsp;just after some restructuring/rewording of a big section.</p>
 </section>
-<section id="renv-managing-r-packages" class="level3" data-number="8.0.7">
-<h3 data-number="8.0.7" class="anchored" data-anchor-id="renv-managing-r-packages"><span class="header-section-number">8.0.7</span> <code>{renv}</code>: Managing R packages</h3>
+<section id="sec-maintain-push" class="level4" data-number="8.0.6.2">
+<h4 data-number="8.0.6.2" class="anchored" data-anchor-id="sec-maintain-push"><span class="header-section-number">8.0.6.2</span> Push: Sync your work with remote</h4>
+<p>Up until this point, all your changes exist locally on your computer. No one else has these changes. Our last step to complete our git/Github workflow is to <strong>push</strong> our work to the <strong>remote repo</strong> so other it is available for others to review.</p>
+<p>To push your work:</p>
+<ol type="1">
+<li>Click on the blue button that says <strong>“Push origin”</strong></li>
+</ol>
+<p>This is sync your local changes with those on the remote. Once you’ve done that, you can view your synced changes on the remote repo by selecting your feature branch name under the left dropdown menu</p>
+<p><img src="images/remote_branches.png" class="img-fluid"></p>
+<div class="{callout-note}">
+<p>Alternatively, you can click on the third tab menu also labelled as “Push origin” that has an up arrow ⬆️</p>
+</div>
+<p>Continue <a href="#sec-maintain-commit">committing</a> and pushing your work as you make your edits on your feature branch. Its generally good practice to push your work before you step away from working on the book. This is to ensure all your work is synced and shared on the remote.</p>
+</section>
+</section>
+<section id="pull-request-submit-your-feature-for-review" class="level3" data-number="8.0.7">
+<h3 data-number="8.0.7" class="anchored" data-anchor-id="pull-request-submit-your-feature-for-review"><span class="header-section-number">8.0.7</span> Pull Request: Submit your feature for review</h3>
+<p>Once you are happy with your edits on your feature branch and we will prepare a <strong>pull request</strong> so we can merge them into the <code>main</code> <a href="sec-maintain-branch">branch</a>.</p>
+<div class="{callout-note}">
+<p>We will refer to <strong>pull requests</strong> as PR from now on</p>
+</div>
+<p>Think of a pull request like code peer review. The idea is have another maintainer go over your eidts and provide any constructive feedback/edits. This process ensures that the contributions are vetted by the maintainers and merged in to the <code>main</code> branch systematically.</p>
+<p>There are two ways to <strong>create a pull request</strong>:</p>
+<section id="a.-open-pr-within-github-desktop" class="level4" data-number="8.0.7.1">
+<h4 data-number="8.0.7.1" class="anchored" data-anchor-id="a.-open-pr-within-github-desktop"><span class="header-section-number">8.0.7.1</span> A. Open PR within GitHub Desktop</h4>
+<ol type="1">
+<li>After <a href="sec-maintain-push">pushing your changes</a>, Github Desktop will automatically prompt you to <strong>“Preview Pull Request”</strong>. Clicking on this blue button will open a window showing you some key details</li>
+</ol>
+<p><img src="images/preview_pr.png" class="img-fluid"></p>
+<ul>
+<li><p>At the top, it will tell you what which base branch you are merging <strong>into</strong>. By default it will be set to <code>main</code>. In the screenshot above, we can see that we are proposing to merge <code>restructure-wrangle</code> into <code>base: main</code></p></li>
+<li><p>You will see a preview of the changes you’ve made to the book. Green are additions, red are deletions.</p></li>
+<li><p>At the bottom, it will say whether your edits can be easily merged it or whether there are conflicts. We will talk about how to handle conflicts next.</p></li>
+</ul>
+<p>Once you are happy with your preview, click on the blue botton to <strong>“Create Pull Request”</strong></p>
+<ol start="2" type="1">
+<li>Clicking this button will open a browser to the Github website.</li>
+</ol>
+<p><img src="images/maintain-pr-github.png" class="img-fluid"> Here you see the same sort of information from the preview. You are prompted to write a short title and short summary for your PR. These will form the basis of your commit message when it’s approved.</p>
+<ol start="3" type="1">
+<li><p>Keep your summary concise, use bullet points or hyperlinks if you find them helpful. You can refer to a Github Issue number using a # suffix. (More of this later).</p></li>
+<li><p>Request one of the <a href="">maintainers</a> using the Reviewer dropdown menu to they can review your PR.</p></li>
+<li><p>Once you are happy, click the green button <strong>“Create Pull Request”</strong></p></li>
+</ol>
+<p>TA-DA!!! 🎉 You’re done!!! That is the entire git/Github workflow. Now leave this with the maintainer you’ve tagged, they may request have some suggestions for you before the official approval but the hardest part is over!</p>
+</section>
+<section id="b-open-pr-from-github-website" class="level4" data-number="8.0.7.2">
+<h4 data-number="8.0.7.2" class="anchored" data-anchor-id="b-open-pr-from-github-website"><span class="header-section-number">8.0.7.2</span> B: Open PR from Github Website</h4>
+<p>You can al</p>
+</section>
+<section id="if-suggestions-are-requested" class="level4" data-number="8.0.7.3">
+<h4 data-number="8.0.7.3" class="anchored" data-anchor-id="if-suggestions-are-requested"><span class="header-section-number">8.0.7.3</span> If suggestions are requested</h4>
+<p>You will be prompted via email if there are comments or suggestions made to our PR. The conversations are documented via the PR tab on the Github website. Your feature branch is still active, you can continue making changes and commits to your feature and once they are pushed. They are show up in the PR you have created.</p>
+<p>Before you launch into making actual edits to the book, let’s talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.</p>
+</section>
+</section>
+<section id="renv-managing-r-packages" class="level3" data-number="8.0.8">
+<h3 data-number="8.0.8" class="anchored" data-anchor-id="renv-managing-r-packages"><span class="header-section-number">8.0.8</span> <code>{renv}</code>: Managing R packages</h3>
 <p>We use <code>renv</code> to manage the R packages that are used by the book across different R versions and operating systems. <code>renv</code> uses a package cache. That means you only ever have to download and install a package once, and for each subsequent install!</p>
 <p>Learn more from the <code>renv</code> <a href="https://rstudio.github.io/renv/articles/renv.html">website</a></p>
 <p>Briefly, <code>renv</code> monitors and installs any R packages that are used in a project. <code>renv</code> records this information so that anyone opening up this book will have access to the same R package versions:</p>
@@ -349,11 +421,11 @@ Note
 <ul>
 <li><code>.Rprofile</code> This is a project profile and it is run automatically every time you start R. <code>renv</code> uses it to configure your R session to use the project library in <code>renv/library/</code>.</li>
 </ul>
-<section id="renv-workflow" class="level4" data-number="8.0.7.1">
-<h4 data-number="8.0.7.1" class="anchored" data-anchor-id="renv-workflow"><span class="header-section-number">8.0.7.1</span> <code>{renv}</code> workflow</h4>
+<section id="renv-workflow" class="level4" data-number="8.0.8.1">
+<h4 data-number="8.0.8.1" class="anchored" data-anchor-id="renv-workflow"><span class="header-section-number">8.0.8.1</span> <code>{renv}</code> workflow</h4>
 <p>We are going to learn some new <code>renv</code> lingo so help us manage our R package environment.</p>
-<section id="when-you-open-up-the-project" class="level5" data-number="8.0.7.1.1">
-<h5 data-number="8.0.7.1.1" class="anchored" data-anchor-id="when-you-open-up-the-project"><span class="header-section-number">8.0.7.1.1</span> When you open up the project</h5>
+<section id="when-you-open-up-the-project" class="level5" data-number="8.0.8.1.1">
+<h5 data-number="8.0.8.1.1" class="anchored" data-anchor-id="when-you-open-up-the-project"><span class="header-section-number">8.0.8.1.1</span> When you open up the project</h5>
 <p>Each time you open this book project up run:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -362,8 +434,8 @@ Note
 </div>
 <p>This will prompt <code>renv</code> to check and install any R packages that you may not have locally. If you have all the packages installed already, <code>renv</code> will tell you you’re synchronised.</p>
 </section>
-<section id="when-you-want-to-add-r-packages" class="level5" data-number="8.0.7.1.2">
-<h5 data-number="8.0.7.1.2" class="anchored" data-anchor-id="when-you-want-to-add-r-packages"><span class="header-section-number">8.0.7.1.2</span> When you want to add R packages</h5>
+<section id="when-you-want-to-add-r-packages" class="level5" data-number="8.0.8.1.2">
+<h5 data-number="8.0.8.1.2" class="anchored" data-anchor-id="when-you-want-to-add-r-packages"><span class="header-section-number">8.0.8.1.2</span> When you want to add R packages</h5>
 <p>Over time, our book will need more packages. You can continue to use familiar tools like <code>install.packages()</code>. You can also use <code>renv::install()</code> it’s a little less typing and can install packages from GitHub, Bioconductor, and more, not just CRAN. Ta-da!</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -373,7 +445,7 @@ These packages will be installed into "~/work/r4psych/r4psych/renv/library/R-4.4
 
 # Installing packages --------------------------------------------------------
 - Installing janitor ...                        OK [linked from cache]
-Successfully installed 1 package in 5.5 milliseconds.</code></pre>
+Successfully installed 1 package in 7.4 milliseconds.</code></pre>
 </div>
 </div>
 <p>After installing the package and checking that your code works, you should call <code>renv::snapshot()</code> to record the latest package versions in your lockfile. You’ll need to <a href="sec-maintain-commit">commit those changes to git</a> and let your collaborators know that you’ve updated the lockfile and they should call <code>renv::restore()</code> when they’re next working on a project.</p>
@@ -387,17 +459,14 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is why its good practice to call <code>renv::restore()</code> each time you open the project</p>
+<p>This is why its good practice to call <code>renv::restore()</code> each time you open the project 😁</p>
 </div>
 </div>
 </section>
 </section>
-<section id="sec-maintain-pr" class="level4" data-number="8.0.7.2">
-<h4 data-number="8.0.7.2" class="anchored" data-anchor-id="sec-maintain-pr"><span class="header-section-number">8.0.7.2</span> Create a pull request</h4>
 </section>
-</section>
-<section id="sec-bookstructure" class="level3" data-number="8.0.8">
-<h3 data-number="8.0.8" class="anchored" data-anchor-id="sec-bookstructure"><span class="header-section-number">8.0.8</span> Book Structure</h3>
+<section id="sec-bookstructure" class="level3" data-number="8.0.9">
+<h3 data-number="8.0.9" class="anchored" data-anchor-id="sec-bookstructure"><span class="header-section-number">8.0.9</span> Book Structure</h3>
 
 
 </section>
