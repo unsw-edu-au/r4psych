@@ -194,14 +194,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-access" id="toc-getting-access" class="nav-link active" data-scroll-target="#getting-access"><span class="header-section-number">8.0.1</span> Getting access</a></li>
+  <li><a href="#getting-access" id="toc-getting-access" class="nav-link active" data-scroll-target="#getting-access"><span class="header-section-number">8.0.1</span> Getting access</a>
+  <ul>
+  <li><a href="#request-access" id="toc-request-access" class="nav-link" data-scroll-target="#request-access"><span class="header-section-number">8.0.1.1</span> Request access</a></li>
+  </ul></li>
   <li><a href="#the-set-up" id="toc-the-set-up" class="nav-link" data-scroll-target="#the-set-up"><span class="header-section-number">8.0.2</span> The set up</a></li>
   <li><a href="#the-maintainers-workflow" id="toc-the-maintainers-workflow" class="nav-link" data-scroll-target="#the-maintainers-workflow"><span class="header-section-number">8.0.3</span> The Maintainer’s workflow</a></li>
   <li><a href="#sec-maintain-clone" id="toc-sec-maintain-clone" class="nav-link" data-scroll-target="#sec-maintain-clone"><span class="header-section-number">8.0.4</span> Clone: Create a local copy of the book</a></li>
   <li><a href="#sec-maintain-branch" id="toc-sec-maintain-branch" class="nav-link" data-scroll-target="#sec-maintain-branch"><span class="header-section-number">8.0.5</span> Branches: Create your own working copy</a></li>
-  <li><a href="#sec-maintain-edit" id="toc-sec-maintain-edit" class="nav-link" data-scroll-target="#sec-maintain-edit"><span class="header-section-number">8.0.6</span> Make your changes</a></li>
-  <li><a href="#pull-request-submit-your-feature-for-review" id="toc-pull-request-submit-your-feature-for-review" class="nav-link" data-scroll-target="#pull-request-submit-your-feature-for-review"><span class="header-section-number">8.0.7</span> Pull Request: Submit your feature for review</a></li>
-  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.8</span> <code>{renv}</code>: Managing R packages</a></li>
+  <li><a href="#sec-maintain-edit" id="toc-sec-maintain-edit" class="nav-link" data-scroll-target="#sec-maintain-edit"><span class="header-section-number">8.0.6</span> Make your changes</a>
+  <ul>
+  <li><a href="#sec-maintain-commit" id="toc-sec-maintain-commit" class="nav-link" data-scroll-target="#sec-maintain-commit"><span class="header-section-number">8.0.6.1</span> Commit: A save point for your work</a></li>
+  <li><a href="#sec-maintain-push" id="toc-sec-maintain-push" class="nav-link" data-scroll-target="#sec-maintain-push"><span class="header-section-number">8.0.6.2</span> Push: Sync your work with remote</a></li>
+  </ul></li>
+  <li><a href="#pull-request-submit-your-feature-for-review" id="toc-pull-request-submit-your-feature-for-review" class="nav-link" data-scroll-target="#pull-request-submit-your-feature-for-review"><span class="header-section-number">8.0.7</span> Pull Request: Submit your feature for review</a>
+  <ul>
+  <li><a href="#a.-open-pr-within-github-desktop" id="toc-a.-open-pr-within-github-desktop" class="nav-link" data-scroll-target="#a.-open-pr-within-github-desktop"><span class="header-section-number">8.0.7.1</span> A. Open PR within GitHub Desktop</a></li>
+  <li><a href="#b-open-pr-from-github-website" id="toc-b-open-pr-from-github-website" class="nav-link" data-scroll-target="#b-open-pr-from-github-website"><span class="header-section-number">8.0.7.2</span> B: Open PR from Github Website</a></li>
+  <li><a href="#if-suggestions-are-requested" id="toc-if-suggestions-are-requested" class="nav-link" data-scroll-target="#if-suggestions-are-requested"><span class="header-section-number">8.0.7.3</span> If suggestions are requested</a></li>
+  </ul></li>
+  <li><a href="#renv-managing-r-packages" id="toc-renv-managing-r-packages" class="nav-link" data-scroll-target="#renv-managing-r-packages"><span class="header-section-number">8.0.8</span> <code>{renv}</code>: Managing R packages</a>
+  <ul>
+  <li><a href="#renv-workflow" id="toc-renv-workflow" class="nav-link" data-scroll-target="#renv-workflow"><span class="header-section-number">8.0.8.1</span> <code>{renv}</code> workflow</a></li>
+  </ul></li>
   <li><a href="#sec-bookstructure" id="toc-sec-bookstructure" class="nav-link" data-scroll-target="#sec-bookstructure"><span class="header-section-number">8.0.9</span> Book Structure</a></li>
   </ul>
 </nav>
@@ -369,7 +384,7 @@ Note
 <div class="{callout-note}">
 <p>We will refer to <strong>pull requests</strong> as PR from now on</p>
 </div>
-<p>Think of a pull request like code peer review. The idea is have another maintainer go over your eidts and provide any constructive feedback/edits. This process ensures that the contributions are vetted by the maintainers and merged in to the <code>main</code> branch systematically.</p>
+<p>Think of a pull request like code peer review. The idea is have another maintainer go over your edits and provide any constructive feedback/edits. This process ensures that the contributions are vetted by the maintainers and merged in to the <code>main</code> branch systematically.</p>
 <p>There are two ways to <strong>create a pull request</strong>:</p>
 <section id="a.-open-pr-within-github-desktop" class="level4" data-number="8.0.7.1">
 <h4 data-number="8.0.7.1" class="anchored" data-anchor-id="a.-open-pr-within-github-desktop"><span class="header-section-number">8.0.7.1</span> A. Open PR within GitHub Desktop</h4>
@@ -392,7 +407,6 @@ Note
 <li><p>Request one of the <a href="">maintainers</a> using the Reviewer dropdown menu to they can review your PR.</p></li>
 <li><p>Once you are happy, click the green button <strong>“Create Pull Request”</strong></p></li>
 </ol>
-<p>TA-DA!!! 🎉 You’re done!!! That is the entire git/Github workflow. Now leave this with the maintainer you’ve tagged, they may request have some suggestions for you before the official approval but the hardest part is over!</p>
 </section>
 <section id="b-open-pr-from-github-website" class="level4" data-number="8.0.7.2">
 <h4 data-number="8.0.7.2" class="anchored" data-anchor-id="b-open-pr-from-github-website"><span class="header-section-number">8.0.7.2</span> B: Open PR from Github Website</h4>
@@ -406,7 +420,8 @@ Note
 <section id="if-suggestions-are-requested" class="level4" data-number="8.0.7.3">
 <h4 data-number="8.0.7.3" class="anchored" data-anchor-id="if-suggestions-are-requested"><span class="header-section-number">8.0.7.3</span> If suggestions are requested</h4>
 <p>You will be prompted via email if there are comments or suggestions made to our PR. The conversations are documented via the PR tab on the Github website. Your feature branch is still active, you can continue making changes and commits to your feature and once they are pushed. They are show up in the PR you have created.</p>
-<p>Before you launch into making actual edits to the book, let’s talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.</p>
+<p>TA-DA!!! 🎉 You’re done!!! That is the entire git/Github workflow. Now leave this with the maintainer you’ve tagged, they may request have some suggestions for you before the official approval but the hardest part is over!</p>
+<p>Before you launch into making edits to the book, let’s talk about how R packages are managed for this book. This is important since this is a book about using R and you will most definitely introduce packages in certain chapters. Its also important as the book gains more maintainers working across different computers.</p>
 </section>
 </section>
 <section id="renv-managing-r-packages" class="level3" data-number="8.0.8">
@@ -450,7 +465,7 @@ These packages will be installed into "~/work/r4psych/r4psych/renv/library/R-4.4
 
 # Installing packages --------------------------------------------------------
 - Installing janitor ...                        OK [linked from cache]
-Successfully installed 1 package in 5.4 milliseconds.</code></pre>
+Successfully installed 1 package in 5.5 milliseconds.</code></pre>
 </div>
 </div>
 <p>After installing the package and checking that your code works, you should call <code>renv::snapshot()</code> to record the latest package versions in your lockfile. You’ll need to <a href="sec-maintain-commit">commit those changes to git</a> and let your collaborators know that you’ve updated the lockfile and they should call <code>renv::restore()</code> when they’re next working on a project.</p>
