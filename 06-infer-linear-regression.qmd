@@ -1,0 +1,40 @@
+# Linear regression
+
+*lw_addnarrativehere*
+
+-   outcome: variable_6
+-   step 1: demographics_categ
+-   step 2: variable_4
+-   step 3: scale1_index
+
+this asks the lm package to use predictor to predict outcome
+
+lm(outcome \~ predictor )
+
+```{r eval = FALSE}
+
+regression1 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4 + scale1_index)
+
+summary(regression1)
+
+```
+
+*lw_addnarrativehere* simulates hierarchical stepwise regression?
+
+```{r eval = FALSE}
+
+regressionlm1 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg)
+regressionlm2 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4)
+regressionlm3 <- lm(data = data_scalescomputed, variable6 ~ demographicscateg + variable4 + scale1_index)
+
+summary(regressionlm1)
+summary(regressionlm2)
+summary(regressionlm3)
+
+
+apa.reg.table(regressionlm1, regressionlm2, regressionlm3, filename = here("output_files","RegressionTable3_APA.doc"), table.number = 3)
+
+report(regressionlm3)
+
+
+```

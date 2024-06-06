@@ -4,7 +4,7 @@ execute:
 from: markdown+emoji
 ---  
 
-# Introduction
+# Introduction {.unnumbered}
 
 ## What you will learn
 

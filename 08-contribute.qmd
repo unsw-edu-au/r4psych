@@ -1,4 +1,4 @@
-# Contributing Guidelines
+# Contributing Guidelines {.unnumbered}
 
 This resource is created in mind so that the community that uses it, can also contribute to it. We hope this mindset will encourage the resource to grow and stay up-to-date for R learners.
 

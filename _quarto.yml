@@ -5,20 +5,26 @@ project:
 book:
   title: "R for Psychology"
   date: "3/14/2024"
+  
+  
   chapters:
     - index.qmd
-    - intro.qmd
-    - organise.qmd
-    - import.qmd
-    - wrangle.qmd
-    - describe.qmd
-    - plot.qmd
-    - inferences.qmd
-    - maintain.qmd
-    - contributing.qmd
-    - datasets.qmd
-    - appendix.qmd
-    - references.qmd
+    - 01-intro.qmd
+    - part: 02-organise.qmd
+    - part: 03-import.qmd
+    - part: 04-wrangle.qmd
+    - part: 05-describe.qmd
+    - part: 06-infer.qmd
+      chapters:
+      - 06-infer-anova.qmd
+      - 06-infer-linear-regression.qmd
+    
+    - part: 07-plot.qmd  
+    - 08-contribute.qmd
+    - 09-maintain.qmd
+    - 10-datasets.qmd
+    - 11-appendix.qmd
+    - 12-references.qmd
 
 bibliography: references.bib
 
