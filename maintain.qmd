@@ -198,7 +198,13 @@ TA-DA!!! 🎉 You're done!!! That is the entire git/Github workflow. Now leave t
 
 #### B: Open PR from Github Website
 
-You can al
+You can also directly open a PR via the [Github website](https://github.com/unsw-edu-au/r4psych/pulls) by clicking on the "Pull Request tab".
+
+1. Click on the green button labelled "New Pull Request" 
+
+2. Select the branch you want merge **into** `main`. Github will display a preview of your PR here. 
+
+3. Click on the green button "Create Pull Request" where you will be taken to the same screen as step 2. from the previous section.
 
 #### If suggestions are requested
 
