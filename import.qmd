@@ -2,40 +2,59 @@
 
 # Packages for this chapter
 
+
 ```{r}
+#| warning: false
+#| message: false
 library(tidyverse)
+library(readxl)
 library(here)
 library(janitor)
 library(haven)
 library(sjPlot)
+library(surveytoolbox) 
+
+# note surveytoolbox installs from github
 # remotes::install_github("martinctc/surveytoolbox")
-library(surveytoolbox)
 ```
 
+# How to read data into R
+
+The code you need to read your data into R depends on the kind of data you are dealing with. Here we will demo how to .csv files, Excel spreadsheets, and then go deep on how to deal with data from Qualtrics. 
+
+## Reading in .csv files
+
+Exporting data in its simplest form (comma separated values) means that your data is readable by most software, trackable by version control systems, and lightweight. 
+
+Use the following code to read in a csv file. Remember that we use the `here()` function to tell R where to find the data file, relative to the top level of the project file. 
+
+```{r}
+data1 <- read_csv(here("data", "my_csv_data.csv"))
+```
+> NOTE: the message above prints in red in RStudio, but its not an error. Just a message telling you that this dataset has 5 rows and 3 columns. It also has information about the type of data that R thinks each variable is. Here R thinks the gender variable is character (strings/text) and the age and score variables are double (R speak for numeric). 
 
 ## Reading in Excel spreadsheets
 
-This is gobbledygook.
+Sometimes your data is in .xlsx format. You can use the `readxl` package to read spreadsheets into R. You can get a sense for the first few rows of your dataframe using the `head()` function. 
 
-### Reading in .csv
+```{r}
+data2 <- read_xlsx(here("data", "my_excel_data.xlsx"))
 
-## Reading in SPSS 
+head(data2)
+
+```
+
 
 ## Reading in Qualtrics data
 
-### Reading in .sav
+If you are collecting survey data, you are probably using Qualtrics. You can export your Qualtrics data in lots of different formats, but we advocate for exporting it as a .sav file. 
 
-# Read in the data
+Yes this is typically the format used in SPSS. When you export from Qualtrics into .sav/SPSS format, it retains helpful information like question wording and response labels. If you export straight to .csv, you lose that info and will find yourself cross-checking back to Qualtrics. So, strong word of advice to always export to .sav.
+it is handy because it keeps extra information about your variables in a set of labels, that you can use down the track. 
 
-Remember the file setup described above? This is where that starts to be important. Remember, our working directory (i.e., where R thinks "here" is) was set via the Rproj file -- so it is the "Williams Lab Core R" folder. You can check this by typing `getwd()` or `here()` in the console. 
+From here, we'll be using data from a file called sampledata.sav, which you can find in the `data` folder. We are using `read_sav()` from the `haven` package. 
 
-For most of this core script, we'll be using data from a file called sampledata.sav, which should be in the data subfolder from the zipped file. If not, sort that out now!
-
-A .sav file is in SPSS format. When you export from Qualtrics into .sav/SPSS format, it retains helpful information like question wording and response labels. If you export straight to .csv, you lose that info and will find yourself cross-checking back to Qualtrics. So, strong word of advice to always export to .sav.
-
-The code below uses the `here` command to direct R to the data folder *from the working directory*, and then the .sav file within it.
-
-The `glimpse` command gives a nice overview of the variables, their type, and a preview of the data.
+The `glimpse` function gives a nice overview of the variables, their type, and a preview of the data.
 
 ```{r}
 
@@ -45,18 +64,22 @@ glimpse(data)
 
 ```
 
-
 These variable names won't be very nice to work with with awkward and inconsistent capitalisation. Actual Qualtrics exports are even messier!
 
 The `clean_names` function from `janitor` helps clean them up!
 
-`data_cleanednames <-` at the start of the line saves the change to a new dataframe. Alternately, you could write it back to the same dataframe (e.g., `data <-` ), but this should be done very intentionally as it makes it harder to backtrack to the source of an error. The general rule is to create a new dataframe each time you implement a big change on the data.
+Here we take our data dataframe, and pipe %>% it into `clean_names`, and then assign (<-) to a new object called data_cleanednames 
+
+Alternately, you could write it back to the same dataframe (e.g., data <- ), but this should be done very intentionally as when you overwrite dataframes, it can be difficult to debug your code when you get errors. 
+
+The general rule is to create a new dataframe each time you implement a big change on the data.
 
 The `glimpse` command here shows you that you effectively cleaned the variable names!
 
 ```{r}
 
-data_cleanednames <- clean_names(data)
+data_cleanednames <- data %>%
+  clean_names()
 
 glimpse(data_cleanednames)
 
@@ -67,6 +90,10 @@ A few things about working with files in SPSS format (.sav) before we continue. 
 If you look at the variable types at the right of the `glimpse` output, you'll see the some of the variables are dbl (numeric) while some are dbl+lbl (numeric with labelled values). If you view the `data` object (by clicking on it in the Environment or using `view(data)`) you will see that some of the variables have the question wording below the variable name.
 
 Having this information on hand is really helpful when working with your data!
+
+## Codebooks & Data dictionaries
+
+When you have a really large survey dataset, information about what each variable refers to is essential to a reproducable analysis. Often it is helpful to create a codebook or data dictionary that you can share alongside the datafile, that helps the user understand what the numbers in the file refer to and where they came time. 
 
 The `view_df` function from the `sjPlot` package creates a really nicely formatted html file that includes variable names, question wording, response options, and response labelling. This code saves the html file to the `output_files` folder using the `here` package (which starts where your Rproj file is). This html file is nice as a reference for your own use or to share with a supervisor or collaborator!
 
@@ -85,14 +112,20 @@ datadictionary <- data_cleanednames %>%
   data_dict()
 ```
 
-Let's say you just want to know the question wording or response labels for a particular variable, you can do this via code rather than checking the whole dataset. The `extract_vallab` command from `surveytoolbox` returns the value labels for a given variable.
+Let's say you just want to know the question wording or response labels for a particular variable, you can do this with code rather than checking the whole dataset. The `extract_vallab` command from `surveytoolbox` returns the value labels for a given variable.
 
+Here we are interested in what the values in the demographicscateg variable 
+refer to. 
 ```{r }
 data_cleanednames %>%
   extract_vallab("demographicscateg")
 ```
 
-There are (evidently) times when packages *do not like* labelled data. So, here are a few tools for removing labels from the `haven` package. Keep these up your sleeve for problem solving later! `zap_labels` and `zap_label` not surprisingly removes the labels - the first removes the value labels and the second removes the variable labels! The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.
+There are (evidently) times when packages *do not like* labelled data. So, here are a few tools for removing labels from the `haven` package. Keep these up your sleeve for problem solving later! 
+
+`zap_labels` and `zap_label` each remove labels. Yes it would be nice if those functions were easier to distinguish! The first zaps variable labels, and the second zaps value labels. 
+
+The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.
 
 ```{r }
 
