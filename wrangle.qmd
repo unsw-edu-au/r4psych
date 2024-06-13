@@ -1,8 +1,49 @@
 # Wrangle
 
-## Clean names
+# Packages for this chapter
 
-## Dealing with labels
+
+```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+library(here)
+library(janitor)
+library(haven)
+library(ufs)
+
+```
+
+
+Someone said that 90% of the work in data analysis is getting your data from its raw state to its analysable state. Working in R makes this process quick and reproducible. First, a quick overview of some useful wrangling functions from `janitor` and dplyr`. 
+
+
+## Renaming variables
+
+```{r}
+
+```
+
+## Select columns
+
+```{r}
+
+```
+
+
+## Filter rows
+
+```{r}
+
+```
+
+
+# Compute variables
+
+```{r}
+
+```
+
 
 ## Exclusions
 
@@ -14,10 +55,255 @@
 
 ```
 
-## Creating scales and indexes
 
-`group_by` `summarise`
+## group_by and summarise
 
-`row_wise` `mutate`
 
-### Checking reliabilty 
+
+## rowwise and mutate
+
+
+
+
+
+
+# Wrangling data 
+
+## Exclusions
+
+Often, we need to screen our data for potential exclusions. Below, we'll apply exclusions based on:
+- Didn't complete the survey
+- Very short completion time
+- No variance across sets of items
+- Bad/bot written responses
+
+Note, exclusions are usually defined in an analysis plan or preregistration and should always be checked with Lisa.
+
+Overall, we will create new variables for each exclusion in which a participant should be excluded if they have a value of 1.
+
+Then, we will apply a code that takes those folks out in a new dataframe to be carried forward into analyses.
+
+As you calculate each exclusion, it's important to check that the code is doing what you intend it to do. You can do this by viewing the dataframe (clicking on it in the Environment or typing `view(dataframename)` in the console).
+
+
+## Completion
+
+Note that using the Progress variable from Qualtrics is tricky, as some people do the entire survey but don't click the final arrow, so don't show up as 100% complete. We typically use a definition of complete whereby participants who didn't complete the final demographics item are excluded.
+
+Here, we'll use the demographics_categ variable. A visual check of your data should reveal what the best approach is with your data. If in doubt, ask Lisa.
+
+This code takes the data_cleanednames dataframe and pipes it into a `mutate` command to make a new variable (called exclude_completion) that codes according to the following logic: if demographicscateg is missing (is.na), then code as 1, otherwise (TRUE) code as 0. It performs this command and then saves it back over the same dataframe (because we asked R to do this via `data_cleanednames <-`).
+
+Remember, to check that this code is doing what you expect! 
+
+```{r}
+
+data_zapped <- data_zapped %>%
+  mutate(exclude_completion = case_when(is.na(demographicscateg) ~ 1, TRUE ~ 0))
+
+```
+
+## Completion Time
+
+Next up, short completion time. This usually defined based on pre-testing or a prior study. In the sample data, we will apply an exclusion if participants completed the study in less than 90 seconds.
+
+This code follows a similar format as for completion: if completion time (completion_timeseconds) is less than 90 seconds, code the new variable (exclude_time) as 1. Otherwise, 0.
+
+Again, check this is working!
+
+```{r}
+
+data_zapped <- data_zapped %>%
+  mutate(exclude_time = case_when(completion_timeseconds < 90 ~ 1, TRUE ~ 0))
+
+```
+
+## Variance 
+
+Next, variance. This is to capture folks who are just responding down the rows of variables (presumably without reading them) or a 'bot'.
+
+`rowwise` tells R to do the following command by row, then creates a new variable via `mutate` called variance made up of the variance of the variables listed in the `c()` list. Then, the code computes another new variable that codes whether that variance value is 0 (if so mark as 1 for exclusion), otherwise 0. 
+
+*IMPORTANT NOTE*: Every time you use `rowwise()` or `group_by()`, you need to add an ungroup() to the end. Trust me, this habit will save you a lot of headache down the line!
+
+Once again, check!
+
+
+```{r}
+data_zapped <- data_zapped %>%
+  rowwise() %>%
+  mutate(variance = var(c(variable1, variable2, variable3, variable4, variable5, variable6))) %>%
+  mutate(exclude_variance = case_when(variance == 0 ~ 1, TRUE ~ 0)) %>%
+  ungroup()
+```
+
+## Comments
+
+Now for comments screening. For ease, we will do this in Excel (or similar spreadsheet software). 
+
+First, we need to write the current dataframe to a csv.
+
+```{r}
+
+write_csv(data_zapped, here("data","sampledata_commentsexclusion.csv"))
+
+```
+
+Manually create new variables (columns) in Excel corresponding to the exclusion to be applied. Here it is one variable named `exclude_comments`. You may wish to make additional, clearly labelled columns with notes about why you made particular exclude decisions. Again, run by your exclusion coding plan with Lisa before beginning. 
+
+Save the file *with a new name* (e.g., adding "marked" to the end).
+
+The code below reads that new datafile in, now with the new comments exclusion variable. 
+
+```{r reading in data}
+
+data_zapped_commentsmarked <- read_csv(here("data","sampledata_commentsexclusionmarked.csv"))
+
+```
+
+## Apply the exclusions
+
+Now, we will apply all the exclusions. The aim is to only keep folks who *don't* have 1s on any of the exclude variables.
+
+First, let's get a sense of how many people we're excluding. We could do this one by one for each exclusion using the `tabyl` commend, like this:
+
+
+```{r}
+
+data_zapped_commentsmarked %>%
+  tabyl(exclude_completion)
+
+data_zapped_commentsmarked %>%
+  tabyl(exclude_time)
+
+data_zapped_commentsmarked %>%
+  tabyl(exclude_variance)
+
+data_zapped_commentsmarked %>%
+  tabyl(exclude_comments)
+
+```
+
+But that won't get us a sense of whether folks have been marked for more than one exclusion. So let's make a new variable that codes this info: exclude_coded. To do that, we first make a variable that collapses together all the 0s and 1s from the individual exclusion variables. Then, we recode that collapsed variable to have the correct corresponding labels. Note that order here is really important, so if you change this up for your own purposes, ensure that you keep the variable ordering and recode naming in the right order.  
+
+Once we have the exclusion_coded variable, we can make a table (via `tabyl`) of the reasons variable, we get a nice summary of how many people we excluded, and why! Note that the Total should correspond to the number of observations in your data, and there should be no <NA> values.
+
+Note - it's highly recommended to consider completion as a different type of exclusion - especially for reporting. Usually in a thesis or manuscript, you report the number of *completers* and then exclusion counts from there. If you include completion it makes it seem like the substantive 'exclusion rate' is much higher than it really is.
+
+The following code creates a coded exclusion variable, creates a table of the counts of those coded exclusions (and adds a total row via `adorn_totals`), and then prints it for viewing.
+
+
+```{r}
+data_completed <- data_zapped_commentsmarked %>%
+  filter(exclude_completion == 0)
+
+data_exclusions <- data_completed %>%
+  rowwise() %>%
+  mutate(exclude_collapse = paste(c(exclude_time, exclude_variance, exclude_comments), collapse = "")) %>%
+  mutate(exclude_coded = case_when(exclude_collapse == "100" ~ "time only",
+                                   exclude_collapse == "010" ~ "variance only",
+                                   exclude_collapse == "001" ~ "comments only",
+                                   exclude_collapse == "000" ~ "kept",
+                                   exclude_collapse == "110" ~ "time variance",
+                                   exclude_collapse == "101" ~ "time comments",
+                                   exclude_collapse == "011" ~ "variance comments",
+                                   exclude_collapse == "111" ~ "all"))
+
+exclusions_summary <- data_exclusions %>%
+  tabyl(exclude_coded) %>%
+  adorn_totals(c("row"))
+
+
+print(exclusions_summary)
+```
+
+Now we'll create a new dataframe by piping the existing dataframe into a `mutate` command that creates a new exclude_all variable that codes a 1 if (`case_when`) any of the individual exclude variables have a value of 1, otherwise 0. Then, the code applies a filter to keep only rows where exclude_all is 0. The number of observations in the 'exclusions applied' dataframe should correspond to the number of 'kept' in the tabyl above!
+
+```{r }
+
+data_exclusionsapplied <- data_zapped_commentsmarked %>%
+  mutate(exclude_all = case_when(exclude_completion == 1 | exclude_time == 1 | exclude_variance == 1 | exclude_comments ~ 1, TRUE ~ 0)) %>%
+  filter(exclude_all == 0)
+
+```
+
+
+## A special case: removing IP duplicates
+
+Sometimes, when you're dealing with data that might be suspicious, we want to take out anyone who has duplicate IP addresses. Note that this is different from just removing duplicates (where the first instance or last instance might be kept) - in this case we want to remove both cases if a duplicate emerges.
+
+Here, we make a new variable that marks duplicate IP addresses with 'TRUE' and then a new variable based on that one that codes a 1 if the row is a duplicate and a 0 if not. You would then add this to the list of exclusion variables for your exclusion reasons tabyl and exclusions_applied dataframes.
+
+```{r eval=FALSE}
+
+ipduplicatesmarked <- data_zapped_commentsmarked %>%
+  group_by(ip_address) %>%
+  mutate(duplicate.flag = n() > 1) %>%
+  mutate(exclude_ip = case_when(duplicate.flag == "TRUE" ~ 1, TRUE ~ 0))
+
+```
+
+
+# Creating scales/indexes
+
+Often, we don't analyse individual survey items. Instead, we create scales or indexes that reflect the means across several items. Before you create a scale or index, you will need to check that the internal reliability is sufficiently high to warrant doing that. We typically use the statistic Cronbach's alpha to do this.
+
+In the code below, we will check the reliability of two separate subscales in the sample data. 
+
+`scaleStructure` ADD DESCRIPTION.
+
+##THIS IS NOT CURRENTLY WORKING!?!?! 
+##AWAITING FIX W IN UFS IF NOT FIXED USE psych::alpha
+
+```{r warning=FALSE}
+ reliability_scale1 <- scaleStructure(dat=data_exclusionsapplied, items=c('variable1', 'variable2', 'variable3'), ci=FALSE)
+
+ print(reliability_scale1)
+
+```
+
+Whoops! That can't be right! A negative alpha value is statistically impossible!
+
+This usually means you haven't reverse-scored an item that was meant to be! For instance, let's say variable_1 was "I hate ice cream." variable_2 was "I adore frozen desert treats." and variable_3 was "I love eating ice cream." We want to reverse the responses to variable_1 so that higher numbers mean more love of ice cream (not less!). There's a nice and simple trick for reversing items: take the number of response options, add 1, and then subtract the response from that value. Here we have a 7-point response scale, so we would to (7+1)-response. The code below makes a new variable *appropriately labelled!* that reverses variable 3.
+
+```{r}
+
+data_exclusionsapplied <- data_exclusionsapplied %>%
+  mutate(variable1_reversed = 8 - variable1)
+
+```
+
+Now, if we re-run the reliability on the items including the *reversed* version of variable 3, things should work out a lot better:
+
+```{r warning=false}
+
+reliability_scale1_corrected <- scaleStructure(dat=data_exclusionsapplied, items=c('variable1_reversed', 'variable2', 'variable3'), ci=FALSE)
+ 
+print(reliability_scale1_corrected)
+
+
+```
+
+
+Now that we've checked that the scale meets internal reliability standards, we can compute an index of the items by calculating the mean of the contributing items, including the *reversed* version of variable 1.
+
+We'll create a new dataframe to use going forward that has these computed variables in it.
+
+Three things: 
+1. When we compute means, we need to set the decimals via `round()`.
+2. We also need to tell R to calculate the mean, even if some of the contributing data points are missing. This is what `na.rm = TRUE` does.
+3. As noted above, `rowwise` asks R to do something for each row (which is what we want here -- to compute the mean of the contributing items for each participant). Whenever we use `rowwise` (or `group_by`), we need to `ungroup()` at the end to avoid issues down the line.
+
+
+```{r}
+
+data_scalescomputed <- data_exclusionsapplied %>%
+  rowwise() %>%
+  mutate(scale1_index = round(mean(c(variable1_reversed, variable2, variable3), na.rm = TRUE), 3)) %>%
+  ungroup()
+
+data_scalescomputed %>% 
+  write_csv(here("data", "data_scalescomputed.csv")
+
+```
+
