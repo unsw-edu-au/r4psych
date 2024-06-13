@@ -228,19 +228,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#packages-for-this-chapter" id="toc-packages-for-this-chapter" class="nav-link active" data-scroll-target="#packages-for-this-chapter"><span class="header-section-number">4</span> Packages for this chapter</a>
+  <li><a href="#packages-for-this-chapter" id="toc-packages-for-this-chapter" class="nav-link active" data-scroll-target="#packages-for-this-chapter"><span class="header-section-number">4</span> Packages for this chapter</a></li>
+  <li><a href="#how-to-read-data-into-r" id="toc-how-to-read-data-into-r" class="nav-link" data-scroll-target="#how-to-read-data-into-r"><span class="header-section-number">5</span> How to read data into R</a>
   <ul class="collapse">
-  <li><a href="#reading-in-excel-spreadsheets" id="toc-reading-in-excel-spreadsheets" class="nav-link" data-scroll-target="#reading-in-excel-spreadsheets"><span class="header-section-number">4.1</span> Reading in Excel spreadsheets</a>
-  <ul class="collapse">
-  <li><a href="#reading-in-.csv" id="toc-reading-in-.csv" class="nav-link" data-scroll-target="#reading-in-.csv"><span class="header-section-number">4.1.1</span> Reading in .csv</a></li>
+  <li><a href="#reading-in-.csv-files" id="toc-reading-in-.csv-files" class="nav-link" data-scroll-target="#reading-in-.csv-files"><span class="header-section-number">5.1</span> Reading in .csv files</a></li>
+  <li><a href="#reading-in-excel-spreadsheets" id="toc-reading-in-excel-spreadsheets" class="nav-link" data-scroll-target="#reading-in-excel-spreadsheets"><span class="header-section-number">5.2</span> Reading in Excel spreadsheets</a></li>
+  <li><a href="#reading-in-qualtrics-data" id="toc-reading-in-qualtrics-data" class="nav-link" data-scroll-target="#reading-in-qualtrics-data"><span class="header-section-number">5.3</span> Reading in Qualtrics data</a></li>
+  <li><a href="#codebooks-data-dictionaries" id="toc-codebooks-data-dictionaries" class="nav-link" data-scroll-target="#codebooks-data-dictionaries"><span class="header-section-number">5.4</span> Codebooks &amp; Data dictionaries</a></li>
   </ul></li>
-  <li><a href="#reading-in-spss" id="toc-reading-in-spss" class="nav-link" data-scroll-target="#reading-in-spss"><span class="header-section-number">4.2</span> Reading in SPSS</a></li>
-  <li><a href="#reading-in-qualtrics-data" id="toc-reading-in-qualtrics-data" class="nav-link" data-scroll-target="#reading-in-qualtrics-data"><span class="header-section-number">4.3</span> Reading in Qualtrics data</a>
-  <ul class="collapse">
-  <li><a href="#reading-in-.sav" id="toc-reading-in-.sav" class="nav-link" data-scroll-target="#reading-in-.sav"><span class="header-section-number">4.3.1</span> Reading in .sav</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link" data-scroll-target="#read-in-the-data"><span class="header-section-number">5</span> Read in the data</a></li>
   </ul>
 </nav>
     </div>
@@ -269,65 +264,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="packages-for-this-chapter" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Packages for this chapter</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(surveytoolbox) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># note surveytoolbox installs from github</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># remotes::install_github("martinctc/surveytoolbox")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>here() starts at /home/runner/work/r4psych/r4psych</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'janitor'
-
-The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># remotes::install_github("martinctc/surveytoolbox")</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(surveytoolbox)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="reading-in-excel-spreadsheets" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="reading-in-excel-spreadsheets"><span class="header-section-number">4.1</span> Reading in Excel spreadsheets</h2>
-<p>This is gobbledygook.</p>
-<section id="reading-in-.csv" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="reading-in-.csv"><span class="header-section-number">4.1.1</span> Reading in .csv</h3>
 </section>
-</section>
-<section id="reading-in-spss" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="reading-in-spss"><span class="header-section-number">4.2</span> Reading in SPSS</h2>
-</section>
-<section id="reading-in-qualtrics-data" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="reading-in-qualtrics-data"><span class="header-section-number">4.3</span> Reading in Qualtrics data</h2>
-<section id="reading-in-.sav" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="reading-in-.sav"><span class="header-section-number">4.3.1</span> Reading in .sav</h3>
-</section>
-</section>
-</section>
-<section id="read-in-the-data" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Read in the data</h1>
-<p>Remember the file setup described above? This is where that starts to be important. Remember, our working directory (i.e., where R thinks “here” is) was set via the Rproj file – so it is the “Williams Lab Core R” folder. You can check this by typing <code>getwd()</code> or <code>here()</code> in the console.</p>
-<p>For most of this core script, we’ll be using data from a file called sampledata.sav, which should be in the data subfolder from the zipped file. If not, sort that out now!</p>
-<p>A .sav file is in SPSS format. When you export from Qualtrics into .sav/SPSS format, it retains helpful information like question wording and response labels. If you export straight to .csv, you lose that info and will find yourself cross-checking back to Qualtrics. So, strong word of advice to always export to .sav.</p>
-<p>The code below uses the <code>here</code> command to direct R to the data folder <em>from the working directory</em>, and then the .sav file within it.</p>
-<p>The <code>glimpse</code> command gives a nice overview of the variables, their type, and a preview of the data.</p>
+<section id="how-to-read-data-into-r" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> How to read data into R</h1>
+<p>The code you need to read your data into R depends on the kind of data you are dealing with. Here we will demo how to .csv files, Excel spreadsheets, and then go deep on how to deal with data from Qualtrics.</p>
+<section id="reading-in-.csv-files" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="reading-in-.csv-files"><span class="header-section-number">5.1</span> Reading in .csv files</h2>
+<p>Exporting data in its simplest form (comma separated values) means that your data is readable by most software, trackable by version control systems, and lightweight.</p>
+<p>Use the following code to read in a csv file. Remember that we use the <code>here()</code> function to tell R where to find the data file, relative to the top level of the project file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"sampledata.sav"</span>)) </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"my_csv_data.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 5 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): gender
+dbl (2): age, score
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>NOTE: the message above prints in red in RStudio, but its not an error. Just a message telling you that this dataset has 5 rows and 3 columns. It also has information about the type of data that R thinks each variable is. Here R thinks the gender variable is character (strings/text) and the age and score variables are double (R speak for numeric).</p>
+</blockquote>
+</section>
+<section id="reading-in-excel-spreadsheets" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="reading-in-excel-spreadsheets"><span class="header-section-number">5.2</span> Reading in Excel spreadsheets</h2>
+<p>Sometimes your data is in .xlsx format. You can use the <code>readxl</code> package to read spreadsheets into R. You can get a sense for the first few rows of your dataframe using the <code>head()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"my_excel_data.xlsx"</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+    age gender score
+  &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;
+1    23 F         65
+2    34 F         78
+3    22 M         67
+4    19 F         44
+5    23 M         77</code></pre>
+</div>
+</div>
+</section>
+<section id="reading-in-qualtrics-data" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="reading-in-qualtrics-data"><span class="header-section-number">5.3</span> Reading in Qualtrics data</h2>
+<p>If you are collecting survey data, you are probably using Qualtrics. You can export your Qualtrics data in lots of different formats, but we advocate for exporting it as a .sav file.</p>
+<p>Yes this is typically the format used in SPSS. When you export from Qualtrics into .sav/SPSS format, it retains helpful information like question wording and response labels. If you export straight to .csv, you lose that info and will find yourself cross-checking back to Qualtrics. So, strong word of advice to always export to .sav. it is handy because it keeps extra information about your variables in a set of labels, that you can use down the track.</p>
+<p>From here, we’ll be using data from a file called sampledata.sav, which you can find in the <code>data</code> folder. We are using <code>read_sav()</code> from the <code>haven</code> package.</p>
+<p>The <code>glimpse</code> function gives a nice overview of the variables, their type, and a preview of the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"sampledata.sav"</span>)) </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 199
 Columns: 13
@@ -348,12 +349,15 @@ $ CompletionTimeseconds &lt;dbl&gt; 527, 287, 391, 377, 359, 595, 296, 466, 296,
 </div>
 <p>These variable names won’t be very nice to work with with awkward and inconsistent capitalisation. Actual Qualtrics exports are even messier!</p>
 <p>The <code>clean_names</code> function from <code>janitor</code> helps clean them up!</p>
-<p><code>data_cleanednames &lt;-</code> at the start of the line saves the change to a new dataframe. Alternately, you could write it back to the same dataframe (e.g., <code>data &lt;-</code> ), but this should be done very intentionally as it makes it harder to backtrack to the source of an error. The general rule is to create a new dataframe each time you implement a big change on the data.</p>
+<p>Here we take our data dataframe, and pipe %&gt;% it into <code>clean_names</code>, and then assign (&lt;-) to a new object called data_cleanednames</p>
+<p>Alternately, you could write it back to the same dataframe (e.g., data &lt;- ), but this should be done very intentionally as when you overwrite dataframes, it can be difficult to debug your code when you get errors.</p>
+<p>The general rule is to create a new dataframe each time you implement a big change on the data.</p>
 <p>The <code>glimpse</code> command here shows you that you effectively cleaned the variable names!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="ot">&lt;-</span> <span class="fu">clean_names</span>(data)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 199
 Columns: 13
@@ -375,9 +379,13 @@ $ completion_timeseconds &lt;dbl&gt; 527, 287, 391, 377, 359, 595, 296, 466, 296
 <p>A few things about working with files in SPSS format (.sav) before we continue. The reason why we bother with this is that the SPSS format maximises the information in the file. Unlike exporting to .csv or another spreadsheet format, .sav retains information about question wording (saved as a variable label) and response labelling (saved as a value label).</p>
 <p>If you look at the variable types at the right of the <code>glimpse</code> output, you’ll see the some of the variables are dbl (numeric) while some are dbl+lbl (numeric with labelled values). If you view the <code>data</code> object (by clicking on it in the Environment or using <code>view(data)</code>) you will see that some of the variables have the question wording below the variable name.</p>
 <p>Having this information on hand is really helpful when working with your data!</p>
+</section>
+<section id="codebooks-data-dictionaries" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="codebooks-data-dictionaries"><span class="header-section-number">5.4</span> Codebooks &amp; Data dictionaries</h2>
+<p>When you have a really large survey dataset, information about what each variable refers to is essential to a reproducable analysis. Often it is helpful to create a codebook or data dictionary that you can share alongside the datafile, that helps the user understand what the numbers in the file refer to and where they came time.</p>
 <p>The <code>view_df</code> function from the <code>sjPlot</code> package creates a really nicely formatted html file that includes variable names, question wording, response options, and response labelling. This code saves the html file to the <code>output_files</code> folder using the <code>here</code> package (which starts where your Rproj file is). This html file is nice as a reference for your own use or to share with a supervisor or collaborator!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Data frame: data_cleanednames</caption>
@@ -501,7 +509,7 @@ condition 4</td>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames, <span class="at">file=</span><span class="fu">here</span>(<span class="st">"output_files"</span>,<span class="st">"spsstest_codebook.html"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">view_df</span>(data_cleanednames, <span class="at">file=</span><span class="fu">here</span>(<span class="st">"output_files"</span>,<span class="st">"spsstest_codebook.html"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Data frame: data_cleanednames</caption>
@@ -628,13 +636,14 @@ condition 4</td>
 </div>
 <p>The <code>data_dict</code> function from <code>surveytoolbox</code> makes a dataframe with all the variable and response labels - similar to the html created above, but this can be called upon later in R as it’s now part of the environment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>datadictionary <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>datadictionary <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s say you just want to know the question wording or response labels for a particular variable, you can do this via code rather than checking the whole dataset. The <code>extract_vallab</code> command from <code>surveytoolbox</code> returns the value labels for a given variable.</p>
+<p>Let’s say you just want to know the question wording or response labels for a particular variable, you can do this with code rather than checking the whole dataset. The <code>extract_vallab</code> command from <code>surveytoolbox</code> returns the value labels for a given variable.</p>
+<p>Here we are interested in what the values in the demographicscateg variable refer to.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_vallab</span>(<span class="st">"demographicscateg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_cleanednames <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_vallab</span>(<span class="st">"demographicscateg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
      id demographicscateg
@@ -643,16 +652,18 @@ condition 4</td>
 2     2 category 2       </code></pre>
 </div>
 </div>
-<p>There are (evidently) times when packages <em>do not like</em> labelled data. So, here are a few tools for removing labels from the <code>haven</code> package. Keep these up your sleeve for problem solving later! <code>zap_labels</code> and <code>zap_label</code> not surprisingly removes the labels - the first removes the value labels and the second removes the variable labels! The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.</p>
+<p>There are (evidently) times when packages <em>do not like</em> labelled data. So, here are a few tools for removing labels from the <code>haven</code> package. Keep these up your sleeve for problem solving later!</p>
+<p><code>zap_labels</code> and <code>zap_label</code> each remove labels. Yes it would be nice if those functions were easier to distinguish! The first zaps variable labels, and the second zaps value labels.</p>
+<p>The code below makes a new data dictionary of the zapped dataframe and glimpses the new dataframe to confirm the labels are gone.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data_zapped <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_labels</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_label</span>()</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>datadictionary_zapped <span class="ot">&lt;-</span> data_zapped <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_zapped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data_zapped <span class="ot">&lt;-</span> data_cleanednames <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_labels</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">zap_label</span>()</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>datadictionary_zapped <span class="ot">&lt;-</span> data_zapped <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_dict</span>()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_zapped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 199
 Columns: 13
@@ -674,6 +685,7 @@ $ completion_timeseconds &lt;dbl&gt; 527, 287, 391, 377, 359, 595, 296, 466, 296
 <p>For the rest of this script, we will work with the <em>zapped</em> dataframe. This is the recommended approach to save headaches with errors down the line.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
