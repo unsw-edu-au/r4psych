@@ -1,11 +1,20 @@
+---
+execute:
+  echo: false
+  eval: false
+  warning: false
+  message: false
+toc: TRUE
+toc-depth: 4
+---
+
+
 # Wrangle
 
 # Packages for this chapter
 
 
 ```{r}
-#| warning: false
-#| message: false
 library(tidyverse)
 library(here)
 library(janitor)
@@ -275,7 +284,7 @@ data_exclusionsapplied <- data_exclusionsapplied %>%
 
 Now, if we re-run the reliability on the items including the *reversed* version of variable 3, things should work out a lot better:
 
-```{r warning=false}
+```{r}
 
 reliability_scale1_corrected <- scaleStructure(dat=data_exclusionsapplied, items=c('variable1_reversed', 'variable2', 'variable3'), ci=FALSE)
  
