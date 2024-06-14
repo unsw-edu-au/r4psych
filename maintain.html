@@ -447,27 +447,11 @@ Note
 <section id="when-you-open-up-the-project" class="level5" data-number="8.0.8.1.1">
 <h5 data-number="8.0.8.1.1" class="anchored" data-anchor-id="when-you-open-up-the-project"><span class="header-section-number">8.0.8.1.1</span> When you open up the project</h5>
 <p>Each time you open this book project up run:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>- The library is already synchronized with the lockfile.</code></pre>
-</div>
-</div>
 <p>This will prompt <code>renv</code> to check and install any R packages that you may not have locally. If you have all the packages installed already, <code>renv</code> will tell you you’re synchronised.</p>
 </section>
 <section id="when-you-want-to-add-r-packages" class="level5" data-number="8.0.8.1.2">
 <h5 data-number="8.0.8.1.2" class="anchored" data-anchor-id="when-you-want-to-add-r-packages"><span class="header-section-number">8.0.8.1.2</span> When you want to add R packages</h5>
 <p>Over time, our book will need more packages. You can continue to use familiar tools like <code>install.packages()</code>. You can also use <code>renv::install()</code> it’s a little less typing and can install packages from GitHub, Bioconductor, and more, not just CRAN. Ta-da!</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>The following package(s) will be installed:
-- janitor [2.2.0]
-These packages will be installed into "~/work/r4psych/r4psych/renv/library/R-4.4/x86_64-pc-linux-gnu".
-
-# Installing packages --------------------------------------------------------
-- Installing janitor ...                        OK [linked from cache]
-Successfully installed 1 package in 5.5 milliseconds.</code></pre>
-</div>
-</div>
 <p>After installing the package and checking that your code works, you should call <code>renv::snapshot()</code> to record the latest package versions in your lockfile. You’ll need to <a href="sec-maintain-commit">commit those changes to git</a> and let your collaborators know that you’ve updated the lockfile and they should call <code>renv::restore()</code> when they’re next working on a project.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

@@ -194,13 +194,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#clean-names" id="toc-clean-names" class="nav-link active" data-scroll-target="#clean-names"><span class="header-section-number">4.1</span> Clean names</a></li>
-  <li><a href="#dealing-with-labels" id="toc-dealing-with-labels" class="nav-link" data-scroll-target="#dealing-with-labels"><span class="header-section-number">4.2</span> Dealing with labels</a></li>
-  <li><a href="#exclusions" id="toc-exclusions" class="nav-link" data-scroll-target="#exclusions"><span class="header-section-number">4.3</span> Exclusions</a></li>
-  <li><a href="#creating-scales-and-indexes" id="toc-creating-scales-and-indexes" class="nav-link" data-scroll-target="#creating-scales-and-indexes"><span class="header-section-number">4.4</span> Creating scales and indexes</a>
-  <ul class="collapse">
-  <li><a href="#checking-reliabilty" id="toc-checking-reliabilty" class="nav-link" data-scroll-target="#checking-reliabilty"><span class="header-section-number">4.4.1</span> Checking reliabilty</a></li>
+  <li><a href="#packages-for-this-chapter" id="toc-packages-for-this-chapter" class="nav-link active" data-scroll-target="#packages-for-this-chapter"><span class="header-section-number">5</span> Packages for this chapter</a>
+  <ul>
+  <li><a href="#renaming-variables" id="toc-renaming-variables" class="nav-link" data-scroll-target="#renaming-variables"><span class="header-section-number">5.1</span> Renaming variables</a></li>
+  <li><a href="#select-columns" id="toc-select-columns" class="nav-link" data-scroll-target="#select-columns"><span class="header-section-number">5.2</span> Select columns</a></li>
+  <li><a href="#filter-rows" id="toc-filter-rows" class="nav-link" data-scroll-target="#filter-rows"><span class="header-section-number">5.3</span> Filter rows</a></li>
   </ul></li>
+  <li><a href="#compute-variables" id="toc-compute-variables" class="nav-link" data-scroll-target="#compute-variables"><span class="header-section-number">6</span> Compute variables</a>
+  <ul>
+  <li><a href="#exclusions" id="toc-exclusions" class="nav-link" data-scroll-target="#exclusions"><span class="header-section-number">6.1</span> Exclusions</a></li>
+  <li><a href="#group_by-and-summarise" id="toc-group_by-and-summarise" class="nav-link" data-scroll-target="#group_by-and-summarise"><span class="header-section-number">6.2</span> group_by and summarise</a></li>
+  <li><a href="#rowwise-and-mutate" id="toc-rowwise-and-mutate" class="nav-link" data-scroll-target="#rowwise-and-mutate"><span class="header-section-number">6.3</span> rowwise and mutate</a></li>
+  </ul></li>
+  <li><a href="#wrangling-data" id="toc-wrangling-data" class="nav-link" data-scroll-target="#wrangling-data"><span class="header-section-number">7</span> Wrangling data</a>
+  <ul>
+  <li><a href="#exclusions-1" id="toc-exclusions-1" class="nav-link" data-scroll-target="#exclusions-1"><span class="header-section-number">7.1</span> Exclusions</a></li>
+  <li><a href="#completion" id="toc-completion" class="nav-link" data-scroll-target="#completion"><span class="header-section-number">7.2</span> Completion</a></li>
+  <li><a href="#completion-time" id="toc-completion-time" class="nav-link" data-scroll-target="#completion-time"><span class="header-section-number">7.3</span> Completion Time</a></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">7.4</span> Variance</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">7.5</span> Comments</a></li>
+  <li><a href="#apply-the-exclusions" id="toc-apply-the-exclusions" class="nav-link" data-scroll-target="#apply-the-exclusions"><span class="header-section-number">7.6</span> Apply the exclusions</a></li>
+  <li><a href="#a-special-case-removing-ip-duplicates" id="toc-a-special-case-removing-ip-duplicates" class="nav-link" data-scroll-target="#a-special-case-removing-ip-duplicates"><span class="header-section-number">7.7</span> A special case: removing IP duplicates</a></li>
+  </ul></li>
+  <li><a href="#creating-scalesindexes" id="toc-creating-scalesindexes" class="nav-link" data-scroll-target="#creating-scalesindexes"><span class="header-section-number">8</span> Creating scales/indexes</a></li>
   </ul>
 </nav>
     </div>
@@ -226,26 +242,101 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="clean-names" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="clean-names"><span class="header-section-number">4.1</span> Clean names</h2>
+<section id="packages-for-this-chapter" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Packages for this chapter</h1>
+<p>Someone said that 90% of the work in data analysis is getting your data from its raw state to its analysable state. Working in R makes this process quick and reproducible. First, a quick overview of some useful wrangling functions from <code>janitor</code> and dplyr`.</p>
+<section id="renaming-variables" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="renaming-variables"><span class="header-section-number">5.1</span> Renaming variables</h2>
 </section>
-<section id="dealing-with-labels" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="dealing-with-labels"><span class="header-section-number">4.2</span> Dealing with labels</h2>
+<section id="select-columns" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="select-columns"><span class="header-section-number">5.2</span> Select columns</h2>
 </section>
-<section id="exclusions" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="exclusions"><span class="header-section-number">4.3</span> Exclusions</h2>
+<section id="filter-rows" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="filter-rows"><span class="header-section-number">5.3</span> Filter rows</h2>
+</section>
+</section>
+<section id="compute-variables" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Compute variables</h1>
+<section id="exclusions" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="exclusions"><span class="header-section-number">6.1</span> Exclusions</h2>
 <p><code>mutate</code> <code>case_when</code></p>
 <p><code>filter</code></p>
 </section>
-<section id="creating-scales-and-indexes" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="creating-scales-and-indexes"><span class="header-section-number">4.4</span> Creating scales and indexes</h2>
-<p><code>group_by</code> <code>summarise</code></p>
-<p><code>row_wise</code> <code>mutate</code></p>
-<section id="checking-reliabilty" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="checking-reliabilty"><span class="header-section-number">4.4.1</span> Checking reliabilty</h3>
-
-
+<section id="group_by-and-summarise" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="group_by-and-summarise"><span class="header-section-number">6.2</span> group_by and summarise</h2>
 </section>
+<section id="rowwise-and-mutate" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="rowwise-and-mutate"><span class="header-section-number">6.3</span> rowwise and mutate</h2>
+</section>
+</section>
+<section id="wrangling-data" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Wrangling data</h1>
+<section id="exclusions-1" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="exclusions-1"><span class="header-section-number">7.1</span> Exclusions</h2>
+<p>Often, we need to screen our data for potential exclusions. Below, we’ll apply exclusions based on: - Didn’t complete the survey - Very short completion time - No variance across sets of items - Bad/bot written responses</p>
+<p>Note, exclusions are usually defined in an analysis plan or preregistration and should always be checked with Lisa.</p>
+<p>Overall, we will create new variables for each exclusion in which a participant should be excluded if they have a value of 1.</p>
+<p>Then, we will apply a code that takes those folks out in a new dataframe to be carried forward into analyses.</p>
+<p>As you calculate each exclusion, it’s important to check that the code is doing what you intend it to do. You can do this by viewing the dataframe (clicking on it in the Environment or typing <code>view(dataframename)</code> in the console).</p>
+</section>
+<section id="completion" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="completion"><span class="header-section-number">7.2</span> Completion</h2>
+<p>Note that using the Progress variable from Qualtrics is tricky, as some people do the entire survey but don’t click the final arrow, so don’t show up as 100% complete. We typically use a definition of complete whereby participants who didn’t complete the final demographics item are excluded.</p>
+<p>Here, we’ll use the demographics_categ variable. A visual check of your data should reveal what the best approach is with your data. If in doubt, ask Lisa.</p>
+<p>This code takes the data_cleanednames dataframe and pipes it into a <code>mutate</code> command to make a new variable (called exclude_completion) that codes according to the following logic: if demographicscateg is missing (is.na), then code as 1, otherwise (TRUE) code as 0. It performs this command and then saves it back over the same dataframe (because we asked R to do this via <code>data_cleanednames &lt;-</code>).</p>
+<p>Remember, to check that this code is doing what you expect!</p>
+</section>
+<section id="completion-time" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="completion-time"><span class="header-section-number">7.3</span> Completion Time</h2>
+<p>Next up, short completion time. This usually defined based on pre-testing or a prior study. In the sample data, we will apply an exclusion if participants completed the study in less than 90 seconds.</p>
+<p>This code follows a similar format as for completion: if completion time (completion_timeseconds) is less than 90 seconds, code the new variable (exclude_time) as 1. Otherwise, 0.</p>
+<p>Again, check this is working!</p>
+</section>
+<section id="variance" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="variance"><span class="header-section-number">7.4</span> Variance</h2>
+<p>Next, variance. This is to capture folks who are just responding down the rows of variables (presumably without reading them) or a ‘bot’.</p>
+<p><code>rowwise</code> tells R to do the following command by row, then creates a new variable via <code>mutate</code> called variance made up of the variance of the variables listed in the <code>c()</code> list. Then, the code computes another new variable that codes whether that variance value is 0 (if so mark as 1 for exclusion), otherwise 0.</p>
+<p><em>IMPORTANT NOTE</em>: Every time you use <code>rowwise()</code> or <code>group_by()</code>, you need to add an ungroup() to the end. Trust me, this habit will save you a lot of headache down the line!</p>
+<p>Once again, check!</p>
+</section>
+<section id="comments" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="comments"><span class="header-section-number">7.5</span> Comments</h2>
+<p>Now for comments screening. For ease, we will do this in Excel (or similar spreadsheet software).</p>
+<p>First, we need to write the current dataframe to a csv.</p>
+<p>Manually create new variables (columns) in Excel corresponding to the exclusion to be applied. Here it is one variable named <code>exclude_comments</code>. You may wish to make additional, clearly labelled columns with notes about why you made particular exclude decisions. Again, run by your exclusion coding plan with Lisa before beginning.</p>
+<p>Save the file <em>with a new name</em> (e.g., adding “marked” to the end).</p>
+<p>The code below reads that new datafile in, now with the new comments exclusion variable.</p>
+</section>
+<section id="apply-the-exclusions" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="apply-the-exclusions"><span class="header-section-number">7.6</span> Apply the exclusions</h2>
+<p>Now, we will apply all the exclusions. The aim is to only keep folks who <em>don’t</em> have 1s on any of the exclude variables.</p>
+<p>First, let’s get a sense of how many people we’re excluding. We could do this one by one for each exclusion using the <code>tabyl</code> commend, like this:</p>
+<p>But that won’t get us a sense of whether folks have been marked for more than one exclusion. So let’s make a new variable that codes this info: exclude_coded. To do that, we first make a variable that collapses together all the 0s and 1s from the individual exclusion variables. Then, we recode that collapsed variable to have the correct corresponding labels. Note that order here is really important, so if you change this up for your own purposes, ensure that you keep the variable ordering and recode naming in the right order.</p>
+<p>Once we have the exclusion_coded variable, we can make a table (via <code>tabyl</code>) of the reasons variable, we get a nice summary of how many people we excluded, and why! Note that the Total should correspond to the number of observations in your data, and there should be no <na> values.</na></p>
+<p>Note - it’s highly recommended to consider completion as a different type of exclusion - especially for reporting. Usually in a thesis or manuscript, you report the number of <em>completers</em> and then exclusion counts from there. If you include completion it makes it seem like the substantive ‘exclusion rate’ is much higher than it really is.</p>
+<p>The following code creates a coded exclusion variable, creates a table of the counts of those coded exclusions (and adds a total row via <code>adorn_totals</code>), and then prints it for viewing.</p>
+<p>Now we’ll create a new dataframe by piping the existing dataframe into a <code>mutate</code> command that creates a new exclude_all variable that codes a 1 if (<code>case_when</code>) any of the individual exclude variables have a value of 1, otherwise 0. Then, the code applies a filter to keep only rows where exclude_all is 0. The number of observations in the ‘exclusions applied’ dataframe should correspond to the number of ‘kept’ in the tabyl above!</p>
+</section>
+<section id="a-special-case-removing-ip-duplicates" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="a-special-case-removing-ip-duplicates"><span class="header-section-number">7.7</span> A special case: removing IP duplicates</h2>
+<p>Sometimes, when you’re dealing with data that might be suspicious, we want to take out anyone who has duplicate IP addresses. Note that this is different from just removing duplicates (where the first instance or last instance might be kept) - in this case we want to remove both cases if a duplicate emerges.</p>
+<p>Here, we make a new variable that marks duplicate IP addresses with ‘TRUE’ and then a new variable based on that one that codes a 1 if the row is a duplicate and a 0 if not. You would then add this to the list of exclusion variables for your exclusion reasons tabyl and exclusions_applied dataframes.</p>
+</section>
+</section>
+<section id="creating-scalesindexes" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Creating scales/indexes</h1>
+<p>Often, we don’t analyse individual survey items. Instead, we create scales or indexes that reflect the means across several items. Before you create a scale or index, you will need to check that the internal reliability is sufficiently high to warrant doing that. We typically use the statistic Cronbach’s alpha to do this.</p>
+<p>In the code below, we will check the reliability of two separate subscales in the sample data.</p>
+<p><code>scaleStructure</code> ADD DESCRIPTION.</p>
+<p>##THIS IS NOT CURRENTLY WORKING!?!?! ##AWAITING FIX W IN UFS IF NOT FIXED USE psych::alpha</p>
+<p>Whoops! That can’t be right! A negative alpha value is statistically impossible!</p>
+<p>This usually means you haven’t reverse-scored an item that was meant to be! For instance, let’s say variable_1 was “I hate ice cream.” variable_2 was “I adore frozen desert treats.” and variable_3 was “I love eating ice cream.” We want to reverse the responses to variable_1 so that higher numbers mean more love of ice cream (not less!). There’s a nice and simple trick for reversing items: take the number of response options, add 1, and then subtract the response from that value. Here we have a 7-point response scale, so we would to (7+1)-response. The code below makes a new variable <em>appropriately labelled!</em> that reverses variable 3.</p>
+<p>Now, if we re-run the reliability on the items including the <em>reversed</em> version of variable 3, things should work out a lot better:</p>
+<p>Now that we’ve checked that the scale meets internal reliability standards, we can compute an index of the items by calculating the mean of the contributing items, including the <em>reversed</em> version of variable 1.</p>
+<p>We’ll create a new dataframe to use going forward that has these computed variables in it.</p>
+<p>Three things: 1. When we compute means, we need to set the decimals via <code>round()</code>. 2. We also need to tell R to calculate the mean, even if some of the contributing data points are missing. This is what <code>na.rm = TRUE</code> does. 3. As noted above, <code>rowwise</code> asks R to do something for each row (which is what we want here – to compute the mean of the contributing items for each participant). Whenever we use <code>rowwise</code> (or <code>group_by</code>), we need to <code>ungroup()</code> at the end to avoid issues down the line.</p>
+
+
 </section>
 
 </main> <!-- /main -->
