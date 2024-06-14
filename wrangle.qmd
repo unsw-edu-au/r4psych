@@ -303,7 +303,7 @@ data_scalescomputed <- data_exclusionsapplied %>%
   ungroup()
 
 data_scalescomputed %>% 
-  write_csv(here("data", "data_scalescomputed.csv")
+  write_csv(here("data", "data_scalescomputed.csv"))
 
 ```
 
